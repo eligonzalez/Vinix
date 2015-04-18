@@ -4,7 +4,7 @@
     {% if products %}
         {% for p in products %}
             <ul>
-            <li>{{p}}</li>
+            <li>{{p}}</li> <a href="{% url 'wine_view' p.id %}">Vamos para alla brother</a>
             </ul>
         {% endfor %}
     {% endif %}
