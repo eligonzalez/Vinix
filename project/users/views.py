@@ -12,8 +12,7 @@ from .models import BasicUser
 
 def login_view(request):
     if request.user.is_authenticated():
-        pass
-        #return redirect('login')
+        return redirect('my_account')
     form = BasicUserLoginForm()
     form_reg = BasicUserRegisterForm()
     errors = []
@@ -34,14 +33,14 @@ def login_view(request):
 
 def login_check(request):
     if request.user.is_authenticated():
-        pass
-        #return redirect('login')
+        return redirect('my_account')
     errors = []
     form_reg = BasicUserRegisterForm()
     form = BasicUserLoginForm(request.POST or None)
     if request.method == "POST":
         if form.is_valid():
             #form login
+            print(form.cleaned_data['username'])
             user = authenticate(
                 username=form.cleaned_data['username'],
                 password=form.cleaned_data['password']
@@ -49,9 +48,9 @@ def login_check(request):
             if user is not None:
                 # the password verified for the user
                 if user.is_active:
+
                     login(request, user)
-                    pass
-                    #return redirect('home')
+                    return redirect('home')
                 else:
                     errors.append("Account has been disabled!")
             else:
@@ -79,7 +78,7 @@ def login_check(request):
 def register_check(request):
     if request.user.is_authenticated():
         pass
-        #return redirect('login')
+        return redirect('home')
 
     errors = []
     form_reg = BasicUserRegisterForm(request.POST or None)
@@ -95,14 +94,15 @@ def register_check(request):
             client.first_name = cd["first_name"]
             client.last_name = cd["last_name"]
             client.email = cd["email"]
-            client.password = cd["password"]
+            client.set_password(cd["password"])
             client.save()
 
-            return render(
-                request,
-                'hola.html',
-                {}
+            user = authenticate(
+                username=client.username,
+                password=client.password,
             )
+            #login(request, user)
+            return redirect('home')
 
     return render(
         request,
@@ -116,3 +116,15 @@ def register_check(request):
 
             'errors': errors,
         })
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
+
+
+
+def my_account(request):
+    if not request.user.is_authenticated():
+        return redirect('login')
+    return render(request, "hola.html", {})
