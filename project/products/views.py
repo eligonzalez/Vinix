@@ -11,7 +11,7 @@ def home_view(request):
     prodZone = Zone.objects.all()
     prodStyle = Style.objects.all()
     prodVarietal = Varietal.objects.all()
-    destYLicor = SubTipeSpirit.objects.all()
+    destYLicor = SubTypeSpirit.objects.all()
 
     wines = Wine.objects.all().order_by('?')[:12]
     paginator = Paginator(wines, 12)

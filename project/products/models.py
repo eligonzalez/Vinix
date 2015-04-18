@@ -21,7 +21,7 @@ class Varietal(models.Model):
     def __str__(self):
         return self.name
 
-class SubTipeSpirit(models.Model):
+class SubTypeSpirit(models.Model):
     name = models.CharField(max_length=50)
     def __str__(self):
         return self.name
@@ -58,9 +58,9 @@ class Wine(Product):
     type = models.CharField(max_length=1, choices=TYPE, default=False, blank=True)
 
 class Spirit(Product):
-    TIPE = (
+    TYPE = (
         ('D', 'Destilado'),
         ('L', 'Licor'),
     )
-    tipe = models.CharField(max_length=1, choices=TIPE, default='D',blank=True)
-    subTipe = models.ForeignKey(SubTipeSpirit,blank=True)
+    type = models.CharField(max_length=1, choices=TYPE, default='D',blank=True)
+    subType = models.ForeignKey(SubTypeSpirit,blank=True)
