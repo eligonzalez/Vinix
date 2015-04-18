@@ -1,36 +1,43 @@
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="es">
    <head>
+        {% load staticfiles %}
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="Elisabet Gonzalez">
         <!--<link rel="icon" href="../favicon.ico"> -->
-
         <!-- Bootstrap core CSS -->
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
-
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+       <link rel="stylesheet" type="text/css" href="{% static 'project/style/footer.css' %}" />
 
         <title> Vinix </title>
     </head>
 
     <body>
-       {% include "navbar_tienda.html" %}
+        <div class="container">
+            <div class="row">
+                <div class="span9">
+                   {% include "navbar_tienda.html" %}
 
-       {% block body %}
-       {% endblock body %}
-
-        <footer>
-           toda la mierda del about us etc....
+                   {% block body %}
+                   {% endblock body %}
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+              <div class="container">
+                <p class="text-muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
+              </div>
         </footer>
     </body>
 </html>

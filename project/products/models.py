@@ -51,8 +51,8 @@ class Wine(Product):
     varietal = models.ForeignKey('Varietal', blank=True)
     style = models.CharField(max_length=40, blank=True)
     TYPE = (
-        ('B', 'Blanco'),
-        ('T', 'Tinto'),
+        ('B', 'blanco'),
+        ('T', 'tinto'),
         ('R', 'rosado'),
         ('E', 'espumoso'),
     )

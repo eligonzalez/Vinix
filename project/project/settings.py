@@ -25,6 +25,8 @@ SECRET_KEY = 'y(cymjd=3w&66+6fcf=k-(bc%6ekf_au_23(k!311#_d=hvcf*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+TIME_ZONE = 'Europe/Madrid'
+
 ALLOWED_HOSTS = []
 
 
@@ -37,9 +39,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'bootstrapform',
-
     'users',
     'products',
 )
@@ -105,5 +104,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-
 

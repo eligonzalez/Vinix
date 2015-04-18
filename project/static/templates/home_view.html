@@ -1,12 +1,48 @@
 {% extends "base.html" %}
-
+{% load staticfiles %}
 {% block body %}
-    {% if products %}
-        {% for p in products %}
-            <ul>
-            <li>{{p}}</li> <a href="{% url 'wine_view' p.id %}">Vamos para alla brother</a>
-            </ul>
+    <h4> Novedades </h4></br></br>
+    <div class="row">
+        {% if products %}
+            {% for p in products %}
+                <div class="col-sm-4 col-md-3">
+                    <div class="thumbnail">
+                        <a href="{% url 'wine_view' p.id %}"> <img  src="{% static "project/images/shop/products/1069255_10201071136914255_126710902_n.jpg" %}"> </a>
+                        <div class="caption" align="center">
+                            <h5>{{ p.name}}</h5>
+                            <p><b>{{ p.price}}€</b></p>
+                            <a href="{% url 'wine_view' p.id %}" id="btn"></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No existen novedades</p>
+        {% endif %}
+    </div></br></br>
+
+    <div align="center">
+        {% if list_prod.has_previous %}
+            <a href="?page={{ list_prod.previous_page_number }}" > <span > ←ANT </span></a>
+        {% endif %}
+        {% if not list_prod.has_previous %}
+            <a href="#" aria-label="Previous"> <span aria-hidden="true"> ←ANT </span> </a>
+        {% endif %}
+
+        {% for i in list_prod.paginator.page_range  %}
+            {% if list_prod.number == i %}
+                <a href="?page={{i}}">  <span class="badge1" class="sr-only">{{i}}</span></a>
+            {% else %}
+               <a href="?page={{i}}"> {{i}} <span class="sr-only">(current)</span></a>
+            {% endif %}
         {% endfor %}
-    {% endif %}
+
+        {% if list_prod.has_next %}
+            <a href="?page={{ lista_prod.next_page_number }}" aria-label="Next"> <span aria-hidden="true"> POST→ </span></a>
+        {% endif %}
+        {% if not list_prod.has_next %}
+            <a href="#" aria-label="Next"> <span aria-hidden="true"> POST→</span></a>
+        {% endif %}
+    </div>
 
 {% endblock body %}
