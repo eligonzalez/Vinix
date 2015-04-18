@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body %}
+    {% if products %}
+        {% for p in products %}
+            <ul>
+            <li>{{p}}</li>
+            </ul>
+        {% endfor %}
+    {% endif %}
+
+{% endblock body %}
