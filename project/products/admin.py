@@ -9,13 +9,13 @@ class ShowWine(admin.ModelAdmin):
 	list_display = ['name', 'price', 'image', 'zone', 'country', 'elaboration', 'alcohol', 'size', 'temperature', 'cellar', 'varietal', 'style', 'marriage', 'type']
 
 class ShowSpirit(admin.ModelAdmin):
-	list_display = ['tipe', 'subTipe']
+	list_display = ['type', 'subType']
 
 admin.site.register(Cellar)
 admin.site.register(Country)
 admin.site.register(Zone)
 admin.site.register(Varietal)
-admin.site.register(SubTipeSpirit)
+admin.site.register(SubTypeSpirit)
 admin.site.register(Style)
 admin.site.register(Product, ShowProduct)
 admin.site.register(Wine, ShowWine)
