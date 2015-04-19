@@ -1,10 +1,6 @@
 from django.db import models
-
 from users.models import BasicUser
 from products.models import Product
-
-# Create your models here.
-
 
 class Shopping_Cart(models.Model):
     user = models.ForeignKey(BasicUser)

@@ -14,7 +14,7 @@ def shopping_cart(request):
     for item in sc:
         print(item)
 
-    return render(request, "home_view.html",
+    return render(request, "shopping_cart.html",
             {
                 'shopping_cart': sc,
             })
