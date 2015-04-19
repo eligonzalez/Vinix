@@ -9,6 +9,8 @@ def shopping_cart(request):
         return redirect('login')
 
     sc = Shopping_Cart.get_products(user=request.user)
+    ammount = Shopping_Cart.get_ammount(user=request.user)
+    print(ammount)
     print(request.user)
     print(sc)
     for item in sc:
