@@ -127,4 +127,4 @@ def logout_view(request):
 def my_account(request):
     if not request.user.is_authenticated():
         return redirect('login')
-    return render(request, "hola.html", {})
+    return render(request, "my_account.html", {})

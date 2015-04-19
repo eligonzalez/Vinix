@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block body %}
+     <ol class="breadcrumb">
+         <li><a href="{% url 'home' %}"><small>Inicio</small></a></li>
+         <li><small>Mi cuenta</small></li>
+     </ol>
+
+    <div class="row">
+
+        <div class="col-sm-4 col-md-4">
+            <h4>Detalles de la cuenta</h4></br></br>
+            <p><b> {{user.first_name}} {{user.last_name}}</b> </p>
+
+            <!-- If tiene_direccion_usuario -->
+                <p> Calle Antonio Machado 22, 4º 1ª </p>
+                <p> Barcelona, España </p>
+                <p> 08042 </p>
+                <p> 676052568 </p>
+            <!-- endif  -->
+        </div>
+        <div class="col-sm-8 col-md-8">
+            <h4>Pedidos</h4></br></br>
+            <!-- If tiene_compras_usuario -->
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th> Número pedido </th>
+                            <th> Fecha </th>
+                            <th> Dirección </th>
+                            <th> Total </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- for compra in compras  -->
+                            <tr>
+                                <td> #340</td>
+                                <td> 20/10/2014</td>
+                                <td> Calle Antonio Machado 22</td>
+                                <td> 34,95 €</td>
+                            </tr>
+                        <!--  endfor  -->
+                    </tbody>
+                </table>
+            <!--  else  -->
+                <p>Todavía no se ha realizado ninguna compra.</p>
+            <!--  endif  -->
+        </div>
+    </div>
+{% endblock body %}
