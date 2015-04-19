@@ -1,7 +1,8 @@
 from django.contrib import admin
-from users.models import BasicUser
+from users.models import *
 
-# Register your models here.
+class ShowUser(admin.ModelAdmin):
+	list_display = ['first_name', 'last_name', 'username', 'email', 'password', 'is_active', 'last_login']
 
-admin.site.register(BasicUser)
+admin.site.register(BasicUser, ShowUser)
 
