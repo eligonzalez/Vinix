@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Elisabet Gonzalez">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'project/style/footer.css' %}" />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="span9"></br></br>
+                    <h1 align="left">Vila Viniteca</h1> </br></br></br>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div>
+                                <h5>Información personal</h5></br>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        <img src="{% static "project/images/icon/iconoPersona.jpg" %}" class="iconoPersona">
+                                        <p> <b>eli.gonzalez05@gmail.com</b></br>
+                                            No Elisabet?
+                                            <a class="more"> Logéate </a>
+                                        </p></br></br>
+                                    </div>
+                                    <div align="right">
+                                        <div class="col-sm-6 col-md-6">
+                                            <a class="more">Editar información</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        <h5>Dirección de envío</h5>
+                                    </div>
+                                    <div align="right">
+                                        <div class="col-sm-6 col-md-6">
+                                            <a class="more">Editar dirección</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <div class="row" >
+                                            <div class="col-md-3">
+                                                <p> Nombre </p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <p class="color"> Elisabet </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-heading">
+                                        <div class="row" >
+                                            <div class="col-md-3">
+                                                <p> Apellidos </p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <p class="color">  Gonzalez </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-heading">
+                                        <div class="row" >
+                                            <div class="col-md-3">
+                                                <p> Dirección </p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <p class="color"> Calle Antonio Machado 22, 4º 1ª</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-heading">
+                                        <div class="row" >
+                                            <div class="col-md-3">
+                                                <p> Código postal </p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <p class="color"> 08042 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-heading">
+                                        <div class="row" >
+                                            <div class="col-md-3">
+                                                <p> Ciudad </p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <p class="color"> Barcelona </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-heading">
+                                        <div class="row" >
+                                            <div class="col-md-3">
+                                                <p> País </p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <p class="color"> España </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-heading">
+                                        <div class="row" >
+                                            <div class="col-md-3">
+                                                <p> Teléfono </p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <p class="color"> 676052568 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-1 col-md-1"> </div>
+                        <div class="col-sm-5 col-md-5">
+                            <h5>Resumen del pedido</h5></br>
+                            <!-- if productos en la compra aun no finalizada -->
+                                <div class="panel panel-default">
+                                    <!-- for prod in productos -->
+                                        <div class="panel-heading">
+                                            <div class="row" >
+                                                <div class="col-md-3">
+                                                    <img src="http://placehold.it/75x75" class="bordeImagen" class="img-responsive" />
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <p> </br>{{prod.nombre}} </p>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <p> </br>{{prod.precio}}€</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <!-- endfor -->
+                                </div>
+                            <!-- endif -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row" >
+                                        <div class="col-md-10">
+                                            <p class="color">Subtotal</p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p>58,95€</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-heading">
+                                    <div class="row" >
+                                        <div class="col-md-10">
+                                            <p class="color">Gastos de envío</p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p> 3,00€ </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-heading">
+                                    <div class="row" >
+                                        <div class="col-md-9">
+                                            <p class="total">Total</p>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p class="colorPrecioTotal"> 61,85€</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> </br></br>
+                            <form class="form-horizontal" action="" method="post">
+                                {% csrf_token %}
+                                {{ form.non_field_errors }}
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <div class="row" >
+                                            <div class="col-md-6">
+                                                <p class="color">Credit card</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="{% static "project/images/icon/visa.png" %}" class="tarjeta" hspace="4">
+                                                <img src="{% static "project/images/icon/mastercard.png" %}" class="tarjeta" hspace="4">
+                                                <img src="{% static "project/images/icon/maestro.png" %}" class="tarjeta" hspace="4">
+                                                <img src="{% static "project/images/icon/visaElectron.png" %}" class="tarjeta" hspace="4">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel-heading">
+                                        <p class="color">Número de la tarjeta</p></br>
+                                        <div class="row" >
+                                            <div class="col-md-3">
+                                                <input type="text"  placeholder="1234" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Primeros cuatro dígitos" required="" name="digitos4">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" placeholder="5678" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Del quinto al octavo dígito" required="" name="digitos8">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" placeholder="9012" class="form-control" autocomplete="off" maxlength="4" pattern="\d{4}" title="Del noveno al duodécimo dígito" required="" name="digitos12">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" placeholder="3456" class="form-control" autocomplete="off" maxlength="4" pattern="\d*" title="Del decimotercero al decimosexto dígito" required="" name="digitos16">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-heading">
+                                        <div class="row" >
+                                            <div class="col-md-5">
+                                                <p class="color">Nombre en la tarjeta</p>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <input type="text" name="nombre" placeholder="Nombre en la tarjeta" class="form-control" pattern="\w+ \w+.*" title="Nombre y apellidos" required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-heading">
+                                        <div class="row" >
+                                            <div class="col-md-5">
+                                                <p class="color">Fecha de vencimiento</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <select class="form-control" name="cc_exp_mo">
+                                                    <option value="01">Enero</option>
+                                                    <option value="02">Febrero</option>
+                                                    <option value="03">Marzo</option>
+                                                    <option value="04">Abril</option>
+                                                    <option value="05">Mayo</option>
+                                                    <option value="06">Junio</option>
+                                                    <option value="07">Julio</option>
+                                                    <option value="08">Agosto</option>
+                                                    <option value="09">Septiembre</option>
+                                                    <option value="10">Octubre</option>
+                                                    <option value="11">Noviembre</option>
+                                                    <option value="12">Diciembre</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <select class="form-control" name="cc_exp_yr">
+                                                    <option>2015</option>
+                                                    <option>2016</option>
+                                                    <option>2017</option>
+                                                    <option>2018</option>
+                                                    <option>2019</option>
+                                                    <option>2020</option>
+                                                    <option>2021</option>
+                                                    <option>2022</option>
+                                                    <option>2023</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-heading">
+                                        <div class="row" >
+                                            <div class="col-md-9">
+                                                <p class="color">CVV</p>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" placeholder="CVV" class="form-control" autocomplete="off" maxlength="3" pattern="\d{3}" title="Introduzca tres dígitos" required="" name="cvv">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> </br>
+
+                                <div class="row" >
+                                    <div class="col-md-3"> </div>
+                                    <div class="col-md-3">
+                                        <button type="submit" name="cancel" class="btn btn-primary btn-lg active">
+                                            <span aria-hidden="true"></span> Cancelar
+                                        </button>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="submit" name="submit" class="btn btn-primary btn-lg active">
+                                            <span aria-hidden="true"></span> Confirmar
+                                        </button>
+                                    </div>
+                                    <div class="col-md-3"> </div>
+                                </div>
+                                </br></br></br></br></br>
+                                <!-- Esto sirve para saber que usuario ha realizado la compra, pero quizas a ti no te hace falta
+                                    <input type="hidden" value="{{u.id}}" name="idUsuario">
+                                    <input type="hidden" value="{{total}}" name="total">
+                                    <input type="hidden" value="{{dir.direccion}}" name="direccion">
+                                -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+

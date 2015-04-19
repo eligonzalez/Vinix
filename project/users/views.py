@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 #Project Imports
 from .forms import *
 from .models import BasicUser
+from shoppingcart.models import *
 
 
 def login_view(request):
@@ -48,8 +49,9 @@ def login_check(request):
             if user is not None:
                 # the password verified for the user
                 if user.is_active:
-
                     login(request, user)
+                    request.session['amount'] = float(Shopping_Cart.get_amount(request.user))
+
                     return redirect('home')
                 else:
                     errors.append("Account has been disabled!")

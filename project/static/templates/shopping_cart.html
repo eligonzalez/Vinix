@@ -22,14 +22,14 @@
                     <tbody>
                         {% for sc in shopping_cart %}
                             <tr>
-                                <td width="40%"> </td>
-                                <td width="20%">€</td>
-                                <td width="10%"><input type="number" min="1" value="1" max="36" name="cantidad" id="cantidad"/></td>
+                                <td width="40%"> {{sc.product.name}} </td>
+                                <td width="20%">{{sc.product.price}} €</td>
+                                <td width="10%"><input type="number" min="1" value="{{sc.amount}}" max="36" name="cantidad" id="cantidad"/></td>
                                 <td width="10%">
                                     <a href="" 	style="color:black">
                                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                                 </td>
-                                <td width="20%">€ </td>
+                                <td width="20%"> Falta </td>
                             </tr>
 
                         {% endfor %}
@@ -48,7 +48,7 @@
                     <div class="col-sm-2 col-md-2"></div>
                     <div class="col-sm-4 col-md-4" align="center">
 
-                        <p><b>Subtotal:  precio € </b></p></br>
+                        <p><b>Subtotal: {{amount}} € </b></p></br>
                         <a id="btn">
                             <button type="submit" class="btn btn-primary btn-lg active">
                                 <span aria-hidden="true"></span> Tramitar pedido
