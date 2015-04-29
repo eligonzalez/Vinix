@@ -12,16 +12,16 @@
             <h4>Detalles de la cuenta</h4></br></br>
             <p><b> {{user.first_name}} {{user.last_name}}</b> </p>
 
-            <!-- If tiene_direccion_usuario -->
-                <p> Calle Antonio Machado 22, 4º 1ª </p>
-                <p> Barcelona, España </p>
-                <p> 08042 </p>
-                <p> 676052568 </p>
-            <!-- endif  -->
+            {% if address %}
+                <p> {{address.address}} </p>
+                <p> {{address.province}}, {{address.country}} </p>
+                <p> {{address.postalCode}} </p>
+                <p> {{address.phone}} </p>
+            {% endif %}
         </div>
         <div class="col-sm-8 col-md-8">
             <h4>Pedidos</h4></br></br>
-            <!-- If tiene_compras_usuario -->
+            {% if shoppings %}
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -32,19 +32,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- for compra in compras  -->
+                        {% for shop in shoppings %}
                             <tr>
-                                <td> #340</td>
-                                <td> 20/10/2014</td>
-                                <td> Calle Antonio Machado 22</td>
-                                <td> 34,95 €</td>
+                                <td> #{{shop.id}}</td>
+                                <td> {{shop.date}}</td>
+                                <td> {{shop.address}}</td>
+                                <td> {{shop.priceTotal}} €</td>
                             </tr>
-                        <!--  endfor  -->
+                        {% endfor %}
                     </tbody>
                 </table>
-            <!--  else  -->
+            {% else %}
                 <p>Todavía no se ha realizado ninguna compra.</p>
-            <!--  endif  -->
+            {% endif %}
         </div>
     </div>
 {% endblock body %}

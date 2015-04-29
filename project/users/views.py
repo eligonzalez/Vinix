@@ -1,13 +1,8 @@
-#Django Imports
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
-
-#Util Imports
-
-#Project Imports
 from .forms import *
-from .models import BasicUser
+from .models import *
 from shoppingcart.models import *
 
 
@@ -17,9 +12,7 @@ def login_view(request):
     form = BasicUserLoginForm()
     form_reg = BasicUserRegisterForm()
     errors = []
-    return render(
-        request,
-        'login_register_view.html',
+    return render(request,'login_register_view.html',
         {
             'form_reg': form_reg,
             'form': form,
@@ -63,9 +56,7 @@ def login_check(request):
                     initial={'username': form.cleaned_data['username']})
     else:
         form = BasicUserLoginForm()
-    return render(
-        request,
-        'login_register_view.html',
+    return render(request,'login_register_view.html',
         {
             'form_reg': form_reg,
             'form': form,
@@ -106,9 +97,7 @@ def register_check(request):
             #login(request, user)
             return redirect('home')
 
-    return render(
-        request,
-        'login_register_view.html',
+    return render(request,'login_register_view.html',
         {
             'form_reg': form_reg,
             'form': form,
@@ -129,4 +118,23 @@ def logout_view(request):
 def my_account(request):
     if not request.user.is_authenticated():
         return redirect('login')
-    return render(request, "my_account.html", {})
+
+    address = AddressUser.objects.get(idUser=2)
+    shoppings = Shopping.objects.filter(user=2, finish=True)
+
+    return render(request, "my_account.html",
+      {
+          'address' : address,
+          'shoppings' : shoppings,
+      })
+
+'''
+address = AddressUser.objects.get(idUser=2)
+    shopping = Shopping.objects.get(user=2, finish=False)
+    productsUser = Shopping_Cart.objects.filter(shopping=shopping.id)
+    products = []
+    price = 0
+
+    for p in productsUser:
+        products.append(p.product)
+'''

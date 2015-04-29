@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="span9">
+                <ol class="breadcrumb">
+                    <li><a href="{% url 'home' %}"><small>Inicio</small></a></li>
+                    <li class="active"><small>{{type}}</small></li>
+                </ol>
+
+                <h4><b>Vinos {{type}} </b></h4></br></br>
+                {% if listProd %}
+                    <div class="row">
+                        {% for prod in listProd %}
+                                <div class="col-sm-4 col-md-3">
+                                    <div class="thumbnail">
+                                        <a href=""> <img src="" > </a>
+                                        <div class="caption" align="center">
+                                            <h5><b>{{ prod.name}}</b></h5>
+                                            <p>{{ prod.price}}€</p>
+                                            <form class="form-horizontal" action="" method="post">
+                                                {% csrf_token %}
+                                                {{ form.non_field_errors }}
+                                                <a href="" id="btn">
+                                                    <button  type="submit" name="submit" class="btn btn-primary btn-lg active">
+                                                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Añadir
+                                                    </button>
+                                                </a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No existen productos</p>
+                {% endif %} </br>
+
+                <div align="center">
+
+                    {% if listProd.has_previous %}
+                        <a href="?page={{ listProd.previous_page_number }}" > <span > ←ANT </span></a>
+                    {% endif %}
+                    {% if not listProd.has_previous %}
+                        <a href="#" aria-label="Previous"> <span aria-hidden="true"> ←ANT </span> </a>
+                    {% endif %}
+
+                    {% for i in listProd.paginator.page_range  %}
+
+                        {% if listProd.number == i %}
+                            <a href="?page={{i}}">  <span class="badge1" class="sr-only">{{i}}</span></a>
+                        {% else %}
+                           <a href="?page={{i}}"> {{i}} <span class="sr-only">(current)</span></a>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if listProd.has_next %}
+                        <a href="?page={{ listProd.next_page_number }}" aria-label="Next"> <span aria-hidden="true"> POST→ </span></a>
+                    {% endif %}
+                    {% if not listProd.has_next %}
+                        <a href="#" aria-label="Next"> <span aria-hidden="true"> POST→</span></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
+
+

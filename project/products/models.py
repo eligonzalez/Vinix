@@ -57,6 +57,23 @@ class Wine(Product):
     )
     type = models.CharField(max_length=1, choices=TYPE, default=False, blank=True)
 
+    @classmethod
+    def get_product_filter(self, filter, value):
+        if filter == 'type' :
+            prod = Wine.objects.filter(type=value)
+        elif filter == 'zone' :
+            prod = Wine.objects.filter(zone__name=value)
+        elif filter == 'style' :
+            prod = Wine.objects.filter(estilo__name=value)
+        elif filter == 'varietal' :
+            prod = Wine.objects.filter(variedad__name=value)
+        elif filter == 'priceLess' :
+            prod = Wine.objects.filter(price__range=(0,9.99))
+        elif filter == 'priceUpper' :
+            prod = Wine.objects.filter(price__range=(10,20))
+
+        return prod
+
 class Spirit(Product):
     TYPE = (
         ('D', 'Destilado'),

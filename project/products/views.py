@@ -13,7 +13,7 @@ def home_view(request):
     prodVarietal = Varietal.objects.all()
     destYLicor = SubTypeSpirit.objects.all()
 
-    wines = Wine.objects.all().order_by('?')[:12]
+    wines = Wine.objects.all().order_by('name')
     paginator = Paginator(wines, 12)
     page = request.GET.get('page')
 
@@ -32,14 +32,28 @@ def home_view(request):
     )
 
 def wine_view(request, wine_id):
-    prodZone = Zone.objects.all()
-    prodStyle = Style.objects.all()
-    prodVarietal = Varietal.objects.all()
-    destYLicor = SubTipeSpirit.objects.all()
-
     wine_data = get_object_or_404(Wine, pk=wine_id)
     return render(request,'wine_view.html',
         {
             'wine_data': wine_data,
+        }
+    )
+
+def list_wines_view(request, filter, value):
+
+    prod = Wine.get_product_filter(filter, value)
+    paginator = Paginator(prod, 4)
+    page = request.GET.get('page')
+
+    try:
+        prodPage = paginator.page(page)
+    except PageNotAnInteger:
+        prodPage = paginator.page(1)
+    except EmptyPage:
+        prodPage = paginator.page(paginator.num_pages)
+
+    return render(request,'list_wines.html',
+        {
+            'listProd' : prodPage, 'type' : prod[0].get_type_display()
         }
     )
