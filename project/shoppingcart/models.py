@@ -12,6 +12,32 @@ class Shopping(models.Model):
     def __str__(self):
         return str(self.id)
 
+    @classmethod
+    def get_products(self, user):
+        shop = Shopping.objects.filter(user=2, finish=False)
+        print (shop)
+        products = Shopping_Cart.objects.filter(shopping=shop)
+        return products
+
+    @classmethod
+    def get_pricexAmount_product(self, shopping):
+        pricexAmount = []
+        for s in shopping:
+            price = s.product.price*s.amount
+            pricexAmount.append(price)
+        return pricexAmount
+
+    @classmethod
+    def get_number(self, user):
+        shop = Shopping.objects.filter(user=user, finish=False)
+        return len(Shopping_Cart.objects.filter(shopping=shop))
+
+    @classmethod
+    def get_amount(self, user):
+        shop = Shopping.objects.filter(user=2, finish=False)
+        return sum(map(lambda x: x.product.price*x.amount, Shopping_Cart.objects.filter(shopping=shop)))
+
+
 class Shopping_Cart(models.Model):
     shopping = models.ForeignKey(Shopping, default=None)
     product = models.ForeignKey(Product)
@@ -19,16 +45,4 @@ class Shopping_Cart(models.Model):
 
     def __str__(self):
         return str(self.id)
-    '''
-    @classmethod
-    def get_products(self, user):
-        return Shopping_Cart.objects.filter(user=user)
 
-    @classmethod
-    def get_number(self, user):
-        return len(Shopping_Cart.objects.filter(user=user))
-
-    @classmethod
-    def get_amount(self, user):
-        return sum(map(lambda x: x.product.price*x.amount, Shopping_Cart.objects.filter(user=user)))
-'''

@@ -43,7 +43,7 @@ def login_check(request):
                 # the password verified for the user
                 if user.is_active:
                     login(request, user)
-                    request.session['amount'] = float(Shopping_Cart.get_amount(request.user))
+                    request.session['amount'] = float(Shopping.get_amount(request.user))
 
                     return redirect('home')
                 else:
@@ -111,8 +111,21 @@ def register_check(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('home')
 
+    form = BasicUserLoginForm()
+    form_reg = BasicUserRegisterForm()
+    errors = []
+    return render(request,'login_register_view.html',
+        {
+            'form_reg': form_reg,
+            'form': form,
+
+            'form_register_check': 'register_check',
+            'form_login_check': 'login_check',
+
+            'errors': errors,
+        }
+    )
 
 
 def my_account(request):

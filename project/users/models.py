@@ -13,7 +13,7 @@ class BasicUser(User):
         return int((date.today() - self.birth_date).days / days_in_year)
 
 class AddressUser(models.Model):
-	idUser = models.ForeignKey(BasicUser,db_column='_id')
+	idUser = models.ForeignKey(BasicUser)
 	name = models.CharField(max_length=50, blank=True)
 	lastName =  models.CharField(max_length=50, blank=True)
 	address = models.CharField(max_length=50, blank=True)

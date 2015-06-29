@@ -26,9 +26,9 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-md-6">
                                         <img src="{% static "project/images/icon/iconoPersona.jpg" %}" class="iconoPersona">
-                                        <p> <b>eli.gonzalez05@gmail.com</b></br>
-                                            No Elisabet?
-                                            <a class="more"> Logéate </a>
+                                        <p> <b>{{user.email}}</b></br>
+                                            No {{user.first_name}}?
+                                            <a class="more" href="{% url 'logout' %}"> Logéate </a>
                                         </p></br></br>
                                     </div>
                                     <div align="right">
@@ -38,115 +38,33 @@
                                     </div>
                                 </div>
                             </div>
+                            {% include "address.html" %}
 
-                            <div>
-                                <div class="row">
-                                    <div class="col-sm-6 col-md-6">
-                                        <h5>Dirección de envío</h5>
-                                    </div>
-                                    <div align="right">
-                                        <div class="col-sm-6 col-md-6">
-                                            <a class="more">Editar dirección</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <div class="row" >
-                                            <div class="col-md-3">
-                                                <p> Nombre </p>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <p class="color"> Elisabet </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel-heading">
-                                        <div class="row" >
-                                            <div class="col-md-3">
-                                                <p> Apellidos </p>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <p class="color">  Gonzalez </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel-heading">
-                                        <div class="row" >
-                                            <div class="col-md-3">
-                                                <p> Dirección </p>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <p class="color"> Calle Antonio Machado 22, 4º 1ª</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel-heading">
-                                        <div class="row" >
-                                            <div class="col-md-3">
-                                                <p> Código postal </p>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <p class="color"> 08042 </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel-heading">
-                                        <div class="row" >
-                                            <div class="col-md-3">
-                                                <p> Ciudad </p>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <p class="color"> Barcelona </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel-heading">
-                                        <div class="row" >
-                                            <div class="col-md-3">
-                                                <p> País </p>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <p class="color"> España </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel-heading">
-                                        <div class="row" >
-                                            <div class="col-md-3">
-                                                <p> Teléfono </p>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <p class="color"> 676052568 </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
                         <div class="col-sm-1 col-md-1"> </div>
                         <div class="col-sm-5 col-md-5">
                             <h5>Resumen del pedido</h5></br>
-                            <!-- if productos en la compra aun no finalizada -->
+
+                            {% if shopping %}
                                 <div class="panel panel-default">
-                                    <!-- for prod in productos -->
+                                    {% for shop in shopping %}
                                         <div class="panel-heading">
                                             <div class="row" >
                                                 <div class="col-md-3">
                                                     <img src="http://placehold.it/75x75" class="bordeImagen" class="img-responsive" />
                                                 </div>
                                                 <div class="col-md-7">
-                                                    <p> </br>{{prod.nombre}} </p>
+                                                    <p> </br>{{shop.product.name}} </p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <p> </br>{{prod.precio}}€</p>
+                                                    <p> </br>{{shop.product.price}}€</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    <!-- endfor -->
+                                    {% endfor %}
                                 </div>
-                            <!-- endif -->
+                            {% endif %}
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <div class="row" >
@@ -154,7 +72,7 @@
                                             <p class="color">Subtotal</p>
                                         </div>
                                         <div class="col-md-2">
-                                            <p>58,95€</p>
+                                            <p>{{total}}€</p>
                                         </div>
                                     </div>
                                 </div>
@@ -174,7 +92,7 @@
                                             <p class="total">Total</p>
                                         </div>
                                         <div class="col-md-3">
-                                            <p class="colorPrecioTotal"> 61,85€</p>
+                                            <p class="colorPrecioTotal"> {{total}}+3€</p>
                                         </div>
                                     </div>
                                 </div>
