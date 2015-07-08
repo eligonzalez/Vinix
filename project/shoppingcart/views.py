@@ -5,20 +5,27 @@ from shoppingcart.models import *
 from users.models import *
 
 
-''' Falta comprobar que los términos y condiciones este chekeado '''
 def shopping_cart(request):
     if not request.user.is_authenticated():
         return redirect('login')
 
     shopping = Shopping.get_products(user=2)
-    amount = Shopping.get_amount(user=2)
+    total = Shopping.get_amount(user=2)
     priceXAmount = Shopping.get_pricexAmount_product(shopping)
+    errors=[]
+
+    if request.method == 'POST':
+        if not "checkbox" in request.POST.keys():
+            errors.append("Debe aceptar los términos y condiciones para poder continuar.")
+        else :
+             return redirect('finish_purchase')
 
     return render(request, "shopping_cart.html",
             {
                 'shopping_cart': shopping,
-                'amount' : amount,
-                'priceProduct' : priceXAmount
+                'total' : total,
+                'priceProduct' : priceXAmount,
+                'errors' : errors
             })
 
 

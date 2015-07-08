@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-        <link rel="stylesheet" type="text/css" href="{% static 'project/style/footer.css' %}" />
+       <link rel="stylesheet" type="text/css" href="{% static 'project/finish_purchase.css' %}" />
     </head>
 
     <body>
@@ -25,7 +25,7 @@
                                 <h5>Información personal</h5></br>
                                 <div class="row">
                                     <div class="col-sm-6 col-md-6">
-                                        <img src="{% static "project/images/icon/iconoPersona.jpg" %}" class="iconoPersona">
+                                        <img src="{% static "project/images/shop/products/iconoPersona.jpg" %}" class="iconoPersona">
                                         <p> <b>{{user.email}}</b></br>
                                             No {{user.first_name}}?
                                             <a class="more" href="{% url 'logout' %}"> Logéate </a>

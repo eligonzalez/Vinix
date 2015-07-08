@@ -5,9 +5,9 @@
     <div class="row">
         {% if products %}
             {% for p in products %}
-                <div class="col-sm-4 col-md-3">
+                <div class="col-sm-4 col-md-3" >
                     <div class="thumbnail">
-                        <a href="{% url 'wine_view' p.id %}"> <img  src="{% static "project/images/shop/products/1069255_10201071136914255_126710902_n.jpg" %}"> </a>
+                        <a href="{% url 'wine_view' p.id %}"> <img  src="{{p.image.url}}"> </a>
                         <div class="caption" align="center">
                             <h5>{{ p.name}}</h5>
                             <p><b>{{ p.price}}€</b></p>

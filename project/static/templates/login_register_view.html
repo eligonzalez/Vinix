@@ -2,21 +2,23 @@
 
 {% block body %}
 
-{% for error in errors %}
-    {{error}}
-{% endfor %}
+
 
 
 <div class="container">
-      <div class="row">
+    <div class="row">
         <div class="span9">
             <div class="row">
-              {% include "register_form.html" %}
+                {% for error in errors %}
+                    <div class="alert alert-danger" role="alert">{{error}}</div>
+                {% endfor %}
 
-              {% include "login_form.html" %}
+                {% include "register_form.html" %}
+
+                {% include "login_form.html" %}
             </div>
         </div>
-      </div>
     </div>
+</div>
 {% endblock body %}
 

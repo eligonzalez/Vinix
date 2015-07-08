@@ -1,0 +1,157 @@
+/* Las siguientes lineas contienen el estilo de la parte del body */
+
+.btn-primary.active, .btn-primary:active {
+    background-color: #2e2c2c;
+    border-color: #2e2c2c;
+    border: 2px solid #f5f5f5;
+}
+
+.badge1 {
+  display: inline-block;
+  min-width: 9px;
+  padding: 6px 7px;
+  font-weight: 700;
+  line-height: 1;
+  color: #6C6868;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #ddd;
+  border-radius: 20px;
+  width: 25px;
+  font-size: 13px;
+  font-family: 'Century Gothic', Helvetica, Arial, sans-serif;
+}
+
+.panel-default>.panel-heading {
+
+}
+
+.thumbnail {
+    /*border: 0 none;
+    box-shadow: none;*/
+}
+
+/* Las siguientes lineas son el estilo del navbar, los links de cuenta y carrito y el recorrido. */
+
+a > h1{
+    color: #333;
+}
+
+ol > li > a {
+    font-size: 1em;
+    font-family: "Helvetica Neue", sans-serif;
+    text-transform: capitalize;
+}
+
+ol > li {
+    color: #777;
+    font-size: 1em;
+    font-family: "Helvetica Neue", sans-serif;
+    text-transform: capitalize;
+    letter-spacing: .1em;
+}
+
+a {
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+h4 {
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+html {
+    font-size: 14em;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+nav{
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+/* Las siguientes lineas son para que funcione el dropdown del menu */
+
+.dropdown-submenu > a:focus, .dropdown-submenu > a:hover, .dropdown-submenu:focus>a, r, .dropdown-submenu:hover>a,
+.dropdown-menu > li a:hover,
+.dropdown-menu > li a:focus {
+    background-color: #2c2c2c;
+    background-image: none;
+    filter: none;
+}
+
+.container-fluid a{
+    color: #FFFFFF !important;
+}
+
+.dropdown-menu {
+    background-color: #2c2c2c;
+}
+
+.divider {
+    background-color: #2c2c2c;
+}
+
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+}
+
+.navbar-text a {
+    background-color: #2c2c2c;
+}
+
+.dropdown-submenu {
+    position:relative;
+    background-color: #2c2c2c;
+}
+.dropdown-submenu>.dropdown-menu {
+    top:0;
+    left:100%;
+    margin-top:-6px;
+    margin-left:-1px;
+    -webkit-border-radius:0 6px 6px 6px;
+    -moz-border-radius:0 6px 6px 6px;
+    border-radius:0 6px 6px 6px;
+    background-color: #2c2c2c;
+    color: #FFFFFF !important;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+    display:block;
+}
+.dropdown-submenu>a:after {
+    display:block;
+    content:" ";
+    float:right;
+    width:0;
+    height:0;
+    border-color:transparent;
+    border-style:solid;
+    border-width:5px 0 5px 5px;
+    border-left-color:#2c2c2c;
+    margin-top:5px;
+    margin-right:-10px;
+}
+.dropdown-submenu:hover>a:after {
+    border-left-color:white;
+}
+.dropdown-submenu.pull-left {
+    float:none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left:-100%;
+    margin-left:10px;
+    -webkit-border-radius:6px 0 6px 6px;
+    -moz-border-radius:6px 0 6px 6px;
+    border-radius:6px 0 6px 6px;
+}

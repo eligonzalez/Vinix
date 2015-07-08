@@ -1,0 +1,69 @@
+.iconoPersona {
+    width: 3.25em;
+    border-radius: 8px;
+    float: left;
+    margin-right: 1.25em;
+}
+
+.bordeImagen {
+    border-radius: 8px;
+}
+
+.tarjeta {
+    width: 2.75em;
+}
+
+h5 {
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+html {
+    font-size: 14em;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+a {
+    color: #858383;
+}
+
+a:hover {
+    color: #345342;
+    text-decoration: none;
+}
+
+.lista {
+      padding: 1.125em 0;
+}
+
+.imgTramitarPedido {
+    width: 5em;
+    border-radius: 8px;
+    float: left;
+    margin-right: 1.25em;
+}
+
+.panel > .panel-heading {
+    background-image: none;
+    background-color: white;
+    padding: 1.5em;
+}
+
+.color {
+    color: #858383;
+}
+
+.total {
+    font-size: 1.75em;
+    color: #858383;
+}
+
+.colorPrecioTotal {
+    color: #8fc243;
+    font-size: 1.75em;
+}

@@ -34,7 +34,7 @@ class Style(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=50)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(upload_to="static/images/shop/products")
+    image = models.ImageField(upload_to="images/")
     zone = models.ForeignKey('Zone', blank=True, default=None)
     country = models.ForeignKey('Country', blank=True, default=None)
     elaboration = models.CharField(max_length=1000, blank=True, default=None)

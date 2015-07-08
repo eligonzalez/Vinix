@@ -46,3 +46,15 @@ class Shopping_Cart(models.Model):
     def __str__(self):
         return str(self.id)
 
+    @classmethod
+    def add_Product_Shopping_Cart(self, user, idProd, amount):
+        shop = Shopping.objects.get(user=2, finish=False)
+        exist = Shopping_Cart.objects.filter(product=idProd,shopping=shop).exists()
+        product = Product.objects.get(id=idProd)
+
+        if  not exist :
+            newProduct = Shopping_Cart(shopping=shop, product=product, amount=amount)
+            newProduct.save()
+            return 0
+        else :
+            return 1

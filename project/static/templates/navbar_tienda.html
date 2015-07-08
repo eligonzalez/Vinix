@@ -1,9 +1,13 @@
 <div align="right">
     </br>
     <p>
-    <a href="{% url 'my_account' %}"> Mi cuenta <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
-    <a>   |   </a>
-    <a href="{% url 'shopping_cart' %}" >Carrito {% if request.session.amount %} <span class="badge" >{{request.session.amount}}  € </span></a>{% endif %}
+        {% if user.username %}
+            <a href="{% url 'my_account' %}"> {{user.username}}  <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
+        {% else %}
+            <a href="{% url 'my_account' %}"> Iniciar sesión <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
+        {% endif %}
+        <a>   |   </a>
+        <a href="{% url 'shopping_cart' %}" >Carrito {% if request.session.amount %} <span class="badge" >{{request.session.amount}}  € </span></a>{% endif %}
     </p>
 </div></br></br>
 <a href="{% url 'home' %}"><h1 align="center">Vila Viniteca</h1></a> </br></br>
