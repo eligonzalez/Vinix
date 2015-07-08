@@ -6,10 +6,14 @@
         <li class="active"><small>Producto</small></li>
     </ol>
     <div class="row">
+
         <div class="col-xs-6 col-sm-6">
+            {% if error %}
+                    <div class="{{error}}" role="alert">{{message}}</div>
+            {% endif %}
+
             <h4>  {{wine_data.name}}</h4></br>
             <p> <b> {{wine_data.price}} € </b> </p></br></br>
-
             <div class="table-responsive" >
                  <table class="table">
                     <tr>

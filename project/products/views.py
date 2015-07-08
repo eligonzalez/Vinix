@@ -43,7 +43,9 @@ def wine_view(request, wine_id):
     )
 
 def add_wine_shopping(request):
-    message = []
+    message = None
+    error = None
+    wine_data = None
 
     if request.method == 'POST':
         form = addProduct(request.POST)
@@ -52,13 +54,15 @@ def add_wine_shopping(request):
             amount = form.cleaned_data['amount']
             idProd = form.cleaned_data['idProd']
             result= Shopping_Cart.add_Product_Shopping_Cart(2,idProd, amount)
-            product = Product.objects.get(id=idProd)
+            wine_data = get_object_or_404(Wine, pk=idProd)
 
             if result == 1 :
-                message.append("El producto ya existe")
+                error = "alert alert-danger"
+                message = "El producto ya existe"
             else :
-                message.append("Se ha añadido correctamente")
-            return render(request,'wine_view.html', {'wine_data': product, 'message' : message})
+                error = "alert alert-success"
+                message = "Se ha añadido correctamente"
+            return render(request,'wine_view.html', {'wine_data': wine_data, 'message' : message, 'error': error})
 
     else :
         return render(request,'wine_view.html', {'wine_data': wine_data})
