@@ -50,10 +50,10 @@ class Wine(Product):
     style = models.ForeignKey('Style', blank=True)
     marriage = models.CharField(max_length=1000, blank=True)
     TYPE = (
-        ('B', 'blanco'),
-        ('T', 'tinto'),
-        ('R', 'rosado'),
-        ('E', 'espumoso'),
+        ('B', 'Blanco'),
+        ('T', 'Tinto'),
+        ('R', 'Rosado'),
+        ('E', 'Espumoso'),
     )
     type = models.CharField(max_length=1, choices=TYPE, default=False, blank=True)
 
