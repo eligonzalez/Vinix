@@ -47,7 +47,7 @@ class Wine(Product):
     temperature = models.CharField(max_length=1000, blank=True)
     cellar = models.ForeignKey('Cellar', blank=True)
     varietal = models.ForeignKey('Varietal', blank=True)
-    style = models.CharField('Style', max_length=50, blank=True)
+    style = models.ForeignKey('Style', blank=True)
     marriage = models.CharField(max_length=1000, blank=True)
     TYPE = (
         ('B', 'blanco'),

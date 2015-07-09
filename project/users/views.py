@@ -47,11 +47,11 @@ def login_check(request):
 
                     return redirect('home')
                 else:
-                    errors.append("Account has been disabled!")
+                    errors.append("La cuenta ha sido deshabilitada.")
             else:
                 #the authentication system was unable
                 #to verify the username and password
-                errors.append("The username and password were incorrect.")
+                errors.append("Usuario y contraseña incorrectos")
                 form = BasicUserLoginForm(
                     initial={'username': form.cleaned_data['username']})
     else:

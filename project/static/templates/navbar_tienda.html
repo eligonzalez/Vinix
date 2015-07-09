@@ -27,31 +27,43 @@
                    <ul class="dropdown-menu">
                         <li class="menu-item dropdown dropdown-submenu"><a href="#">Por tipo</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Blancos</a></li>
-                                <li><a href="#">Tintos</a></li>
-                                <li><a href="#">Rosados</a></li>
-                                <li><a href="#">Espumosos</a></li>
+                                <li><a href="{% url 'list_wine' 'type' 'B' %}">Blancos</a></li>
+                                <li><a href="{% url 'list_wine' 'type' 'T' %}">Tintos</a></li>
+                                <li><a href="{% url 'list_wine' 'type' 'R' %}">Rosados</a></li>
+                                <li><a href="{% url 'list_wine' 'type' 'E' %}">Espumosos</a></li>
                             </ul>
                         </li>
-                        <li class="menu-item dropdown dropdown-submenu"><a href="#">Por zona</a>
+                        <li class="menu-item dropdown dropdown-submenu"><a href="">Por zona</a>
                             <ul class="dropdown-menu">
-
+                                {% for zone in prodZone %}
+                                    <li><a href="{% url 'list_wine' 'zone' zone.name %}">{{zone.name}}</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
-                        <li class="menu-item dropdown dropdown-submenu"><a href="#">Por estilo</a>
+                        <li class="menu-item dropdown dropdown-submenu">
+                            <a href="">Por estilo</a>
                             <ul class="dropdown-menu">
-
+                                {% for style in prodStyle %}
+                                    <li><a href="{% url 'list_wine' 'style' style.name %}">{{style.name}}</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
-                        <li class="menu-item dropdown dropdown-submenu"><a href="#">Por variedad de uva</a>
+                        <li class="menu-item dropdown dropdown-submenu">
+                            <a href="">Por variedad de uva</a>
                             <ul class="dropdown-menu">
-
+                                {% for varietal in prodVarietal %}
+                                    <li><a href="{% url 'list_wine' 'varietal' varietal.name %}">{{varietal.name}}</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
 
                         <li class="divider"></li>
-                        <li class="belowDivider"> <a href="#">Por menos de 10€</a></li>
-                        <li class="belowDivider"><a href="#">Entre 10€ y 20€</a></li>
+                        <li class="belowDivider">
+                            <a href="{% url 'list_wine' 'priceLower' 'E' %}">Por menos de 10€</a>
+                        </li>
+                        <li class="belowDivider">
+                            <a href="{% url 'list_wine' 'priceUpper' 'E' %}">Entre 10€ y 20€</a>
+                        </li>
                     </ul>
                 </li>
                 <p class="navbar-text">|</p>

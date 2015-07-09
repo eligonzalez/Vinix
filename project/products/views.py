@@ -29,7 +29,8 @@ def home_view(request):
     return render(request,'home_view.html',
         {
             'products': wines,
-            'list_prod': prod_page
+            'list_prod': prod_page,
+            'prodZone': prodZone,'prodStyle':prodStyle, 'prodVarietal':prodVarietal,
         }
     )
 
@@ -69,7 +70,21 @@ def add_wine_shopping(request):
 
 def list_wines_view(request, filter, value):
 
-    prod = Wine.get_product_filter(filter, value)
+    if filter == 'type' :
+        prod = Product.objects.filter(type=value)
+        p = prod[0]
+        typeProd = p.get_color_display()
+    elif filter == 'zone' :
+        prod = Product.objects.filter(zone__name=value)
+    elif filter == 'style' :
+        prod = Wine.objects.filter(style__name=value)
+    elif filter == 'varietal' :
+        prod = Wine.objects.filter(varietal__name=value)
+    elif filter == 'priceLower' :
+        prod = Product.objects.filter(price__range=(0,9.99))
+    elif filter == 'priceUpper' :
+        prod = Product.objects.filter(price__range=(10,20))
+
     paginator = Paginator(prod, 4)
     page = request.GET.get('page')
 
@@ -82,6 +97,6 @@ def list_wines_view(request, filter, value):
 
     return render(request,'list_wines.html',
         {
-            'listProd' : prodPage, 'type' : prod[0].get_type_display()
+            'listProd' : prodPage, 'type' : typeProd
         }
     )
