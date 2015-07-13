@@ -15,7 +15,6 @@ class Shopping(models.Model):
     @classmethod
     def get_products(self, user):
         shop = Shopping.objects.filter(user=2, finish=False)
-        print (shop)
         products = Shopping_Cart.objects.filter(shopping=shop)
         return products
 

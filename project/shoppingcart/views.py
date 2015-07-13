@@ -35,7 +35,7 @@ def finish_purchase(request):
     if not request.user.is_authenticated():
         return redirect('login')
 
-    address = AddressUser.objects.get(idUser=3, addressDefault=True)
+    address = AddressUser.objects.get(idUser=2, addressDefault=True)
     shopping = Shopping.get_products(request.user)
     totalPrice = Shopping.get_amount(request.user)
     return render(request, "finish_purchase.html",

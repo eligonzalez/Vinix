@@ -9,8 +9,8 @@
                     <div class="thumbnail">
                         <a href="{% url 'wine_view' p.id %}"> <img  src="{{p.image.url}}"> </a>
                         <div class="caption" align="center">
-                            <h5>{{ p.name}}</h5>
-                            <p><b>{{ p.price}}€</b></p>
+                            <h5>{{p.name}}</h5>
+                            <p><b>{{p.price}}€</b></p>
                             <a href="{% url 'wine_view' p.id %}" id="btn"></a>
                         </div>
                     </div>
