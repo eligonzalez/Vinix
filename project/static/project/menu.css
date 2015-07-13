@@ -1,4 +1,15 @@
+
+
+
 /* Las siguientes lineas contienen el estilo de la parte del body */
+
+.row {
+    display: table;
+}
+
+[class*="col-"] {
+    float: none; display: table-cell; vertical-align: top;
+}
 
 .btn-primary.active, .btn-primary:active {
     background-color: #2e2c2c;

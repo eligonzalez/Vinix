@@ -6,6 +6,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import *
 from .forms import *
 from shoppingcart.models import *
+from .filters import *
 from django.db.models import Q
 
 admin.autodiscover()
@@ -16,7 +17,7 @@ def home_view(request):
     prodVarietal = Varietal.objects.all()
     destYLicor = SubTypeSpirit.objects.all()
 
-    wines = Wine.objects.all().order_by('name')
+    wines = ProductFilter(request.GET, queryset=Wine.objects.all())
     paginator = Paginator(wines, 12)
     page = request.GET.get('page')
 
@@ -32,6 +33,7 @@ def home_view(request):
             'products': wines,
             'list_prod': prod_page,
             'prodZone': prodZone,'prodStyle':prodStyle, 'prodVarietal':prodVarietal,
+            'filter': wines
         }
     )
 

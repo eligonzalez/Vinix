@@ -36,6 +36,15 @@ class Shopping(models.Model):
         shop = Shopping.objects.filter(user=2, finish=False)
         return sum(map(lambda x: x.product.price*x.amount, Shopping_Cart.objects.filter(shopping=shop)))
 
+    @classmethod
+    def accept_purchase(self, user):
+        shop = Shopping.objects.get(user=2, finish=False)
+        shop.finish = True
+        shop.save()
+        new_shop = Shopping(user=2,address=shop.address,priceTotal=0,finish=False)
+        new_shop.save()
+
+
 
 class Shopping_Cart(models.Model):
     shopping = models.ForeignKey(Shopping, default=None)
