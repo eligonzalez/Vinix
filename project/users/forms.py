@@ -47,3 +47,14 @@ class BasicUserRegisterForm(forms.Form):
         except ObjectDoesNotExist:
             return email
         raise forms.ValidationError('Email is already used.')
+
+class edit_account_form(forms.Form):
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+    password = forms.CharField()
+    address = forms.CharField()
+    province = forms.CharField()
+    country = forms.CharField()
+    postalCode = forms.CharField()
+    phone = forms.CharField()

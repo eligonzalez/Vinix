@@ -2,4 +2,107 @@
 {% load staticfiles %}
 {% block body %}
 
+<ol class="breadcrumb">
+         <li><a href="{% url 'home' %}"><small>Inicio</small></a></li>
+         <li><small>Editar mi cuenta</small></li>
+     </ol>
+
+    <div class="row">
+        <form  action="edit_account" method="post">
+
+            <div class="col-sm-6 col-md-6">
+                <h4>Editar información personal</h4></br>
+                <a class="more" href="{% url 'my_account' %}"> Volver a atrás </a></br></br></br>
+
+                <p align="center">{% csrf_token %}</p>
+                {{form.non_field_errors}}
+                <div class="form-group">
+                    <div class="row">
+                        <label for="first_name" class="col-sm-4 control-label"><b>Nombre</b></label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Nombre" value="{{user.first_name|default_if_none:" "}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="last_name" class="col-sm-4 control-label"><b>Apellidos</b></label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Apellidos" value="{{user.last_name|default_if_none:" "}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="email" class="col-sm-4 control-label">Email</label>
+                        <div class="col-sm-7">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{user.email|default_if_none:" "}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="password" class="col-sm-4 control-label">Nueva contraseña</label>
+                        <div class="col-sm-7">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Nueva contraseña">
+                        </div>
+                    </div>
+                </div></br>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <h4>Editar dirección de envío</h4></br></br></br></br>
+
+                {% if address %}
+
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="address" class="col-sm-4 control-label"><b>Dirección de envío</b></label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="address" name="address" placeholder="Dirección de envío" value="{{address.address|default_if_none:" "}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="province" class="col-sm-4 control-label"><b>Provincia</b></label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="province" name="province" placeholder="Provincia" value="{{address.province|default_if_none:" "}}">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="postalCode" class="col-sm-4 control-label"><b>Codigo postal</b></label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="postalCode" name="postalCode" placeholder="Codigo postal" value="{{address.postalCode|default_if_none:" "}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="country" class="col-sm-4 control-label"><b>País</b></label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="country" name="country" placeholder="País" value="{{address.country|default_if_none:" "}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="phone" class="col-sm-4 control-label"><b>Teléfono</b></label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Telefono" value="{{address.phone|default_if_none:" "}}">
+                            </div>
+                        </div>
+                    </div></br></br>
+                {% endif %}
+                <div class="row">
+                    <div class="col-sm-7"></div>
+                    <div class="col-sm-4">
+                        <button type="submit" name="submit" class="btn btn-primary btn-lg active">Aplicar cambios</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 {% endblock body %}

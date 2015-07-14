@@ -139,15 +139,42 @@ def my_account(request):
       {
           'address' : address,
           'shoppings' : shoppings,
+          'user' : request.user,
       })
 
-'''
-address = AddressUser.objects.get(idUser=2)
-    shopping = Shopping.objects.get(user=2, finish=False)
-    productsUser = Shopping_Cart.objects.filter(shopping=shopping.id)
-    products = []
-    price = 0
+def edit_account(request):
 
-    for p in productsUser:
-        products.append(p.product)
-'''
+    if not request.user.is_authenticated():
+        return redirect('login')
+
+    if request.method == "GET":
+        address = AddressUser.objects.get(idUser=2)
+
+        return render(request, "edit_account.html",
+          {
+              'address' : address,
+              'user' : request.user,
+          })
+
+    elif request.method == "POST":
+
+        cd = edit_account_form(request.POST)
+        if cd.is_valid():
+
+            client = BasicUser(id=request.user.id)
+            client.username = cd["email"]
+            client.first_name = cd["first_name"]
+            client.last_name = cd["last_name"]
+            client.email = cd["email"]
+            client.set_password(cd["password"])
+            client.save()
+            ad = AddressUser.objects.get(idUser=2)
+            ad.address = cd["address"]
+            ad.province = cd["province"]
+            ad.country = cd["country"]
+            ad.postalCode = cd["postalCode"]
+            ad.phone = cd["phone"]
+            ad.save()
+            return redirect('my_account')
+        else :
+            return redirect('home')

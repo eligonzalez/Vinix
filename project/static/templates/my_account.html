@@ -9,7 +9,8 @@
     <div class="row">
 
         <div class="col-sm-4 col-md-4">
-            <h4>Detalles de la cuenta</h4></br></br>
+            <h4>Detalles de la cuenta</h4></br>
+            <a class="more" href="{% url 'logout' %}"> Cerrar sesión </a></br></br></br>
             <p><b> {{user.first_name}} {{user.last_name}}</b> </p>
 
             {% if address %}
@@ -19,7 +20,7 @@
                 <p> {{address.phone}} </p>
             {% endif %}
             </br>
-            <a class="more" href="{% url 'logout' %}"> Cerrar sesión </a>
+            <a class="more" href="{% url 'edit_account' %}"> Editar información </a>
         </div>
         <div class="col-sm-8 col-md-8">
             <h4>Pedidos</h4></br></br>
