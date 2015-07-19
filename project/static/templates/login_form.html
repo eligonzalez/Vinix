@@ -9,7 +9,7 @@
             <div class="form-group">
                 <label for="username" class="col-sm-2 control-label">Email</label>
                 <div class="col-sm-7">
-                    <input type="email" class="form-control" id="username" name="username" placeholder="Email" value="{{ form.username.value|default_if_none:" "}}">
+                    <input type="email" class="form-control" id="username" name="username" placeholder="Email" value="{{ form.username.value|default_if_none:''}}">
                 </div>
                 {% if form.username.errors %}
                   <span class="help-block">{% for error in form.username.errors %}{{ error }}{% endfor %}</span>
@@ -18,7 +18,7 @@
             <div class="form-group">
                 <label for="password" class="col-sm-2 control-label">Contraseña</label>
                 <div class="col-sm-7">
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" value="{{ form.password.value|default_if_none:"" }}">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" value="{{ form.password.value|default_if_none:'' }}">
                 </div>
                 {% if form.password.errors %}
                   <span class="help-block">{% for error in form.password.errors %}{{ error }}{% endfor %}</span>

@@ -20,7 +20,7 @@
                     <div class="row">
                         <label for="first_name" class="col-sm-4 control-label"><b>Nombre</b></label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Nombre" value="{{user.first_name|default_if_none:" "}}">
+                            <input type="text" id="first_name" class="form-control" name="first_name" placeholder="Nombre" value="{{user.first_name|default_if_none:''}}">
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     <div class="row">
                         <label for="last_name" class="col-sm-4 control-label"><b>Apellidos</b></label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Apellidos" value="{{user.last_name|default_if_none:" "}}">
+                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Apellidos" value="{{user.last_name|default_if_none:''}}">
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                     <div class="row">
                         <label for="email" class="col-sm-4 control-label">Email</label>
                         <div class="col-sm-7">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{user.email|default_if_none:" "}}">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{user.email|default_if_none:''}}">
                         </div>
                     </div>
                 </div>
@@ -52,50 +52,50 @@
             <div class="col-sm-6 col-md-6">
                 <h4>Editar dirección de envío</h4></br></br></br></br>
 
-                {% if address %}
 
-                    <div class="form-group">
-                        <div class="row">
-                            <label for="address" class="col-sm-4 control-label"><b>Dirección de envío</b></label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="address" name="address" placeholder="Dirección de envío" value="{{address.address|default_if_none:" "}}">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <label for="province" class="col-sm-4 control-label"><b>Provincia</b></label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="province" name="province" placeholder="Provincia" value="{{address.province|default_if_none:" "}}">
 
-                            </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="address" class="col-sm-4 control-label"><b>Dirección de envío</b></label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Dirección de envío" value="{{address.0.address|default_if_none:''}}">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <label for="postalCode" class="col-sm-4 control-label"><b>Codigo postal</b></label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="postalCode" name="postalCode" placeholder="Codigo postal" value="{{address.postalCode|default_if_none:" "}}">
-                            </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="province" class="col-sm-4 control-label"><b>Provincia</b></label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="province" name="province" placeholder="Provincia" value="{{address.0.province|default_if_none:''}}">
+
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <label for="country" class="col-sm-4 control-label"><b>País</b></label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="country" name="country" placeholder="País" value="{{address.country|default_if_none:" "}}">
-                            </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="postalCode" class="col-sm-4 control-label"><b>Codigo postal</b></label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="postalCode" name="postalCode" placeholder="Codigo postal" value="{{address.0.postalCode|default_if_none:''}}">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <label for="phone" class="col-sm-4 control-label"><b>Teléfono</b></label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Telefono" value="{{address.phone|default_if_none:" "}}">
-                            </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="country" class="col-sm-4 control-label"><b>País</b></label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="country" name="country" placeholder="País" value="{{address.0.country|default_if_none:''}}">
                         </div>
-                    </div></br></br>
-                {% endif %}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="phone" class="col-sm-4 control-label"><b>Teléfono</b></label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Telefono" value="{{address.0.phone|default_if_none:''}}">
+                        </div>
+                    </div>
+                </div></br></br>
+
                 <div class="row">
                     <div class="col-sm-7"></div>
                     <div class="col-sm-4">

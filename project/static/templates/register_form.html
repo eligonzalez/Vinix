@@ -8,7 +8,7 @@
             <div class="form-group" >
                 <label for="first_name" class="col-sm-2 control-label">Nombre</label>
                 <div class="col-sm-6">
-                    <input type="text" id="first_name" class="form-control" name="first_name" placeholder="Nombre" value="{{ form_reg.first_name.value|default_if_none:"" }}">
+                    <input type="text" id="first_name" class="form-control" name="first_name" placeholder="Nombre" value="{{ form_reg.first_name.value|default_if_none:'' }}">
                 </div>
                 {% if form_reg.first_name.errors %}
                   <span class="help-block">{% for error in form_reg.first_name.errors %}{{ error }}{% endfor %}</span>
@@ -18,7 +18,7 @@
             <div class="form-group">
                 <label for="last_name" class="col-sm-2 control-label">Apellidos</label>
                 <div class="col-sm-6">
-                    <input type="text" id="last_name" class="form-control" name="last_name" placeholder="Apellidos" value="{{ form_reg.last_name.value|default_if_none:"" }}">
+                    <input type="text" id="last_name" class="form-control" name="last_name" placeholder="Apellidos" value="{{ form_reg.last_name.value|default_if_none:'' }}">
                 </div>
                 {% if form_reg.last_name.errors %}
                   <span class="help-block">{% for error in form_reg.last_name.errors %}{{ error }}{% endfor %}</span>
@@ -28,7 +28,7 @@
             <div class="form-group">
                 <label for="email" class="col-sm-2 control-label">Email</label>
                 <div class="col-sm-6">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ form_reg.email.value|default_if_none:"" }}">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ form_reg.email.value|default_if_none:'' }}">
                 </div>
                 {% if form_reg.email.errors %}
                   <span class="help-block">{% for error in form_reg.email.errors %}{{ error }}{% endfor %}</span>
@@ -39,7 +39,7 @@
             <div class="form-group">
                 <label for="password" class="col-sm-2 control-label">Contraseña</label>
                 <div class="col-sm-6">
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" value="{{ form_reg.password.value|default_if_none:"" }}">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" value="{{ form_reg.password.value|default_if_none:'' }}">
                 </div>
                 {% if form_reg.password.errors %}
                   <span class="help-block">{% for error in form_reg.password.errors %}{{ error }}{% endfor %}</span>

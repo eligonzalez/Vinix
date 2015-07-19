@@ -132,8 +132,8 @@ def my_account(request):
     if not request.user.is_authenticated():
         return redirect('login')
 
-    address = AddressUser.objects.get(idUser=2)
-    shoppings = Shopping.objects.filter(user=2, finish=True)
+    address = AddressUser.objects.filter(idUser=request.user.id)
+    shoppings = Shopping.objects.filter(user=request.user.id, finish=True)
 
     return render(request, "my_account.html",
       {
@@ -148,7 +148,7 @@ def edit_account(request):
         return redirect('login')
 
     if request.method == "GET":
-        address = AddressUser.objects.get(idUser=2)
+        address = AddressUser.objects.filter(idUser=request.user.id)
 
         return render(request, "edit_account.html",
           {
@@ -159,22 +159,12 @@ def edit_account(request):
     elif request.method == "POST":
 
         cd = edit_account_form(request.POST)
-        if cd.is_valid():
 
-            client = BasicUser(id=request.user.id)
-            client.username = cd["email"]
-            client.first_name = cd["first_name"]
-            client.last_name = cd["last_name"]
-            client.email = cd["email"]
-            client.set_password(cd["password"])
-            client.save()
-            ad = AddressUser.objects.get(idUser=2)
-            ad.address = cd["address"]
-            ad.province = cd["province"]
-            ad.country = cd["country"]
-            ad.postalCode = cd["postalCode"]
-            ad.phone = cd["phone"]
-            ad.save()
-            return redirect('my_account')
+        if cd.is_valid():
+            client = BasicUser.objects.get(id=request.user.id)
+            BasicUser.set_BasicUser(client,cd)
+            AddressUser.set_AddressUser(request.user,cd)
+
+            return redirect('edit_account')
         else :
             return redirect('home')

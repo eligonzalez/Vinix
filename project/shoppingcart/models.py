@@ -14,7 +14,7 @@ class Shopping(models.Model):
 
     @classmethod
     def get_products(self, user):
-        shop = Shopping.objects.filter(user=2, finish=False)
+        shop = Shopping.objects.filter(user=user, finish=False)
         products = Shopping_Cart.objects.filter(shopping=shop)
         return products
 
@@ -33,15 +33,15 @@ class Shopping(models.Model):
 
     @classmethod
     def get_amount(self, user):
-        shop = Shopping.objects.filter(user=2, finish=False)
+        shop = Shopping.objects.filter(user=user, finish=False)
         return sum(map(lambda x: x.product.price*x.amount, Shopping_Cart.objects.filter(shopping=shop)))
 
     @classmethod
     def accept_purchase(self, user):
-        shop = Shopping.objects.get(user=2, finish=False)
+        shop = Shopping.objects.get(user=user, finish=False)
         shop.finish = True
         shop.save()
-        new_shop = Shopping(user=2,address=shop.address,priceTotal=0,finish=False)
+        new_shop = Shopping(user=request.user.id,address=shop.address,priceTotal=0,finish=False)
         new_shop.save()
 
 
@@ -56,7 +56,7 @@ class Shopping_Cart(models.Model):
 
     @classmethod
     def add_Product_Shopping_Cart(self, user, idProd, amount):
-        shop = Shopping.objects.get(user=2, finish=False)
+        shop = Shopping.objects.get(user=user, finish=False)
         exist = Shopping_Cart.objects.filter(product=idProd,shopping=shop).exists()
         product = Product.objects.get(id=idProd)
 

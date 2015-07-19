@@ -57,7 +57,7 @@ def add_wine_shopping(request):
         if form.is_valid():
             amount = form.cleaned_data['amount']
             idProd = form.cleaned_data['idProd']
-            result= Shopping_Cart.add_Product_Shopping_Cart(2,idProd, amount)
+            result= Shopping_Cart.add_Product_Shopping_Cart(request.user,idProd, amount)
             wine_data = get_object_or_404(Wine, pk=idProd)
 
             if result == 1 :
