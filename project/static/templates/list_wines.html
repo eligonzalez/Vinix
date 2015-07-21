@@ -10,9 +10,9 @@
                 </ol>
 
                 <h4><b>Vinos {{type}} </b></h4></br></br>
-                {% if listProd %}
+                {% if list_prod %}
                     <div class="row">
-                        {% for prod in listProd %}
+                        {% for prod in list_prod %}
                                 <div class="col-sm-4 col-md-3">
                                     <div class="thumbnail">
                                         <a href="{% url 'wine_view' prod.id %}"> <img  src="{{prod.image.url}}"> </a>
@@ -40,26 +40,26 @@
 
                 <div align="center">
 
-                    {% if listProd.has_previous %}
-                        <a href="?page={{ listProd.previous_page_number }}" > <span > ←ANT </span></a>
+                    {% if list_prod.has_previous %}
+                        <a href="?page={{ list_prod.previous_page_number }}" > <span > ←ANT </span></a>
                     {% endif %}
-                    {% if not listProd.has_previous %}
+                    {% if not list_prod.has_previous %}
                         <a href="#" aria-label="Previous"> <span aria-hidden="true"> ←ANT </span> </a>
                     {% endif %}
 
-                    {% for i in listProd.paginator.page_range  %}
+                    {% for i in list_prod.paginator.page_range  %}
 
-                        {% if listProd.number == i %}
+                        {% if list_prod.number == i %}
                             <a href="?page={{i}}">  <span class="badge1" class="sr-only">{{i}}</span></a>
                         {% else %}
                            <a href="?page={{i}}"> {{i}} <span class="sr-only">(current)</span></a>
                         {% endif %}
                     {% endfor %}
 
-                    {% if listProd.has_next %}
-                        <a href="?page={{ listProd.next_page_number }}" aria-label="Next"> <span aria-hidden="true"> POST→ </span></a>
+                    {% if list_prod.has_next %}
+                        <a href="?page={{ list_prod.next_page_number }}" aria-label="Next"> <span aria-hidden="true"> POST→ </span></a>
                     {% endif %}
-                    {% if not listProd.has_next %}
+                    {% if not list_prod.has_next %}
                         <a href="#" aria-label="Next"> <span aria-hidden="true"> POST→</span></a>
                     {% endif %}
                 </div>

@@ -95,6 +95,11 @@ def register_check(request):
                 password=client.password,
             )
             #login(request, user)
+            firstShopping = Shopping(user=client)
+            firstShopping.save()
+            firstAddress = AddressUser(idUser=client)
+            firstAddress.save()
+
             return redirect('home')
 
     return render(request,'login_register_view.html',
@@ -162,9 +167,23 @@ def edit_account(request):
 
         if cd.is_valid():
             client = BasicUser.objects.get(id=request.user.id)
-            BasicUser.set_BasicUser(client,cd)
             AddressUser.set_AddressUser(request.user,cd)
+            resultUser = BasicUser.set_BasicUser(client,cd)
 
-            return redirect('edit_account')
+            if resultUser == 1:
+                error = "alert alert-danger"
+                message = "Las contraseñas han de coincidir"
+            else :
+                error = "alert alert-success"
+                message = "Los datos han sido modificados"
+
+            address = AddressUser.objects.filter(idUser=request.user.id)
+            return render(request, "edit_account.html",
+              {
+                  'address' : address,
+                  'user' : request.user,
+                  'error' : error,
+                  'message' : message
+              })
         else :
             return redirect('home')

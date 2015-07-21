@@ -10,6 +10,7 @@ def shopping_cart(request):
     if not request.user.is_authenticated():
         return redirect('login')
 
+    request.session['amount'] = float(Shopping.get_amount(request.user))
     shopping = Shopping.get_products(user=request.user.id)
     total = Shopping.get_amount(user=request.user.id)
     priceXAmount = Shopping.get_pricexAmount_product(shopping)
@@ -50,8 +51,12 @@ def finish_purchase(request):
 
 def check_finish_purchase(request):
 
+    if not request.user.is_authenticated():
+        return redirect('login')
+
     if request.method == 'POST':
         form = finishPurchase_Form(request.POST)
+        client = BasicUser.objects.get(id=request.user.id)
 
         message = None
         error = None
@@ -59,7 +64,7 @@ def check_finish_purchase(request):
         if form.is_valid():
             error = "alert alert-success"
             message = "La compra se ha realizado correctamente."
-            Shopping.accept_purchase(request.user)
+            Shopping.accept_purchase(client)
 
         else :
             error = "alert alert-danger"

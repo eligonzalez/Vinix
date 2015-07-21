@@ -11,40 +11,28 @@ from django.db.models import Q
 
 admin.autodiscover()
 
+
+
 def home_view(request):
-    prodZone = Zone.objects.all()
-    prodStyle = Style.objects.all()
-    prodVarietal = Varietal.objects.all()
-    destYLicor = SubTypeSpirit.objects.all()
 
     wines = ProductFilter(request.GET, queryset=Wine.objects.all())
-    paginator = Paginator(wines, 12)
-    page = request.GET.get('page')
 
-    try:
-        prod_page = paginator.page(page)
-    except PageNotAnInteger:
-        prod_page = paginator.page(1)
-    except EmptyPage:
-         prod_page = paginator.page(paginator.num_pages)
+    general = Product.get_general()
+    pagination = Product.get_pagination(request,wines,12)
+    specific = {'products': wines,'filter': wines}
+    total = dict(general.items() | specific.items() | pagination.items())
 
-    return render(request,'home_view.html',
-        {
-            'products': wines,
-            'list_prod': prod_page,
-            'prodZone': prodZone,'prodStyle':prodStyle, 'prodVarietal':prodVarietal,
-            'filter': wines
-        }
-    )
+    return render(request,'home_view.html', total )
 
 def wine_view(request, wine_id):
+
     wine_data = get_object_or_404(Wine, pk=wine_id)
 
-    return render(request,'wine_view.html',
-        {
-            'wine_data': wine_data,
-        }
-    )
+    general = Product.get_general()
+    specific = {'wine_data': wine_data}
+    total = dict(general.items() | specific.items())
+
+    return render(request,'wine_view.html',total)
 
 def add_wine_shopping(request):
     message = None
@@ -59,6 +47,7 @@ def add_wine_shopping(request):
             idProd = form.cleaned_data['idProd']
             result= Shopping_Cart.add_Product_Shopping_Cart(request.user,idProd, amount)
             wine_data = get_object_or_404(Wine, pk=idProd)
+            request.session['amount'] = float(Shopping.get_amount(request.user))
 
             if result == 1 :
                 error = "alert alert-danger"
@@ -73,43 +62,12 @@ def add_wine_shopping(request):
 
 def list_wines_view(request, filter, value):
 
-    typeProd = None
 
-    if filter == 'type' :
-        prod = Wine.objects.filter(type=value)
-        p = prod[0]
-        typeProd = p.get_type_display()
-    elif filter == 'zone' :
-        prod = Product.objects.filter(zone__name=value)
-        typeProd = 'por zona'
-    elif filter == 'style' :
-        prod = Wine.objects.filter(style__name=value)
-        typeProd = 'por estilo'
-    elif filter == 'varietal' :
-        prod = Wine.objects.filter(varietal__name=value)
-        typeProd = 'por variedad'
-    elif filter == 'priceLower' :
-        prod = Product.objects.filter(price__range=(0,9.99))
-        typeProd = 'por menos de 10€'
-    elif filter == 'priceUpper' :
-        prod = Product.objects.filter(price__range=(10,20))
-        typeProd = 'entre 10€ y 20€'
+    filters = Wine.get_product_filter(filter,value)
+    pagination = Product.get_pagination(request,filters['prod'], 4)
+    total = dict(filters.items() | pagination.items())
 
-    paginator = Paginator(prod, 4)
-    page = request.GET.get('page')
-
-    try:
-        prodPage = paginator.page(page)
-    except PageNotAnInteger:
-        prodPage = paginator.page(1)
-    except EmptyPage:
-        prodPage = paginator.page(paginator.num_pages)
-
-    return render(request,'list_wines.html',
-        {
-            'listProd' : prodPage, 'type' : typeProd
-        }
-    )
+    return render(request,'list_wines.html', total)
 
 def search(request):
 
@@ -118,22 +76,11 @@ def search(request):
 
         if form.is_valid():
             word = form.cleaned_data['word']
+            specific = {'word':word}
             prod = Wine.objects.filter(Q(name__icontains=word))
 
-            paginator = Paginator(prod, 4)
-            page = request.GET.get('page')
-
-            try:
-                prodPage = paginator.page(page)
-            except PageNotAnInteger:
-                prodPage = paginator.page(1)
-            except EmptyPage:
-                prodPage = paginator.page(paginator.num_pages)
-
-            return render(request,'search.html',
-                {
-                    'products' :  prodPage, 'word' : word
-                }
-            )
+            pagination = Product.get_pagination(request,prod,4)
+            total = dict(specific.items() | pagination.items())
+            return render(request,'search.html',total)
 
     return render(request,'home_view.html')

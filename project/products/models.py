@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .models import *
 
 class Cellar(models.Model):
     name = models.CharField(max_length=50)
@@ -42,6 +43,28 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    @classmethod
+    def get_general(self) :
+        prodZone = Zone.objects.all()
+        prodStyle = Style.objects.all()
+        prodVarietal = Varietal.objects.all()
+        destYLicor = SubTypeSpirit.objects.all()
+        general =  {'prodZone': prodZone,'prodStyle':prodStyle, 'prodVarietal':prodVarietal}
+        return general
+
+    @classmethod
+    def get_pagination(self,request,products, number) :
+        paginator = Paginator(products, number)
+        page = request.GET.get('page')
+
+        try:
+            prod_page = paginator.page(page)
+        except PageNotAnInteger:
+            prod_page = paginator.page(1)
+        except EmptyPage:
+            prod_page = paginator.page(paginator.num_pages)
+        return {'list_prod':prod_page}
+
 class Wine(Product):
     size = models.CharField(max_length=50, blank=True)
     temperature = models.CharField(max_length=1000, blank=True)
@@ -59,20 +82,30 @@ class Wine(Product):
 
     @classmethod
     def get_product_filter(self, filter, value):
+        typeProd = None
+
         if filter == 'type' :
             prod = Wine.objects.filter(type=value)
+            p = prod[0]
+            typeProd = p.get_type_display()
         elif filter == 'zone' :
-            prod = Wine.objects.filter(zone__name=value)
+            prod = Product.objects.filter(zone__name=value)
+            typeProd = 'por zona'
         elif filter == 'style' :
-            prod = Wine.objects.filter(estilo__name=value)
+            prod = Wine.objects.filter(style__name=value)
+            typeProd = 'por estilo'
         elif filter == 'varietal' :
-            prod = Wine.objects.filter(variedad__name=value)
-        elif filter == 'priceLess' :
-            prod = Wine.objects.filter(price__range=(0,9.99))
+            prod = Wine.objects.filter(varietal__name=value)
+            typeProd = 'por variedad'
+        elif filter == 'priceLower' :
+            prod = Product.objects.filter(price__range=(0,9.99))
+            typeProd = 'por menos de 10€'
         elif filter == 'priceUpper' :
-            prod = Wine.objects.filter(price__range=(10,20))
+            prod = Product.objects.filter(price__range=(10,20))
+            typeProd = 'entre 10€ y 20€'
 
-        return prod
+        return {'type' : typeProd, 'prod' : prod}
+
 
 class Spirit(Product):
     TYPE = (

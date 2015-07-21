@@ -1,12 +1,16 @@
 from django.db import models
 from users.models import BasicUser
 from products.models import *
+import datetime
+from dateutil.relativedelta import *
+
+today = datetime.datetime.today()
 
 class Shopping(models.Model):
     user = models.ForeignKey(BasicUser)
-    address = models.CharField(max_length=50,blank=True)
-    priceTotal = models.DecimalField(max_digits=5,decimal_places=2,blank=True)
-    finish = models.BooleanField(default=True, blank=True)
+    address = models.CharField(max_length=50,blank=True, null=True)
+    priceTotal = models.DecimalField(max_digits=5,default=0,decimal_places=2,blank=True, null=True)
+    finish = models.BooleanField(default=False, blank=True)
     date = models.DateField(auto_now_add=True, blank=True)
 
     def __str__(self):
@@ -41,7 +45,7 @@ class Shopping(models.Model):
         shop = Shopping.objects.get(user=user, finish=False)
         shop.finish = True
         shop.save()
-        new_shop = Shopping(user=request.user.id,address=shop.address,priceTotal=0,finish=False)
+        new_shop = Shopping(user=user,date=today)
         new_shop.save()
 
 
@@ -49,7 +53,7 @@ class Shopping(models.Model):
 class Shopping_Cart(models.Model):
     shopping = models.ForeignKey(Shopping, default=None)
     product = models.ForeignKey(Product)
-    amount = models.IntegerField(default=1)
+    amount = models.IntegerField(default=1,  blank=True, null=True)
 
     def __str__(self):
         return str(self.id)
