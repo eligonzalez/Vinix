@@ -12,7 +12,6 @@ from django.db.models import Q
 admin.autodiscover()
 
 
-
 def home_view(request):
 
     wines = ProductFilter(request.GET, queryset=Wine.objects.all())
@@ -35,6 +34,7 @@ def wine_view(request, wine_id):
     return render(request,'wine_view.html',total)
 
 def add_wine_shopping(request):
+
     message = None
     error = None
     wine_data = None
@@ -55,17 +55,22 @@ def add_wine_shopping(request):
             else :
                 error = "alert alert-success"
                 message = "Se ha añadido correctamente"
-            return render(request,'wine_view.html', {'wine_data': wine_data, 'message' : message, 'error': error})
+
+            general = Product.get_general()
+            specific = {'wine_data': wine_data, 'message' : message, 'error': error}
+            total = dict(general.items() | specific.items())
+            return render(request,'wine_view.html', total)
 
     else :
         return render(request,'wine_view.html', {'wine_data': wine_data})
 
 def list_wines_view(request, filter, value):
 
-
     filters = Wine.get_product_filter(filter,value)
+
+    general = Product.get_general()
     pagination = Product.get_pagination(request,filters['prod'], 4)
-    total = dict(filters.items() | pagination.items())
+    total = dict(filters.items() | pagination.items() | general.items())
 
     return render(request,'list_wines.html', total)
 
@@ -79,8 +84,9 @@ def search(request):
             specific = {'word':word}
             prod = Wine.objects.filter(Q(name__icontains=word))
 
+            general = Product.get_general()
             pagination = Product.get_pagination(request,prod,4)
-            total = dict(specific.items() | pagination.items())
+            total = dict(specific.items() | pagination.items() | general.items())
             return render(request,'search.html',total)
 
     return render(request,'home_view.html')
