@@ -49,8 +49,8 @@ class Product(models.Model):
         prodStyle = Style.objects.all()
         prodVarietal = Varietal.objects.all()
         destYLicor = SubTypeSpirit.objects.all()
-        general =  {'prodZone': prodZone,'prodStyle':prodStyle, 'prodVarietal':prodVarietal}
-        return general
+        return {'prodZone': prodZone,'prodStyle':prodStyle, 'prodVarietal':prodVarietal, 'destYLicor':destYLicor}
+
 
     @classmethod
     def get_pagination(self,request,products, number) :

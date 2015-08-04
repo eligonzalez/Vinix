@@ -12,17 +12,11 @@ def login_view(request):
     form = BasicUserLoginForm()
     form_reg = BasicUserRegisterForm()
     errors = []
-    return render(request,'login_register_view.html',
-        {
-            'form_reg': form_reg,
-            'form': form,
 
-            'form_register_check': 'register_check',
-            'form_login_check': 'login_check',
-
-            'errors': errors,
-        }
-    )
+    general = Product.get_general()
+    specific = {'form_reg': form_reg,'form': form,'form_register_check': 'register_check','form_login_check': 'login_check','errors':errors}
+    total = dict(general.items() | specific.items())
+    return render(request,'login_register_view.html',total)
 
 
 def login_check(request):

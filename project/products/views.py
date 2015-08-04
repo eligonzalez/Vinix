@@ -1,4 +1,3 @@
-
 from django.shortcuts import render
 from django.contrib import admin
 from django.shortcuts import get_object_or_404
@@ -15,22 +14,18 @@ admin.autodiscover()
 def home_view(request):
 
     wines = ProductFilter(request.GET, queryset=Wine.objects.all())
-
     general = Product.get_general()
     pagination = Product.get_pagination(request,wines,12)
     specific = {'products': wines,'filter': wines}
     total = dict(general.items() | specific.items() | pagination.items())
-
     return render(request,'home_view.html', total )
 
 def wine_view(request, wine_id):
 
     wine_data = get_object_or_404(Wine, pk=wine_id)
-
     general = Product.get_general()
     specific = {'wine_data': wine_data}
     total = dict(general.items() | specific.items())
-
     return render(request,'wine_view.html',total)
 
 def add_wine_shopping(request):
@@ -59,6 +54,7 @@ def add_wine_shopping(request):
             general = Product.get_general()
             specific = {'wine_data': wine_data, 'message' : message, 'error': error}
             total = dict(general.items() | specific.items())
+
             return render(request,'wine_view.html', total)
 
     else :
@@ -81,9 +77,9 @@ def search(request):
 
         if form.is_valid():
             word = form.cleaned_data['word']
-            specific = {'word':word}
             prod = Wine.objects.filter(Q(name__icontains=word))
 
+            specific = {'word':word}
             general = Product.get_general()
             pagination = Product.get_pagination(request,prod,4)
             total = dict(specific.items() | pagination.items() | general.items())

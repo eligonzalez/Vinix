@@ -22,14 +22,12 @@ def shopping_cart(request):
         else :
              return redirect('finish_purchase')
 
-    return render(request, "shopping_cart.html",
-            {
-                'shopping_cart': shopping,
-                'total' : total,
-                'priceProduct' : priceXAmount,
-                'errors' : errors
-            })
 
+    return render(request, "shopping_cart.html",
+                  {'shopping_cart': shopping,'total' : total,'priceProduct' : priceXAmount,'errors' : errors,
+                   'prodZone':Zone.objects.all(),'prodStyle':Style.objects.all(),'prodVarietal':Varietal.objects.all(),
+                   'destYLicor': SubTypeSpirit.objects.all()
+                })
 
 
 ''' Falta poder editar la direccion de usuario '''
@@ -40,13 +38,11 @@ def finish_purchase(request):
     address = AddressUser.objects.get(idUser=request.user.id, addressDefault=True)
     shopping = Shopping.get_products(request.user)
     totalPrice = Shopping.get_amount(request.user)
-    return render(request, "finish_purchase.html",
-            {
-                'user' : request.user,
-                'address' : address,
-                'shopping' : shopping,
-                'total' : totalPrice
-            })
+
+    general = Product.get_general()
+    specific = {'user' : request.user,'address' : address,'shopping' : shopping,'total' : totalPrice}
+    total = dict(general.items() | specific.items())
+    return render(request, "finish_purchase.html",total)
 
 
 def check_finish_purchase(request):
@@ -74,15 +70,9 @@ def check_finish_purchase(request):
         shopping = Shopping.get_products(request.user)
         totalPrice = Shopping.get_amount(request.user)
 
-        return render(request, "finish_purchase.html",
-        {
-            'user' : request.user,
-            'address' : address,
-            'shopping' : shopping,
-            'total' : totalPrice,
-            'message' : message,
-            'error': error
-        })
-
+        general = Product.get_general()
+        specific = {'user' : request.user,'address' : address,'shopping' : shopping,'total' : totalPrice,'message' : message,'error': error}
+        total = dict(general.items() | specific.items())
+        return render(request, "finish_purchase.html",total)
     else :
         return redirect('finish_purchase')
