@@ -1,0 +1,29 @@
+{% extends "base_social.html" %}
+{% load staticfiles %}
+{% block body %}
+    <h4> Novedades </h4></br></br>
+    <div class="jumbotron" class="text-center">
+        <h2 class="text-center"> User list </h2>
+        {% for p in users %}
+            {%if p.username != user.username%}
+            <ul>
+                <li>  <strong>username: </strong> <a href="/users/{{p.username}} "> {{ p.username.title }} </a> </li>
+                <li> <strong>full_name: </strong>{{ p.last_name.title }}, {{ p.first_name.title }} </li>
+                <li> <strong>email: </strong> {{ p.email }} </li>
+                <li>
+                    {% if_relationship user p "following" %}
+                        <form action="/unfollow/{{p.username}}" method="get">
+                        <button type="submit" class="btn btn-primary">UnFollow</button>
+                    </form>
+                    {% else %}
+                    <form action="/follow/{{p.username}}" method="get">
+                        <button type="submit" class="btn btn-primary">Follow</button>
+                    </form>
+                    {% endif_relationship %}
+                </li>
+            </ul>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock body %}

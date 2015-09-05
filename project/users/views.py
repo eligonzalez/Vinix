@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import *
 from .models import *
 from shoppingcart.models import *
-
+from django.db.models import Q
 
 def login_view(request):
     if request.user.is_authenticated():
@@ -14,9 +14,10 @@ def login_view(request):
     errors = []
 
     general = Product.get_general()
-    specific = {'form_reg': form_reg,'form': form,'form_register_check': 'register_check','form_login_check': 'login_check','errors':errors}
+    specific = {'form_reg': form_reg, 'form': form, 'form_register_check': 'register_check',
+                'form_login_check': 'login_check', 'errors': errors, }
     total = dict(general.items() | specific.items())
-    return render(request,'login_register_view.html',total)
+    return render(request, 'login_register_view.html', total)
 
 
 def login_check(request):
