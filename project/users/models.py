@@ -59,4 +59,8 @@ class AddressUser(models.Model):
         ad.phone = cd.cleaned_data["phone"]
         ad.save()
 
-
+class Follower(models.Model):
+    idUser1 = models.ForeignKey(BasicUser, null=False, related_name='follower')
+    idUser2 = models.ForeignKey(BasicUser, null=False, related_name='followed')
+    def __str__(self):
+        return str(self.id)

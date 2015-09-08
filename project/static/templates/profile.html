@@ -1,0 +1,46 @@
+{% extends "base_social.html" %}
+{% load staticfiles %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="span9">
+                <h4><b>{{user.first_name}} {{user.last_name}} </b></h4></br>
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4">
+                        {% if seguidos %}
+                            <p>Sigues: {{numSeguidos}}</p>
+                        {% else %}
+                            <p>Sigues: 0</p>
+                        {% endif %}
+                        {% if teSiguen %}
+                            <p>Te siguen: {{numTeSiguen}}</p>
+                        {% else %}
+                            <p>Te siguen: 0</p>
+                        {% endif %}
+                        {% if posts %}
+                            <p>Posts: {{numPosts}}</p>
+                        {% else %}
+                            <p>Posts: 0</p>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><b>Posts</b></div>
+                            <ul class="list-group">
+                                {% if posts %}
+                                    {% for p in posts %}
+                                        <li class="list-group-item">{{p.comment}}</li>
+                                    {% endfor %}
+
+                                {% else %}
+                                    <p>Todavía no has escrito ningún comentario.</p>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

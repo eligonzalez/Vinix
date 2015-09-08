@@ -114,3 +114,5 @@ class Spirit(Product):
     )
     type = models.CharField(max_length=1, choices=TYPE, default='D',blank=True)
     subType = models.ForeignKey(SubTypeSpirit,blank=True)
+
+

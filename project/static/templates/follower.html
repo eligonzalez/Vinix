@@ -1,0 +1,41 @@
+{% extends "base_social.html" %}
+{% load staticfiles %}
+{% block body %}
+
+    <div class="row">
+
+        <div class="col-sm-4 col-md-4">
+            <h4>Amigos</h4></br>
+            {% if friends %}
+                {% for f in friends %}
+                    <p> {{f.first_name}} {{f.last_name}} <a class="more" href="{% url 'remove_followers' user.id f.id %}"> Dejar de seguir </a></p>
+                {% endfor %}
+
+            {% else %}
+                <p>Todavía no estás siguiendo a nadie.</p>
+            {% endif %}
+        </div>
+        <div class="col-sm-4 col-md-4">
+            {% if people %}
+                {% for p in people %}
+                    <p> {{p.first_name}} {{p.last_name}}</p>
+                {% endfor %}
+
+            {% else %}
+                <p>No hemos encontrado a nadie con el nombre <b>{{word}}</b>.</p>
+            {% endif %}
+
+            <form  action="/search_people" method="post">
+                {% csrf_token %}
+                {{form.non_field_errors}}
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Buscar" name="word">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Buscar</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock body %}
