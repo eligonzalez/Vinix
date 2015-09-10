@@ -1,20 +1,20 @@
 <div align="right">
     </br>
     <p>
-        {% if user.username %}
-            <a href="{% url 'my_account' %}"> {{user.username}}  <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
+        {% if request.user.username %}
+            <a href="{% url 'my_account' %}"> {{request.user.username}}  <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
         {% else %}
             <a href="{% url 'my_account' %}"> Iniciar sesión <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
         {% endif %}
     </p>
 </div></br></br>
-<a href="{% url 'profile' %}"><h1 align="center">Vila Viniteca</h1></a> </br></br>
+<a href="{% url 'profile' user.id %}"><h1 align="center">Vila Viniteca</h1></a> </br></br>
 
 <nav class="navbar navbar-inverse" >
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav" >
-                <li><a href="{% url 'profile' %}">Perfil</a></li>
+                <li><a href="{% url 'profile' request.user.id %}">Perfil</a></li>
                 <p class="navbar-text">|</p>
                 <li><a href="{% url 'followers' %}">Amigos</a></li>
                 <p class="navbar-text">|</p>

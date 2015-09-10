@@ -12,12 +12,14 @@ from django.db.models import Q
 
 
 
-def profile(request):
-    seguidos = Follower.objects.filter(idUser1=request.user)
-    teSiguen = Follower.objects.filter(idUser2=request.user)
-    posts = Post.objects.filter(idUser=request.user)
+def profile(request, idUser):
+    seguidos = Follower.objects.filter(idUser1=idUser)
+    teSiguen = Follower.objects.filter(idUser2=idUser)
+    posts = Post.objects.filter(idUser1=idUser).order_by('-date')
+    user = BasicUser.objects.get(id=str(idUser))
+
     return render(request, 'profile.html', {
-        'user': request.user,
+        'user': user,
         'seguidos': seguidos,
         'numSeguidos': (len(seguidos)),
         'teSiguen': teSiguen,
@@ -29,6 +31,7 @@ def profile(request):
 def followers(request):
     sigues = Follower.objects.filter(idUser1=request.user)
     friends = []
+
     for s in sigues:
         print(s.idUser2)
         friends.append(BasicUser.objects.get(id=str(s.idUser2)))
@@ -83,7 +86,7 @@ def add_post(request):
 
     seguidos = Follower.objects.filter(idUser1=request.user)
     teSiguen = Follower.objects.filter(idUser2=request.user)
-    posts = Post.objects.filter(idUser=request.user)
+    posts = Post.objects.filter(idUser1=request.user).order_by('-date')
 
     if request.method == 'POST':
         form = addPostForm(request.POST)
@@ -91,9 +94,9 @@ def add_post(request):
         if form.is_valid():
             post = form.cleaned_data['post']
             user = BasicUser.objects.get(id=request.user.id)
-            ad = Post(idUser=user, comment=post)
+            ad = Post(idUser1=user, idUser2=user, comment=post)
             ad.save()
-            posts = Post.objects.filter(idUser=request.user)
+            posts = Post.objects.filter(idUser1=request.user).order_by('-date')
 
             return render(request,'profile.html', {'user': request.user,'seguidos': seguidos,'posts':posts,
                 'numSeguidos': (len(seguidos)), 'teSiguen': teSiguen, 'numTeSiguen': (len(teSiguen)),'numPosts': (len(posts))

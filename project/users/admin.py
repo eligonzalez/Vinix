@@ -8,10 +8,8 @@ class ShowAddressUser(admin.ModelAdmin):
     list_display = ['idUser', 'name', 'lastName', 'address', 'postalCode', 'town', 'province', 'addressDefault',
                     'country', 'phone']
 
-class ShowFollower(admin.ModelAdmin):
-    list_display = ['id', 'idUser1', 'idUser2']
 
 admin.site.register(BasicUser, ShowUser)
 admin.site.register(AddressUser, ShowAddressUser)
-admin.site.register(Follower, ShowFollower)
+
 
