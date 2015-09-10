@@ -25,7 +25,16 @@
                     </div>
                     <div class="col-md-8">
                         <div class="panel panel-default">
-                            <div class="panel-heading"><b>Posts</b></div>
+                            <form  action="/add_post" method="post">
+                                {% csrf_token %}
+                                {{form.non_field_errors}}
+                                <div class="panel-body">
+                                    <input type="text" class="form-control" placeholder="¿Qué está pasando?" name="post"></br>
+                                    <button class="btn btn-default" type="submit">Publicar</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="panel panel-default">
                             <ul class="list-group">
                                 {% if posts %}
                                     {% for p in posts %}

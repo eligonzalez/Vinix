@@ -5,6 +5,7 @@ from django.shortcuts import redirect
 from users.models import *
 from socialNetwork.models import *
 from products.forms import *
+from .forms import *
 from django.shortcuts import get_object_or_404
 from django.template import RequestContext
 from django.db.models import Q
@@ -74,7 +75,40 @@ def search_people(request):
         if form.is_valid():
             word = form.cleaned_data['word']
             people = BasicUser.objects.filter(Q(first_name__icontains=word))
-            print(people)
             return render(request,'follower.html', {'word': word, 'people': people, 'friends': friends})
 
     return render(request, 'follower.html', {'people': people, 'friends': friends, 'word': word})
+
+def add_post(request):
+
+    seguidos = Follower.objects.filter(idUser1=request.user)
+    teSiguen = Follower.objects.filter(idUser2=request.user)
+    posts = Post.objects.filter(idUser=request.user)
+
+    if request.method == 'POST':
+        form = addPostForm(request.POST)
+
+        if form.is_valid():
+            post = form.cleaned_data['post']
+            user = BasicUser.objects.get(id=request.user.id)
+            ad = Post(idUser=user, comment=post)
+            ad.save()
+            posts = Post.objects.filter(idUser=request.user)
+
+            return render(request,'profile.html', {'user': request.user,'seguidos': seguidos,'posts':posts,
+                'numSeguidos': (len(seguidos)), 'teSiguen': teSiguen, 'numTeSiguen': (len(teSiguen)),'numPosts': (len(posts))
+            })
+
+    return render(request, 'profile.html', {
+        'user': request.user,
+        'seguidos': seguidos,
+        'numSeguidos': (len(seguidos)),
+        'teSiguen': teSiguen,
+        'numTeSiguen': (len(teSiguen)),
+        'posts': posts,
+        'numPosts': (len(posts))
+    })
+
+
+
+
