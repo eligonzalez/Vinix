@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav" >
-                <li><a href="">Inicio</a></li>
+                <li><a href="{% url 'home_social' %}">Inicio</a></li>
                 <p class="navbar-text">|</p>
                 <li><a href="{% url 'profile' request.user.id %}">Perfil</a></li>
                 <p class="navbar-text">|</p>

@@ -1,0 +1,25 @@
+{% extends "base_social.html" %}
+{% load staticfiles %}
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="span9">
+                <h4><b>Comentarios</b></h4></br>
+                {% if posts %}
+                    <div class="panel panel-default">
+                        <ul class="list-group">
+                            {% for p in posts %}
+                                <li class="list-group-item">{{p.idUser1.first_name}} - {{p.comment}} - {{p.date|timesince}}
+                                <a href="{% url 'remove_post' p.id request.user.id %}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></a></span></li>
+                            {% endfor %}
+                        </ul>
+
+                    </div>
+                {% else %}
+                    <p>Todavía no has escrito ningún comentario.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock body %}

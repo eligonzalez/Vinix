@@ -89,9 +89,14 @@ def add_post(request):
             idReceiver = form.cleaned_data['receiver']
             receiver = BasicUser.objects.get(id=str(idReceiver))
             user = BasicUser.objects.get(id=request.user.id)
-            ad = Post(idUser1=user, idUser2=receiver, comment=post)
-            ad.save()
 
+
+            if Follower.objects.filter(idUser1=request.user, idUser2=receiver).exists():
+                ad = Post(idUser1=user, idUser2=receiver, comment=post)
+                ad.save()
+            else:
+                print("Tienes que seguir a este usuario para poder escribirle un comentario.")
+                
             seguidos = Follower.objects.filter(idUser1=receiver.id)
             teSiguen = Follower.objects.filter(idUser2=receiver.id)
             posts = Post.objects.filter(idUser2=receiver.id).order_by('-date')
@@ -133,5 +138,9 @@ def remove_post(request, idPost, idUser):
         'numPosts': (len(posts)),
         'user': receiver})
 
-def home(request):
-    return render(request, 'profile.html', {})
+def home_social(request):
+
+    posts = Post.objects.filter(Q(idUser1=request.user) | Q(idUser2=request.user)).order_by('-date')
+    user = BasicUser.objects.get(id=request.user.id)
+
+    return render(request, 'home_social.html', {'user': user, 'posts': posts})
