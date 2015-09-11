@@ -8,3 +8,4 @@ from .models import Post
 
 class addPostForm(forms.Form):
     post = forms.CharField()
+    receiver=forms.IntegerField()

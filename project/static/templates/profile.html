@@ -13,9 +13,9 @@
                             <p>Sigues: 0</p>
                         {% endif %}
                         {% if teSiguen %}
-                            <p>Te siguen: {{numTeSiguen}}</p>
+                            <p>Seguidores: {{numTeSiguen}}</p>
                         {% else %}
-                            <p>Te siguen: 0</p>
+                            <p>Seguidores: 0</p>
                         {% endif %}
                         {% if posts %}
                             <p>Posts: {{numPosts}}</p>
@@ -30,6 +30,7 @@
                                 {{form.non_field_errors}}
                                 <div class="panel-body">
                                     <input type="text" class="form-control" placeholder="¿Qué está pasando?" name="post"></br>
+                                    <input type="hidden" name="receiver" value="{{user.id}}">
                                     <button class="btn btn-default" type="submit">Publicar</button>
                                 </div>
                             </form>
@@ -38,7 +39,8 @@
                             <div class="panel panel-default">
                                 <ul class="list-group">
                                     {% for p in posts %}
-                                        <li class="list-group-item">{{p.comment}} {{p|date:'Y-m-d H:i:s' }}</li>
+                                        <li class="list-group-item">{{p.idUser1.first_name}} - {{p.comment}} - {{p.date|timesince}}
+                                        <a href="{% url 'remove_post' p.id request.user.id %}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></a></span></li>
                                     {% endfor %}
                                 </ul>
 

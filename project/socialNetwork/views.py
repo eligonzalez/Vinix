@@ -15,7 +15,7 @@ from django.db.models import Q
 def profile(request, idUser):
     seguidos = Follower.objects.filter(idUser1=idUser)
     teSiguen = Follower.objects.filter(idUser2=idUser)
-    posts = Post.objects.filter(idUser1=idUser).order_by('-date')
+    posts = Post.objects.filter(idUser2=idUser).order_by('-date')
     user = BasicUser.objects.get(id=str(idUser))
 
     return render(request, 'profile.html', {
@@ -25,7 +25,8 @@ def profile(request, idUser):
         'teSiguen': teSiguen,
         'numTeSiguen': (len(teSiguen)),
         'posts': posts,
-        'numPosts': (len(posts))
+        'numPosts': (len(posts)),
+        'request': request
     })
 
 def followers(request):
@@ -33,7 +34,6 @@ def followers(request):
     friends = []
 
     for s in sigues:
-        print(s.idUser2)
         friends.append(BasicUser.objects.get(id=str(s.idUser2)))
     return render(request, 'follower.html', {'user': request.user, 'friends': friends})
 
@@ -44,7 +44,6 @@ def remove_followers(request, follower, followed):
     sigues = Follower.objects.filter(idUser1=request.user)
     friends = []
     for s in sigues:
-        print(s.idUser2)
         friends.append(BasicUser.objects.get(id=str(s.idUser2)))
     return render(request, 'follower.html', {'user': request.user, 'friends': friends})
 
@@ -60,7 +59,6 @@ def add_followers(request,follower, followed):
     sigues = Follower.objects.filter(idUser1=request.user)
     friends = []
     for s in sigues:
-        print(s.idUser2)
         friends.append(BasicUser.objects.get(id=str(s.idUser2)))
     return render(request, 'follower.html', {'user': request.user, 'friends': friends})
 
@@ -69,7 +67,6 @@ def search_people(request):
     sigues = Follower.objects.filter(idUser1=request.user)
     friends = []
     for s in sigues:
-        print(s.idUser2)
         friends.append(BasicUser.objects.get(id=str(s.idUser2)))
 
     if request.method == 'POST':
@@ -84,26 +81,27 @@ def search_people(request):
 
 def add_post(request):
 
-    seguidos = Follower.objects.filter(idUser1=request.user)
-    teSiguen = Follower.objects.filter(idUser2=request.user)
-    posts = Post.objects.filter(idUser1=request.user).order_by('-date')
-
     if request.method == 'POST':
         form = addPostForm(request.POST)
 
         if form.is_valid():
             post = form.cleaned_data['post']
+            idReceiver = form.cleaned_data['receiver']
+            receiver = BasicUser.objects.get(id=str(idReceiver))
             user = BasicUser.objects.get(id=request.user.id)
-            ad = Post(idUser1=user, idUser2=user, comment=post)
+            ad = Post(idUser1=user, idUser2=receiver, comment=post)
             ad.save()
-            posts = Post.objects.filter(idUser1=request.user).order_by('-date')
 
-            return render(request,'profile.html', {'user': request.user,'seguidos': seguidos,'posts':posts,
+            seguidos = Follower.objects.filter(idUser1=receiver.id)
+            teSiguen = Follower.objects.filter(idUser2=receiver.id)
+            posts = Post.objects.filter(idUser2=receiver.id).order_by('-date')
+
+            return render(request,'profile.html', {'user': receiver,'seguidos': seguidos,'posts':posts,
                 'numSeguidos': (len(seguidos)), 'teSiguen': teSiguen, 'numTeSiguen': (len(teSiguen)),'numPosts': (len(posts))
             })
 
     return render(request, 'profile.html', {
-        'user': request.user,
+        'user': receiver,
         'seguidos': seguidos,
         'numSeguidos': (len(seguidos)),
         'teSiguen': teSiguen,
@@ -112,6 +110,28 @@ def add_post(request):
         'numPosts': (len(posts))
     })
 
+def remove_post(request, idPost, idUser):
 
+    post = Post.objects.get(id=idPost)
+    receiver = BasicUser.objects.get(id=str(post.idUser2))
+    seguidos = Follower.objects.filter(idUser1=receiver.id)
+    teSiguen = Follower.objects.filter(idUser2=receiver.id)
+    user = BasicUser.objects.get(id=str(idUser))
 
+    if str(post.idUser1) == str(idUser) or str(post.idUser2) == str(idUser):
+        post.delete()
+    else:
+        print("Estás eliminando un mensaje que no ha sido escrito por ti.")
 
+    posts = Post.objects.filter(idUser2=receiver.id).order_by('-date')
+    return render(request, 'profile.html', {'user': user,
+        'seguidos': seguidos,
+        'numSeguidos': (len(seguidos)),
+        'teSiguen': teSiguen,
+        'numTeSiguen': (len(teSiguen)),
+        'posts': posts,
+        'numPosts': (len(posts)),
+        'user': receiver})
+
+def home(request):
+    return render(request, 'profile.html', {})
