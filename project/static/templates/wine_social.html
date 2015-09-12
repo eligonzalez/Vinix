@@ -1,0 +1,40 @@
+{% extends "base_social.html" %}
+{% load staticfiles %}
+{% block body %}
+    <div class="row">
+
+        <div class="col-sm-4 col-md-4">
+            <h4>Vinos</h4></br>
+            {% if productsFavorite %}
+                {% for p in productsFavorite %}
+                    <p> <a href="{% url 'profile' p.id %}">{{p.name}} </a> </p>
+                    <p> <a class="more" href="{% url 'remove_favorite_product' p.id %}"> Eliminar de favoritos </a></p>
+                {% endfor %}
+
+            {% else %}
+                <p>No tienes ningún producto en tu lista de favoritos.</p>
+            {% endif %}
+        </div>
+        <div class="col-sm-4 col-md-4">
+            {% if productsNoFavorite %}
+                {% for p in productsNoFavorite %}
+                    <p> {{p.name}}  <a class="more" href="{% url 'add_favorite_product' p.id %}"> Añadir a favoritos </a></p>
+                {% endfor %}
+
+            {% else %}
+                <p>No hemos encontrado a nadie con el nombre <b>{{word}}</b>.</p>
+            {% endif %}
+
+            <form  action="/search_wine" method="post">
+                {% csrf_token %}
+                {{form.non_field_errors}}
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Buscar" name="word">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Buscar</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock body %}

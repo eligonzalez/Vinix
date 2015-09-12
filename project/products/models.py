@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import *
+from users.models import BasicUser
 
 class Cellar(models.Model):
     name = models.CharField(max_length=50)
@@ -116,3 +117,6 @@ class Spirit(Product):
     subType = models.ForeignKey(SubTypeSpirit,blank=True)
 
 
+class FavoriteProduct(models.Model):
+    user = models.ForeignKey(BasicUser)
+    product = models.ForeignKey(Product)

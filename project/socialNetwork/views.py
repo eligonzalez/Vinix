@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from users.models import *
 from socialNetwork.models import *
+from products.models import *
 from products.forms import *
 from .forms import *
 from django.shortcuts import get_object_or_404
@@ -76,7 +77,6 @@ def search_people(request):
             word = form.cleaned_data['word']
             people = BasicUser.objects.filter(Q(first_name__icontains=word) | Q(last_name__icontains=word) | Q(username__icontains=word)).exclude(id=request.user.id)
             unknowables = filter(lambda x: x not in set(friends), people)
-
             return render(request,'follower.html', {'word': word, 'people': unknowables, 'friends': friends})
 
     return render(request, 'follower.html', {})
@@ -93,7 +93,7 @@ def add_post(request):
             user = BasicUser.objects.get(id=request.user.id)
 
 
-            if Follower.objects.filter(idUser1=request.user, idUser2=receiver).exists():
+            if Follower.objects.filter(idUser1=request.user, idUser2=receiver).exists() or idReceiver == request.user.id:
                 ad = Post(idUser1=user, idUser2=receiver, comment=post)
                 ad.save()
             else:
@@ -146,3 +146,63 @@ def home_social(request):
     user = BasicUser.objects.get(id=request.user.id)
 
     return render(request, 'home_social.html', {'user': user, 'posts': posts})
+
+def wines_social(request):
+    prod_favorite = FavoriteProduct.objects.filter(user=request.user)
+    productsFavorite = []
+
+    for p in prod_favorite:
+        productsFavorite.append(Product.objects.get(id=str(p.product.id)))
+
+    return render(request, 'wine_social.html', {'user': request.user, 'productsFavorite': productsFavorite})
+
+def search_wine(request):
+
+    prod_favorite = FavoriteProduct.objects.filter(user=request.user)
+    productsFavorite = []
+
+    for p in prod_favorite:
+        productsFavorite.append(Product.objects.get(id=str(p.product.id)))
+
+    if request.method == 'POST':
+        form = searchForm(request.POST)
+
+        if form.is_valid():
+            word = form.cleaned_data['word']
+            winesAll = Product.objects.filter(Q(name__icontains=word))
+            productsNoFavorite = filter(lambda x: x not in set(productsFavorite), winesAll)
+
+            return render(request,'wine_social.html', {'word': word, 'productsNoFavorite': productsNoFavorite, 'productsFavorite': productsFavorite})
+
+    return render(request, 'follower.html', {})
+
+def add_favorite_product(request, idProduct):
+    p = Product.objects.get(id=str(idProduct))
+    user = BasicUser.objects.get(id=request.user.id)
+
+    if not FavoriteProduct.objects.filter(user=request.user, product=p).exists():
+        ad = FavoriteProduct(user=user, product=p)
+        ad.save()
+    #else:
+        #Mensaje de error
+
+    prod_favorite = FavoriteProduct.objects.filter(user=request.user)
+    productsFavorite = []
+
+    for p in prod_favorite:
+        productsFavorite.append(Product.objects.get(id=str(p.product.id)))
+
+    return render(request, 'wine_social.html', {'user': request.user, 'productsFavorite': productsFavorite})
+
+def remove_favorite_product(request, idProduct):
+
+    r = FavoriteProduct.objects.filter(user=request.user, product= idProduct)
+    r.delete()
+
+    prod_favorite = FavoriteProduct.objects.filter(user=request.user)
+    productsFavorite = []
+
+    for p in prod_favorite:
+        productsFavorite.append(Product.objects.get(id=str(p.product.id)))
+
+    return render(request, 'wine_social.html', {'user': request.user, 'productsFavorite': productsFavorite})

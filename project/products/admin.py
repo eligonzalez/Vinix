@@ -11,6 +11,9 @@ class ShowWine(admin.ModelAdmin):
 class ShowSpirit(admin.ModelAdmin):
 	list_display = ['type', 'subType']
 
+class ShowFavoriteProduct(admin.ModelAdmin):
+	list_display = ['id', 'user', 'product']
+
 admin.site.register(Cellar)
 admin.site.register(Country)
 admin.site.register(Zone)
@@ -20,3 +23,4 @@ admin.site.register(Style)
 admin.site.register(Product, ShowProduct)
 admin.site.register(Wine, ShowWine)
 admin.site.register(Spirit, ShowSpirit)
+admin.site.register(FavoriteProduct, ShowFavoriteProduct)
