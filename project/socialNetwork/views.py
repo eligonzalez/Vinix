@@ -74,10 +74,12 @@ def search_people(request):
 
         if form.is_valid():
             word = form.cleaned_data['word']
-            people = BasicUser.objects.filter(Q(first_name__icontains=word))
-            return render(request,'follower.html', {'word': word, 'people': people, 'friends': friends})
+            people = BasicUser.objects.filter(Q(first_name__icontains=word) | Q(last_name__icontains=word) | Q(username__icontains=word)).exclude(id=request.user.id)
+            unknowables = filter(lambda x: x not in set(friends), people)
 
-    return render(request, 'follower.html', {'people': people, 'friends': friends, 'word': word})
+            return render(request,'follower.html', {'word': word, 'people': unknowables, 'friends': friends})
+
+    return render(request, 'follower.html', {})
 
 def add_post(request):
 
