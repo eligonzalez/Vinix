@@ -11,6 +11,11 @@ from django.shortcuts import get_object_or_404
 from django.template import RequestContext
 from django.db.models import Q
 
+# Para subir una imagen
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+
 def profile(request, idUser):
 
     profile = Follower.get_profile(idUser)
@@ -115,3 +120,16 @@ def remove_favorite_product(request, idProduct):
     favoriteProducts = FavoriteProduct.get_products_favorite(request.user)
 
     return render(request, 'wine_social.html', favoriteProducts)
+
+
+
+def home2(request):
+    if request.method=="POST":
+        img = UploadForm(request.POST, request.FILES)
+        if img.is_valid():
+            img.save()
+            return HttpResponseRedirect(reverse('imageupload'))
+    else:
+        img=UploadForm()
+    images=Upload.objects.all()
+    return render(request,'prueba.html',{'form':img,'images':images})

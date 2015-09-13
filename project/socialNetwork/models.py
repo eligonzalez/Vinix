@@ -2,6 +2,7 @@ from django.db import models
 from .models import *
 from users.models import BasicUser
 import datetime
+from django.forms import ModelForm
 
 class Post(models.Model):
     idUser1 = models.ForeignKey(BasicUser, null=False, related_name='writer', default=None)
@@ -89,3 +90,13 @@ class Follower(models.Model):
 
         return {'user': receiver,'seguidos': seguidos,'posts':posts,
             'numSeguidos': (len(seguidos)), 'teSiguen': teSiguen, 'numTeSiguen': (len(teSiguen)),'numPosts': (len(posts))}
+
+class Upload(models.Model):
+    pic = models.ImageField("Image", upload_to="images/")
+    upload_date=models.DateTimeField(auto_now_add =True)
+
+# FileUpload form class.
+class UploadForm(ModelForm):
+    class Meta:
+        model = Upload
+        fields = '__all__'

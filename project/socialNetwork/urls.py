@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, url
 from . import views
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = patterns(
@@ -18,4 +19,5 @@ urlpatterns = patterns(
     url(r'^add_favorite_product/(?P<idProduct>\d+)/$', views.add_favorite_product, name='add_favorite_product'),
     url(r'^remove_favorite_product/(?P<idProduct>\d+)/$', views.remove_favorite_product, name='remove_favorite_product'),
 
-)
+    url(r'^upload', views.home2, name='imageupload'),
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
