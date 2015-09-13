@@ -1,10 +1,8 @@
 from django.db import models
 from .models import *
-from products.models import *
 from users.models import BasicUser
 import datetime
 from django.forms import ModelForm
-import re
 
 
 class Post(models.Model):
@@ -43,10 +41,12 @@ class Follower(models.Model):
 
     @classmethod
     def get_profile(self, idUser):
+
         seguidos = Follower.objects.filter(idUser1=idUser)
         teSiguen = Follower.objects.filter(idUser2=idUser)
         posts = Post.objects.filter(idUser2=idUser).order_by('-date')
         user = BasicUser.objects.get(id=str(idUser))
+
         return {'user': user, 'seguidos': seguidos, 'numSeguidos': (len(seguidos)), 'teSiguen': teSiguen,
             'numTeSiguen': (len(teSiguen)), 'posts': posts, 'numPosts': (len(posts))}
 
@@ -82,19 +82,6 @@ class Follower(models.Model):
         user = BasicUser.objects.get(id=u.id)
 
         if Follower.objects.filter(idUser1=u, idUser2=receiver).exists() or idReceiver == u.id:
-            wines = re.findall("@[a-zA-Z0-9_]+", post, re.DOTALL)
-            for wine in wines:
-                name = wine.replace('@', '')
-                name = name.replace('_', ' ')
-                print(name)
-                p = Product.objects.filter(name=name)
-                print(p)
-                if (len(p)):
-                    html = '<a href="/product/wine/' + str(p[0].id)  + '">' + wine + '</a>'
-                    post = post.replace(wine,html)
-                else:
-                    print('No existe el producto')
-
             ad = Post(idUser1=user, idUser2=receiver, comment=post)
             ad.save()
         else:
@@ -107,12 +94,3 @@ class Follower(models.Model):
         return {'user': receiver,'seguidos': seguidos,'posts':posts,
             'numSeguidos': (len(seguidos)), 'teSiguen': teSiguen, 'numTeSiguen': (len(teSiguen)),'numPosts': (len(posts))}
 
-class Upload(models.Model):
-    pic = models.ImageField("Image", upload_to="images/")
-    upload_date=models.DateTimeField(auto_now_add =True)
-
-# FileUpload form class.
-class UploadForm(ModelForm):
-    class Meta:
-        model = Upload
-        fields = '__all__'

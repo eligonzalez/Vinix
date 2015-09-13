@@ -18,8 +18,15 @@ from django.core.urlresolvers import reverse
 
 def profile(request, idUser):
 
-    profile = Follower.get_profile(idUser)
-    return render(request, 'profile.html', profile)
+    img=UploadFileForm()
+    seguidos = Follower.objects.filter(idUser1=idUser)
+    teSiguen = Follower.objects.filter(idUser2=idUser)
+    posts = Post.objects.filter(idUser2=idUser).order_by('-date')
+    user = BasicUser.objects.get(id=str(idUser))
+    #profile = Follower.get_profile(idUser)
+
+    return render(request, 'profile.html', {'user': user, 'seguidos': seguidos, 'numSeguidos': (len(seguidos)), 'teSiguen': teSiguen,
+            'numTeSiguen': (len(teSiguen)), 'posts': posts, 'numPosts': (len(posts)), 'form':img})
 
 def followers(request):
 
@@ -122,14 +129,15 @@ def remove_favorite_product(request, idProduct):
     return render(request, 'wine_social.html', favoriteProducts)
 
 
-
 def home2(request):
     if request.method=="POST":
-        img = UploadForm(request.POST, request.FILES)
-        if img.is_valid():
-            img.save()
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            print("El form es valido")
+            user = BasicUser.objects.get(id=request.user.id)
+            user.image = request.FILES['image']
+            user.save()
             return HttpResponseRedirect(reverse('imageupload'))
     else:
-        img=UploadForm()
-    images=Upload.objects.all()
-    return render(request,'prueba.html',{'form':img,'images':images})
+        form=UploadFileForm()
+    return redirect('followers')

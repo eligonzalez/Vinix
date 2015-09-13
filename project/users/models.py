@@ -1,11 +1,13 @@
 from django.db import models
 from datetime import date
 from django.contrib.auth.models import User
-
+from django.forms import ModelForm
 
 class BasicUser(User):
     dni = models.CharField(max_length=12, blank=True, null=True)
     birth_date = models.DateField(blank=True, null=True)
+    image = models.ImageField(upload_to="images/", null=True, default=None)
+
     def __str__(self):
         return str(self.id)
     def age(self):
@@ -26,6 +28,7 @@ class BasicUser(User):
         else :
             return 1
         client.save()
+
 
 class AddressUser(models.Model):
     idUser = models.ForeignKey(BasicUser)
