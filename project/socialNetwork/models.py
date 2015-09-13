@@ -1,8 +1,11 @@
 from django.db import models
 from .models import *
+from products.models import *
 from users.models import BasicUser
 import datetime
 from django.forms import ModelForm
+import re
+
 
 class Post(models.Model):
     idUser1 = models.ForeignKey(BasicUser, null=False, related_name='writer', default=None)
@@ -79,6 +82,19 @@ class Follower(models.Model):
         user = BasicUser.objects.get(id=u.id)
 
         if Follower.objects.filter(idUser1=u, idUser2=receiver).exists() or idReceiver == u.id:
+            wines = re.findall("@[a-zA-Z0-9_]+", post, re.DOTALL)
+            for wine in wines:
+                name = wine.replace('@', '')
+                name = name.replace('_', ' ')
+                print(name)
+                p = Product.objects.filter(name=name)
+                print(p)
+                if (len(p)):
+                    html = '<a href="/product/wine/' + str(p[0].id)  + '">' + wine + '</a>'
+                    post = post.replace(wine,html)
+                else:
+                    print('No existe el producto')
+
             ad = Post(idUser1=user, idUser2=receiver, comment=post)
             ad.save()
         else:
