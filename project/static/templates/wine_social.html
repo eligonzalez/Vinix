@@ -4,10 +4,10 @@
     <div class="row">
 
         <div class="col-sm-4 col-md-4">
-            <h4>Vinos</h4></br>
+            <h4>Productos favoritos</h4></br>
             {% if productsFavorite %}
                 {% for p in productsFavorite %}
-                    <p> <a href="{% url 'profile' p.id %}">{{p.name}} </a> </p>
+                    <p> <a href="{% url 'wine_view' p.id %}">{{p.name}} </a> </p>
                     <p> <a class="more" href="{% url 'remove_favorite_product' p.id %}"> Eliminar de favoritos </a></p>
                 {% endfor %}
 
@@ -18,7 +18,8 @@
         <div class="col-sm-4 col-md-4">
             {% if productsNoFavorite %}
                 {% for p in productsNoFavorite %}
-                    <p> {{p.name}}  <a class="more" href="{% url 'add_favorite_product' p.id %}"> Añadir a favoritos </a></p>
+                    <p> <a href="{% url 'wine_view' p.id %}">{{p.name}} </a></p>
+                    <p><a class="more" href="{% url 'add_favorite_product' p.id %}"> Añadir a favoritos </a></p>
                 {% endfor %}
 
             {% else %}

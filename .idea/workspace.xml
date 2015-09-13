@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3267a8c0-5768-4bc2-a772-5e1aa4ead94e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/static/templates/wine_social.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/products/admin.py" afterPath="$PROJECT_DIR$/project/products/admin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/products/models.py" afterPath="$PROJECT_DIR$/project/products/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/socialNetwork/models.py" afterPath="$PROJECT_DIR$/project/socialNetwork/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/navbar_social.html" afterPath="$PROJECT_DIR$/project/static/templates/navbar_social.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/socialNetwork/urls.py" afterPath="$PROJECT_DIR$/project/socialNetwork/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/socialNetwork/views.py" afterPath="$PROJECT_DIR$/project/socialNetwork/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/wine_social.html" afterPath="$PROJECT_DIR$/project/static/templates/wine_social.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Vinix.iws" />
@@ -32,8 +31,8 @@
       <file leaf-file-name="wine_social.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/static/templates/wine_social.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.25">
-              <caret line="10" column="78" selection-start-line="10" selection-start-column="78" selection-end-line="10" selection-end-column="78" />
+            <state vertical-scroll-proportion="-13.125">
+              <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -42,23 +41,9 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/socialNetwork/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44888178">
-              <caret line="95" column="105" selection-start-line="95" selection-start-column="105" selection-end-line="95" selection-end-column="105" />
-              <folding>
-                <element signature="e#0#55#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/socialNetwork/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.5555553">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="2.5159745">
+              <caret line="116" column="64" selection-start-line="116" selection-start-column="64" selection-end-line="116" selection-end-column="64" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,8 +51,18 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/products/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.851852">
-              <caret line="121" column="40" selection-start-line="121" selection-start-column="40" selection-end-line="121" selection-end-column="40" />
+            <state vertical-scroll-proportion="-18.74074">
+              <caret line="147" column="48" selection-start-line="147" selection-start-column="48" selection-end-line="147" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/socialNetwork/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.074074">
+              <caret line="40" column="34" selection-start-line="39" selection-start-column="4" selection-end-line="40" selection-end-column="34" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -140,16 +135,16 @@
         <option value="$PROJECT_DIR$/project/users/models.py" />
         <option value="$PROJECT_DIR$/project/socialNetwork/admin.py" />
         <option value="$PROJECT_DIR$/project/users/admin.py" />
-        <option value="$PROJECT_DIR$/project/socialNetwork/models.py" />
         <option value="$PROJECT_DIR$/project/static/templates/follower.html" />
         <option value="$PROJECT_DIR$/project/socialNetwork/forms.py" />
         <option value="$PROJECT_DIR$/project/static/templates/profile.html" />
         <option value="$PROJECT_DIR$/project/static/templates/home_social.html" />
-        <option value="$PROJECT_DIR$/project/products/models.py" />
         <option value="$PROJECT_DIR$/project/products/admin.py" />
+        <option value="$PROJECT_DIR$/project/socialNetwork/urls.py" />
         <option value="$PROJECT_DIR$/project/static/templates/navbar_social.html" />
         <option value="$PROJECT_DIR$/project/static/templates/wine_social.html" />
-        <option value="$PROJECT_DIR$/project/socialNetwork/urls.py" />
+        <option value="$PROJECT_DIR$/project/socialNetwork/models.py" />
+        <option value="$PROJECT_DIR$/project/products/models.py" />
         <option value="$PROJECT_DIR$/project/socialNetwork/views.py" />
       </list>
     </option>
@@ -249,6 +244,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="socialNetwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vinix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vinix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="products" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -583,7 +596,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442057516643</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Puedes buscar vinos, añadirlos a favoritos y eliminarlos de la lista de favoritos.">
+      <created>1442094553288</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1442094553288</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -666,7 +685,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="He modificado el modelo Wine" />
     <MESSAGE value="He modificado los modelos y el admin.py para que se muestren los objetos en forma de lista." />
     <MESSAGE value="He cambiado el nombre de tipe por Type." />
     <MESSAGE value="He creado el HTML my_account.html y edit_account, aunque esta ultima no tiene datos todavia." />
@@ -691,7 +709,8 @@
     <MESSAGE value="El usuario puede crear comentarios en otros perfiles y eliminarlos en el caso de que sea el propietario.&#10;" />
     <MESSAGE value="El usuario solo puede comentar a una persona si le está siguiendo." />
     <MESSAGE value="Puedes buscar a un amigo por nombre, apellidos y username. &#10;Además, cuando buscas a un amigo no te salen los amigos que ya estas siguiendo.&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Puedes buscar a un amigo por nombre, apellidos y username. &#10;Además, cuando buscas a un amigo no te salen los amigos que ya estas siguiendo.&#10;" />
+    <MESSAGE value="Puedes buscar vinos, añadirlos a favoritos y eliminarlos de la lista de favoritos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Puedes buscar vinos, añadirlos a favoritos y eliminarlos de la lista de favoritos." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -974,16 +993,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/products/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57507986">
-          <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#35#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/users/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07188498">
@@ -995,13 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/home_view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="59" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -1029,16 +1031,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/socialNetwork/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21565495">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/products/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6010017">
@@ -1055,17 +1047,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/navbar_social.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5246423">
-          <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/socialNetwork/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.5555553">
+        <state vertical-scroll-proportion="0.23961662">
           <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
@@ -1073,20 +1057,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/products/models.py">
+    <entry file="file://$PROJECT_DIR$/project/static/templates/navbar_social.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.851852">
-          <caret line="121" column="40" selection-start-line="121" selection-start-column="40" selection-end-line="121" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.5246423">
+          <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/wine_social.html">
+    <entry file="file://$PROJECT_DIR$/project/static/templates/home_view.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.25">
-          <caret line="10" column="78" selection-start-line="10" selection-start-column="78" selection-end-line="10" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.42925277">
+          <caret line="18" column="60" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/products/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40734825">
+          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -1099,13 +1089,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/templates/wine_social.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.125">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/socialNetwork/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.074074">
+          <caret line="40" column="34" selection-start-line="39" selection-start-column="4" selection-end-line="40" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/products/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.74074">
+          <caret line="147" column="48" selection-start-line="147" selection-start-column="48" selection-end-line="147" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project/socialNetwork/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44888178">
-          <caret line="95" column="105" selection-start-line="95" selection-start-column="105" selection-end-line="95" selection-end-column="105" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="2.5159745">
+          <caret line="116" column="64" selection-start-line="116" selection-start-column="64" selection-end-line="116" selection-end-column="64" />
+          <folding />
         </state>
       </provider>
     </entry>

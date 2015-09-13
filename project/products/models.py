@@ -120,3 +120,30 @@ class Spirit(Product):
 class FavoriteProduct(models.Model):
     user = models.ForeignKey(BasicUser)
     product = models.ForeignKey(Product)
+
+    @classmethod
+    def get_products_favorite(self, u):
+
+        prod_favorite = FavoriteProduct.objects.filter(user=u)
+        productsFavorite = []
+
+        for p in prod_favorite:
+            productsFavorite.append(Product.objects.get(id=str(p.product.id)))
+
+        return {'user': u, 'productsFavorite': productsFavorite}
+
+    @classmethod
+    def add_product_favorite(self, idProduct, u):
+        p = Product.objects.get(id=str(idProduct))
+        user = BasicUser.objects.get(id=u.id)
+
+        if not FavoriteProduct.objects.filter(user=u, product=p).exists():
+            ad = FavoriteProduct(user=user, product=p)
+            ad.save()
+        #else:
+            #Mensaje de error
+
+    @classmethod
+    def delete_product_favorite(self, idProduct, u):
+        r = FavoriteProduct.objects.filter(user=u, product=idProduct)
+        r.delete()
