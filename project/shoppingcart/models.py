@@ -12,6 +12,14 @@ class Shopping(models.Model):
     priceTotal = models.DecimalField(max_digits=5,default=0,decimal_places=2,blank=True, null=True)
     finish = models.BooleanField(default=False, blank=True)
     date = models.DateField(auto_now_add=True, blank=True)
+    name = models.CharField(max_length=50, blank=True, null=True)
+    lastName =  models.CharField(max_length=50, blank=True, null=True)
+    address = models.CharField(max_length=50, blank=True, null=True)
+    postalCode = models.CharField(max_length=5, blank=True, null=True)
+    town = models.CharField(max_length=50, blank=True, null=True)
+    province = models.CharField(max_length=50, blank=True, null=True)
+    country = models.CharField(max_length=50, default='España', blank=True, null=True)
+    phone = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
         return str(self.id)

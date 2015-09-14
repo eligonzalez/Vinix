@@ -3,23 +3,51 @@ from .models import *
 # Register your models here.
 
 class ShowProduct(admin.ModelAdmin):
-	list_display = ['name', 'price', 'image', 'zone', 'country', 'elaboration', 'alcohol']
+	list_display = ['id', 'name', 'price', 'image', 'zone', 'country', 'elaboration', 'alcohol']
+	readonly_fields = ('id',)
 
 class ShowWine(admin.ModelAdmin):
-	list_display = ['name', 'price', 'image', 'zone', 'country', 'elaboration', 'alcohol', 'size', 'temperature', 'cellar', 'varietal', 'style', 'marriage', 'type']
+	list_display = ['id', 'name', 'price', 'image', 'zone', 'country', 'elaboration', 'alcohol', 'size', 'temperature', 'cellar', 'varietal', 'style', 'marriage', 'type']
+	readonly_fields = ('id',)
 
 class ShowSpirit(admin.ModelAdmin):
-	list_display = ['type', 'subType']
+	list_display = ['id', 'type', 'subType']
+	readonly_fields = ('id',)
 
 class ShowFavoriteProduct(admin.ModelAdmin):
 	list_display = ['id', 'user', 'product']
+	readonly_fields = ('id',)
 
-admin.site.register(Cellar)
-admin.site.register(Country)
-admin.site.register(Zone)
-admin.site.register(Varietal)
-admin.site.register(SubTypeSpirit)
-admin.site.register(Style)
+class ShowCellar(admin.ModelAdmin):
+	list_display = ['id', 'name']
+	readonly_fields = ('id',)
+
+class ShowCountry(admin.ModelAdmin):
+	list_display = ['id', 'name']
+	readonly_fields = ('id',)
+
+class ShowZone(admin.ModelAdmin):
+	list_display = ['id', 'name']
+	readonly_fields = ('id',)
+
+class ShowVarietal(admin.ModelAdmin):
+	list_display = ['id', 'name']
+	readonly_fields = ('id',)
+
+class ShowSubTypeSpirit(admin.ModelAdmin):
+	list_display = ['id', 'name']
+	readonly_fields = ('id',)
+
+class ShowStyle(admin.ModelAdmin):
+	list_display = ['id', 'name']
+	readonly_fields = ('id',)
+
+admin.site.register(Cellar, ShowCellar)
+admin.site.register(Country, ShowCountry)
+admin.site.register(Zone, ShowZone)
+admin.site.register(Varietal, ShowVarietal)
+admin.site.register(SubTypeSpirit, ShowSubTypeSpirit)
+admin.site.register(Style, ShowStyle)
 admin.site.register(Product, ShowProduct)
 admin.site.register(Wine, ShowWine)
 admin.site.register(Spirit, ShowSpirit)

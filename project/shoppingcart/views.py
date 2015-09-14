@@ -35,7 +35,7 @@ def finish_purchase(request):
     if not request.user.is_authenticated():
         return redirect('login')
 
-    address = AddressUser.objects.get(idUser=request.user.id, addressDefault=True)
+    address = AddressUser.objects.get(idUser=request.user.id)
     shopping = Shopping.get_products(request.user)
     totalPrice = Shopping.get_amount(request.user)
 
@@ -66,7 +66,7 @@ def check_finish_purchase(request):
             error = "alert alert-danger"
             message = "Introduzca el nombre de la tarjeta correctamente."
 
-        address = AddressUser.objects.get(idUser=request.user.id, addressDefault=True)
+        address = AddressUser.objects.get(idUser=request.user.id)
         shopping = Shopping.get_products(request.user)
         totalPrice = Shopping.get_amount(request.user)
 

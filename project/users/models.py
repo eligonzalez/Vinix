@@ -38,7 +38,6 @@ class AddressUser(models.Model):
     postalCode = models.CharField(max_length=5, blank=True, null=True)
     town = models.CharField(max_length=50, blank=True, null=True)
     province = models.CharField(max_length=50, blank=True, null=True)
-    addressDefault = models.BooleanField(default=True, blank=True)
     country = models.CharField(max_length=50, default='España', blank=True, null=True)
     phone = models.CharField(max_length=50, blank=True, null=True)
     def __str__(self):
