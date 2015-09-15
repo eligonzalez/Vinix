@@ -127,6 +127,7 @@ def search(request):
 def list_spirit(request, value):
 
     filters = Spirit.get_products_filter(value)
+    products = ProductFilter(request.GET, queryset=Product.objects.all())
 
     general = Product.get_general()
     pagination = Product.get_pagination(request,filters['prod'], 4)
@@ -135,11 +136,10 @@ def list_spirit(request, value):
 
 def spirit_view(request, spirit_id):
 
-    typeProd = value
-    prod = Spirit.objects.filter(subType__name=value)
+
     spirit_data = get_object_or_404(Spirit, pk=spirit_id)
 
     general = Product.get_general()
-    specific = {'spirit_data': spirit_data, 'type' : typeProd, 'prod' : prod}
+    specific = {'spirit_data': spirit_data}
     total = dict(general.items() | specific.items())
     return render(request,'spirit.html', total)

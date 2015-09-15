@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3267a8c0-5768-4bc2-a772-5e1aa4ead94e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/products/filters.py" afterPath="$PROJECT_DIR$/project/products/filters.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/list_spirit.html" afterPath="$PROJECT_DIR$/project/static/templates/list_spirit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/list_wines.html" afterPath="$PROJECT_DIR$/project/static/templates/list_wines.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/products/views.py" afterPath="$PROJECT_DIR$/project/products/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -30,18 +28,18 @@
       <file leaf-file-name="list_spirit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/static/templates/list_spirit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.375">
-              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="31" />
+            <state vertical-scroll-proportion="-12.5">
+              <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/products/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.6666666">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8083067">
+              <caret line="142" column="42" selection-start-line="142" selection-start-column="42" selection-end-line="142" selection-end-column="42" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -61,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list_wines.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="list_wines.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/static/templates/list_wines.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09538951">
-              <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+            <state vertical-scroll-proportion="-4.375">
+              <caret line="16" column="30" selection-start-line="11" selection-start-column="15" selection-end-line="16" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -134,9 +132,9 @@
         <option value="$PROJECT_DIR$/project/products/models.py" />
         <option value="$PROJECT_DIR$/project/static/templates/home_view.html" />
         <option value="$PROJECT_DIR$/project/products/filters.py" />
-        <option value="$PROJECT_DIR$/project/products/views.py" />
         <option value="$PROJECT_DIR$/project/static/templates/list_wines.html" />
         <option value="$PROJECT_DIR$/project/static/templates/list_spirit.html" />
+        <option value="$PROJECT_DIR$/project/products/views.py" />
       </list>
     </option>
   </component>
@@ -663,7 +661,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442312515738</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Se puede ordenar por nombre, precio y pais la vista de listado de vinos.">
+      <created>1442317767155</created>
+      <option name="number" value="00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1442317767155</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -746,7 +750,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="He puesto valores variables en vez de fijos en el HTML." />
     <MESSAGE value="Ahora funciona!! Ya lee los css." />
     <MESSAGE value="La vista wine_view se autorecarga correctamente y da los mensajes de error y confirmacion del producto" />
     <MESSAGE value="Punto medio." />
@@ -771,7 +774,8 @@
     <MESSAGE value="Se pueden subir fotos de perfil." />
     <MESSAGE value="He modificado los admin.py para que se mostraran las fechas y los id's de las clases." />
     <MESSAGE value="He añadido la vista de informacion de destilados y licores. Además se pueden ver todos los productos, no solo los vinos, en el home. Por ultimo, puedes añadir destilados y licores al carrito." />
-    <option name="LAST_COMMIT_MESSAGE" value="He añadido la vista de informacion de destilados y licores. Además se pueden ver todos los productos, no solo los vinos, en el home. Por ultimo, puedes añadir destilados y licores al carrito." />
+    <MESSAGE value="Se puede ordenar por nombre, precio y pais la vista de listado de vinos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Se puede ordenar por nombre, precio y pais la vista de listado de vinos." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1169,29 +1173,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/products/views.py">
+    <entry file="file://$PROJECT_DIR$/project/static/templates/list_wines.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6666666">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-4.375">
+          <caret line="16" column="30" selection-start-line="11" selection-start-column="15" selection-end-line="16" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/static/templates/list_spirit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.375">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="31" />
+        <state vertical-scroll-proportion="-12.5">
+          <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/list_wines.html">
+    <entry file="file://$PROJECT_DIR$/project/products/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09538951">
-          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
-          <folding />
+        <state vertical-scroll-proportion="0.8083067">
+          <caret line="142" column="42" selection-start-line="142" selection-start-column="42" selection-end-line="142" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

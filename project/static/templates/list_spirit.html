@@ -9,10 +9,17 @@
                     <li class="active"><small>Listado de productos</small></li>
                 </ol>
 
+                {% block content %}
+                    <form action="" method="get">
+                        {{ products.form.as_p }}
+                        <button type="submit" name="submit" class="btn btn-primary btn-lg active">Buscar</button>
+                    </form>
+                {% endblock %}
+
                 <h4><b> {{type}} </b></h4></br></br>
-                {% if list_prod %}
+                {% if products %}
                     <div class="row">
-                        {% for prod in list_prod %}
+                        {% for prod in products %}
                                 <div class="col-sm-4 col-md-3">
                                     <div class="thumbnail">
                                         <a href="{% url 'spirit_view' prod.id %}"> <img  src="{{prod.image.url}}"> </a>
