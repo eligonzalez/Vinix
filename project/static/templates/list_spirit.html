@@ -9,15 +9,16 @@
                     <li class="active"><small>Listado de productos</small></li>
                 </ol>
 
-                {% block content %}
-                    <form action="" method="get">
-                        {{ products.form.as_p }}
-                        <button type="submit" name="submit" class="btn btn-primary btn-lg active">Buscar</button>
-                    </form>
-                {% endblock %}
-
                 <h4><b> {{type}} </b></h4></br></br>
                 {% if products %}
+
+                    {% block content %}
+                        <form action="" method="get">
+                            {{ products.form.as_p }}
+                            <button type="submit" name="submit" class="btn btn-primary btn-lg active">Buscar</button>
+                        </form>
+                    {% endblock %}
+
                     <div class="row">
                         {% for prod in products %}
                                 <div class="col-sm-4 col-md-3">

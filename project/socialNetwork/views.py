@@ -133,7 +133,6 @@ def home2(request):
     if request.method=="POST":
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
-            print("El form es valido")
             user = BasicUser.objects.get(id=request.user.id)
             user.image = request.FILES['image']
             user.save()
