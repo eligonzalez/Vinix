@@ -16,7 +16,11 @@
             {% for p in products %}
                 <div class="col-sm-4 col-md-3" >
                     <div class="thumbnail">
-                        <a href="{% url 'wine_view' p.id %}"> <img  src="{{p.image.url}}"> </a>
+                        {% if p.wine %}
+                            <a href="{% url 'wine_view' p.id %}"> <img  src="{{p.image.url}}"> </a>
+                        {% else %}
+                            <a href="{% url 'spirit_view' p.id %}"> <img  src="{{p.image.url}}"> </a>
+                        {% endif %}
                         <div class="caption" align="center"> </div>
                     </div>
                     <div class="cajaProducto"></br>

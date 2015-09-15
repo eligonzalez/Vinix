@@ -71,7 +71,7 @@
                     <a data-activates='dropdown-menu' href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" >Destilados y licores </a>
                     <ul class="dropdown-menu" role="menu">
                         {% for destYLicor in destYLicor %}
-                            <li class="belowDivider"><a> {{destYLicor.nombre}} </a></li>
+                            <li class="belowDivider"><a href="{% url 'list_spirit' destYLicor.name %}"> {{destYLicor.name}} </a></li>
                         {% endfor %}
                     </ul>
                 </li>

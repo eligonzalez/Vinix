@@ -13,10 +13,10 @@ admin.autodiscover()
 
 def home_view(request):
 
-    wines = ProductFilter(request.GET, queryset=Wine.objects.all())
+    products = ProductFilter(request.GET, queryset=Product.objects.all())
     general = Product.get_general()
-    pagination = Product.get_pagination(request,wines,12)
-    specific = {'products': wines,'filter': wines}
+    pagination = Product.get_pagination(request,products,12)
+    specific = {'products': products,'filter': products}
     total = dict(general.items() | specific.items() | pagination.items())
     return render(request,'home_view.html', total )
 
@@ -41,7 +41,6 @@ def add_wine_shopping(request):
             amount = form.cleaned_data['amount']
             idProd = form.cleaned_data['idProd']
             result= Shopping_Cart.add_Product_Shopping_Cart(request.user,idProd, amount)
-            wine_data = get_object_or_404(Wine, pk=idProd)
             request.session['amount'] = float(Shopping.get_amount(request.user))
 
             if result == 1 :
@@ -52,13 +51,22 @@ def add_wine_shopping(request):
                 message = "Se ha añadido correctamente"
 
             general = Product.get_general()
-            specific = {'wine_data': wine_data, 'message' : message, 'error': error}
-            total = dict(general.items() | specific.items())
 
-            return render(request,'wine_view.html', total)
+            product_data = get_object_or_404(Product, pk=idProd)
 
+            if hasattr(product_data, 'spirit'):
+                spirit_data = get_object_or_404(Spirit, pk=idProd)
+                specific = {'spirit_data': spirit_data, 'message' : message, 'error': error}
+                total = dict(general.items() | specific.items())
+                return render(request,'spirit.html', total)
+
+            else:
+                wine_data = get_object_or_404(Wine, pk=idProd)
+                specific = {'wine_data': wine_data, 'message' : message, 'error': error}
+                total = dict(general.items() | specific.items())
+                return render(request,'wine_view.html', total)
     else :
-        return render(request,'wine_view.html', {'wine_data': wine_data})
+        return render(request,'wine_view.html', {})
 
 def list_wines_view(request, filter, value):
 
@@ -86,3 +94,20 @@ def search(request):
             return render(request,'search.html',total)
 
     return render(request,'home_view.html')
+
+def list_spirit(request, value):
+
+    filters = Spirit.get_products_filter(value)
+
+    general = Product.get_general()
+    pagination = Product.get_pagination(request,filters['prod'], 4)
+    total = dict(filters.items() | pagination.items() | general.items())
+    return render(request,'list_spirit.html', total)
+
+def spirit_view(request, spirit_id):
+
+    spirit_data = get_object_or_404(Spirit, pk=spirit_id)
+    general = Product.get_general()
+    specific = {'spirit_data': spirit_data}
+    total = dict(general.items() | specific.items())
+    return render(request,'spirit.html',total)

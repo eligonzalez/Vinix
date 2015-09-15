@@ -116,6 +116,11 @@ class Spirit(Product):
     type = models.CharField(max_length=1, choices=TYPE, default='D',blank=True)
     subType = models.ForeignKey(SubTypeSpirit,blank=True)
 
+    @classmethod
+    def get_products_filter(self, value):
+        typeProd = value
+        prod = Spirit.objects.filter(subType__name=value)
+        return {'type' : typeProd, 'prod' : prod}
 
 class FavoriteProduct(models.Model):
     user = models.ForeignKey(BasicUser)
