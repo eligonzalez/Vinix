@@ -64,6 +64,7 @@ class Product(models.Model):
             prod_page = paginator.page(1)
         except EmptyPage:
             prod_page = paginator.page(paginator.num_pages)
+
         return {'list_prod':prod_page}
 
 class Wine(Product):

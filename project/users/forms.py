@@ -54,6 +54,8 @@ class edit_account_form(forms.Form):
     email = forms.EmailField(required=True)
     password1 = forms.CharField()
     password2 = forms.CharField()
+    first_name_dir = forms.CharField(required=True)
+    last_name_dir = forms.CharField(required=True)
     address = forms.CharField(required=True)
     province = forms.CharField(required=True)
     town = forms.CharField(required=True)

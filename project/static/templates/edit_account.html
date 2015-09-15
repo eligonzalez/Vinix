@@ -65,8 +65,22 @@
             <div class="col-sm-6 col-md-6">
                 <h4>Editar dirección de envío</h4></br></br></br></br>
 
-
-
+                <div class="form-group">
+                    <div class="row">
+                        <label for="first_name" class="col-sm-4 control-label"><b>Nombre</b></label>
+                        <div class="col-sm-7">
+                            <input type="text" id="first_name_dir" class="form-control" name="first_name_dir" placeholder="Nombre" value="{{address.0.name|default_if_none:''}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="last_name" class="col-sm-4 control-label"><b>Apellidos</b></label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="last_name_dir" name="last_name_dir" placeholder="Apellidos" value="{{address.0.lastName|default_if_none:''}}">
+                        </div>
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="row">
                         <label for="address" class="col-sm-4 control-label"><b>Dirección de envío</b></label>

@@ -5,7 +5,7 @@
         </div>
         <div align="right">
             <div class="col-sm-6 col-md-6">
-                <a class="more">Editar dirección</a>
+                <a class="more" href="{% url 'edit_account' %}">Editar dirección</a>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
                     <p> Nombre </p>
                 </div>
                 <div class="col-md-9">
-                    <p class="color"> {{address.name}} </p>
+                    <p class="color"> {{address.name|default_if_none:''}} </p>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
                     <p> Apellidos </p>
                 </div>
                 <div class="col-md-9">
-                    <p class="color"> {{address.lastName}}  </p>
+                    <p class="color"> {{address.lastName|default_if_none:''}}  </p>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
                     <p> Dirección </p>
                 </div>
                 <div class="col-md-9">
-                    <p class="color"> {{address.address}}</p>
+                    <p class="color"> {{address.address|default_if_none:''}}</p>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
                     <p> Código postal </p>
                 </div>
                 <div class="col-md-9">
-                    <p class="color"> {{address.postalCode}} </p>
+                    <p class="color"> {{address.postalCode|default_if_none:''}} </p>
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
                     <p> Ciudad </p>
                 </div>
                 <div class="col-md-9">
-                    <p class="color"> {{address.town}} </p>
+                    <p class="color"> {{address.town|default_if_none:''}} </p>
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
                     <p> País </p>
                 </div>
                 <div class="col-md-9">
-                    <p class="color"> {{address.country}} </p>
+                    <p class="color"> {{address.country|default_if_none:''}} </p>
                 </div>
             </div>
         </div>
@@ -76,7 +76,7 @@
                     <p> Teléfono </p>
                 </div>
                 <div class="col-md-9">
-                    <p class="color"> {{address.phone}} </p>
+                    <p class="color"> {{address.phone|default_if_none:''}} </p>
                 </div>
             </div>
         </div>

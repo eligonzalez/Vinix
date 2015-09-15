@@ -8,12 +8,15 @@
                 {{ products.form.as_p }}
                 <button type="submit" name="submit" class="btn btn-primary btn-lg active">Buscar</button>
             </form>
+
         {% endblock %}
+
     </div>
     <div class="row">
 
-        {% if products %}
-            {% for p in products %}
+
+        {% if list_prod %}
+            {% for p in list_prod %}
                 <div class="col-sm-4 col-md-3" >
                     <div class="thumbnail">
                         {% if p.wine %}
@@ -54,7 +57,7 @@
         {% endfor %}
 
         {% if list_prod.has_next %}
-            <a href="?page={{ lista_prod.next_page_number }}" aria-label="Next"> <span aria-hidden="true"> POST→ </span></a>
+            <a href="?page={{ list_prod.next_page_number }}" aria-label="Next"> <span aria-hidden="true"> POST→ </span></a>
         {% endif %}
         {% if not list_prod.has_next %}
             <a href="#" aria-label="Next"> <span aria-hidden="true"> POST→</span></a>

@@ -15,8 +15,8 @@ def home_view(request):
 
     products = ProductFilter(request.GET, queryset=Product.objects.all())
     general = Product.get_general()
-    pagination = Product.get_pagination(request,products,12)
-    specific = {'products': products,'filter': products}
+    pagination = Product.get_pagination(request,products,2)
+    specific = {'products': products}
     total = dict(general.items() | specific.items() | pagination.items())
     return render(request,'home_view.html', total )
 
@@ -101,8 +101,8 @@ def list_wines_view(request, filter, value):
 
 
     general = Product.get_general()
-    specific = {'type': typeProd, 'filter': prod, 'products': prod}
-    pagination = Product.get_pagination(request,prod,12)
+    specific = {'type': typeProd, 'products': prod}
+    pagination = Product.get_pagination(request,prod,4)
     total = dict(specific.items() | general.items() | pagination.items())
 
     return render(request,'list_wines.html', total)
@@ -114,7 +114,7 @@ def search(request):
 
         if form.is_valid():
             word = form.cleaned_data['word']
-            prod = Wine.objects.filter(Q(name__icontains=word))
+            prod = Product.objects.filter(Q(name__icontains=word))
 
             specific = {'word':word}
             general = Product.get_general()
@@ -130,8 +130,8 @@ def list_spirit(request, value):
     products = ProductFilter(request.GET, queryset=Spirit.objects.filter(subType__name=value))
 
     general = Product.get_general()
-    specific = {'type' : typeProd, 'filter': products, 'products': products}
-    pagination = Product.get_pagination(request,products, 4)
+    pagination = Product.get_pagination(request,products, 2)
+    specific = {'type' : typeProd, 'products': products}
     total = dict(specific.items() | pagination.items() | general.items())
     return render(request,'list_spirit.html', total)
 

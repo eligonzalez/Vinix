@@ -10,7 +10,7 @@
                 </ol>
 
                 <h4><b> {{type}} </b></h4></br></br>
-                {% if products %}
+                {% if list_prod %}
 
                     {% block content %}
                         <form action="" method="get">
@@ -20,7 +20,7 @@
                     {% endblock %}
 
                     <div class="row">
-                        {% for prod in products %}
+                        {% for prod in list_prod %}
                                 <div class="col-sm-4 col-md-3">
                                     <div class="thumbnail">
                                         <a href="{% url 'spirit_view' prod.id %}"> <img  src="{{prod.image.url}}"> </a>

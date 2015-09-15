@@ -33,7 +33,7 @@
                                     </div>
                                     <div align="right">
                                         <div class="col-sm-6 col-md-6">
-                                            <a class="more">Editar información</a>
+                                            <a class="more" href="{% url 'edit_account' %}">Editar información</a>
                                         </div>
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                                         <div class="panel-heading">
                                             <div class="row" >
                                                 <div class="col-md-3">
-                                                    <img src="{{shop.product.image.url}}" class="bordeImagen" class="img-responsive" />
+                                                    <img src="{{shop.product.image.url}}" class="bordeImagen" class="img-responsive" width="60" height="60"/>
                                                 </div>
                                                 <div class="col-md-7">
                                                     <p> </br>{{shop.product.name}} </p>

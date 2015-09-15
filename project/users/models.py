@@ -38,7 +38,7 @@ class AddressUser(models.Model):
     postalCode = models.CharField(max_length=5, blank=True, null=True)
     town = models.CharField(max_length=50, blank=True, null=True)
     province = models.CharField(max_length=50, blank=True, null=True)
-    country = models.CharField(max_length=50, default='España', blank=True, null=True)
+    country = models.CharField(max_length=50, blank=True, null=True)
     phone = models.CharField(max_length=50, blank=True, null=True)
     def __str__(self):
         return self.name
@@ -53,6 +53,8 @@ class AddressUser(models.Model):
             ad = AddressUser()
             ad.idUser = BasicUser.objects.get(id=user.id)
 
+        ad.name = cd.cleaned_data["first_name_dir"]
+        ad.lastName = cd.cleaned_data["last_name_dir"]
         ad.address = cd.cleaned_data["address"]
         ad.province = cd.cleaned_data["province"]
         ad.town = cd.cleaned_data["town"]

@@ -10,7 +10,7 @@
                 </ol>
 
                 <h4><b> {{type}} </b></h4></br></br>
-                {% if products %}
+                {% if list_prod %}
 
                      {% block content %}
                         <form action="" method="get">
@@ -19,8 +19,9 @@
                         </form>
                     {% endblock %}
 
+                    {% autopaginate products.qs 40 as filter_list %}
                     <div class="row">
-                        {% for prod in products %}
+                        {% for prod in list_prod %}
                                 <div class="col-sm-4 col-md-3">
                                     <div class="thumbnail">
 
