@@ -53,6 +53,9 @@ def check_finish_purchase(request):
     if request.method == 'POST':
         form = finishPurchase_Form(request.POST)
         client = BasicUser.objects.get(id=request.user.id)
+        address = AddressUser.objects.get(idUser=request.user.id)
+        shopping = Shopping.get_products(request.user)
+        totalPrice = Shopping.get_amount(request.user)
 
         message = None
         error = None
@@ -60,15 +63,11 @@ def check_finish_purchase(request):
         if form.is_valid():
             error = "alert alert-success"
             message = "La compra se ha realizado correctamente."
-            Shopping.accept_purchase(client)
+            Shopping.accept_purchase(client, address, totalPrice)
 
         else :
             error = "alert alert-danger"
             message = "Introduzca el nombre de la tarjeta correctamente."
-
-        address = AddressUser.objects.get(idUser=request.user.id)
-        shopping = Shopping.get_products(request.user)
-        totalPrice = Shopping.get_amount(request.user)
 
         general = Product.get_general()
         specific = {'user' : request.user,'address' : address,'shopping' : shopping,'total' : totalPrice,'message' : message,'error': error}

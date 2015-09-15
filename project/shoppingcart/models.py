@@ -3,6 +3,7 @@ from users.models import BasicUser
 from products.models import *
 import datetime
 from dateutil.relativedelta import *
+from django.core.mail import send_mail
 
 today = datetime.datetime.today()
 
@@ -49,13 +50,24 @@ class Shopping(models.Model):
         return sum(map(lambda x: x.product.price*x.amount, Shopping_Cart.objects.filter(shopping=shop)))
 
     @classmethod
-    def accept_purchase(self, user):
+    def accept_purchase(self, user, dir, price):
         shop = Shopping.objects.get(user=user, finish=False)
         shop.finish = True
+        shop.priceTotal = price
+        shop.name = dir.name
+        shop.lastName = dir.lastName
+        shop.address = dir.address
+        shop.postalCode = dir.postalCode
+        shop.town = dir.town
+        shop.province = dir.province
+        shop.country = dir.country
+        shop.phone = dir.phone
         shop.save()
         new_shop = Shopping(user=user,date=today)
         new_shop.save()
-
+        print('enviando...')
+        send_mail('Amor de xuxi', 'Como te llego a querer.', 'probando@example.com', ['eli.gonzalez05@gmail.com'], fail_silently=False)
+        print('mensaje enviado mira en tu bandeja de entrada')
 
 
 class Shopping_Cart(models.Model):

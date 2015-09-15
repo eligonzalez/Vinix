@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3267a8c0-5768-4bc2-a772-5e1aa4ead94e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/address.html" afterPath="$PROJECT_DIR$/project/static/templates/address.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/edit_account.html" afterPath="$PROJECT_DIR$/project/static/templates/edit_account.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/finish_purchase.html" afterPath="$PROJECT_DIR$/project/static/templates/finish_purchase.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/users/forms.py" afterPath="$PROJECT_DIR$/project/users/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/home_view.html" afterPath="$PROJECT_DIR$/project/static/templates/home_view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/list_spirit.html" afterPath="$PROJECT_DIR$/project/static/templates/list_spirit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/list_wines.html" afterPath="$PROJECT_DIR$/project/static/templates/list_wines.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/products/models.py" afterPath="$PROJECT_DIR$/project/products/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/users/models.py" afterPath="$PROJECT_DIR$/project/users/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/navbar_tienda.html" afterPath="$PROJECT_DIR$/project/static/templates/navbar_tienda.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/products/views.py" afterPath="$PROJECT_DIR$/project/products/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/shoppingcart/models.py" afterPath="$PROJECT_DIR$/project/shoppingcart/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/project/settings.py" afterPath="$PROJECT_DIR$/project/project/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/shoppingcart/views.py" afterPath="$PROJECT_DIR$/project/shoppingcart/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Vinix.iws" />
@@ -34,11 +27,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/project/users/views.py">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/project/shoppingcart/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38338658">
-              <caret line="163" column="24" selection-start-line="163" selection-start-column="24" selection-end-line="163" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.52715653">
+              <caret line="69" column="60" selection-start-line="69" selection-start-column="60" selection-end-line="69" selection-end-column="60" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/users/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.88889">
+              <caret line="37" column="14" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="finish_purchase.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/static/templates/finish_purchase.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="32.5">
+              <caret line="35" column="90" selection-start-line="35" selection-start-column="90" selection-end-line="35" selection-end-column="90" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/project/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.481482">
+              <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -74,7 +99,6 @@
         <option value="$PROJECT_DIR$/project/static/project/general.js" />
         <option value="$PROJECT_DIR$/project/static/templates/search.html" />
         <option value="$PROJECT_DIR$/project/shoppingcart/urls.py" />
-        <option value="$PROJECT_DIR$/project/project/settings.py" />
         <option value="$PROJECT_DIR$/project/project/urls.py" />
         <option value="$PROJECT_DIR$/project/static/templates/follower.html" />
         <option value="$PROJECT_DIR$/project/static/templates/navbar_social.html" />
@@ -88,7 +112,6 @@
         <option value="$PROJECT_DIR$/project/socialNetwork/models.py" />
         <option value="$PROJECT_DIR$/project/socialNetwork/forms.py" />
         <option value="$PROJECT_DIR$/project/static/templates/profile.html" />
-        <option value="$PROJECT_DIR$/project/shoppingcart/views.py" />
         <option value="$PROJECT_DIR$/project/socialNetwork/admin.py" />
         <option value="$PROJECT_DIR$/project/shoppingcart/admin.py" />
         <option value="$PROJECT_DIR$/project/products/admin.py" />
@@ -99,17 +122,19 @@
         <option value="$PROJECT_DIR$/project/socialNetwork/views.py" />
         <option value="$PROJECT_DIR$/project/socialNetwork/urls.py" />
         <option value="$PROJECT_DIR$/project/products/models.py" />
-        <option value="$PROJECT_DIR$/project/static/templates/list_wines.html" />
         <option value="$PROJECT_DIR$/project/static/templates/list_spirit.html" />
         <option value="$PROJECT_DIR$/project/static/templates/home_view.html" />
         <option value="$PROJECT_DIR$/project/products/views.py" />
         <option value="$PROJECT_DIR$/project/static/templates/navbar_tienda.html" />
         <option value="$PROJECT_DIR$/project/static/templates/finish_purchase.html" />
         <option value="$PROJECT_DIR$/project/static/templates/address.html" />
-        <option value="$PROJECT_DIR$/project/shoppingcart/models.py" />
         <option value="$PROJECT_DIR$/project/users/models.py" />
         <option value="$PROJECT_DIR$/project/static/templates/edit_account.html" />
         <option value="$PROJECT_DIR$/project/users/forms.py" />
+        <option value="$PROJECT_DIR$/project/shoppingcart/views.py" />
+        <option value="$PROJECT_DIR$/project/static/templates/list_wines.html" />
+        <option value="$PROJECT_DIR$/project/shoppingcart/models.py" />
+        <option value="$PROJECT_DIR$/project/project/settings.py" />
       </list>
     </option>
   </component>
@@ -267,6 +292,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="shoppingcart" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vinix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vinix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -690,7 +733,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442328364849</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Editar cuenta tiene dos atributos mas, nombre y apellidos. Desde Finish_purchase se pueden editar los datos personales y la informacion personal. Además, las imagenes se ven pequeñitas.">
+      <created>1442342165478</created>
+      <option name="number" value="00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1442342165478</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -773,7 +822,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="La vista wine_view se autorecarga correctamente y da los mensajes de error y confirmacion del producto" />
     <MESSAGE value="Punto medio." />
     <MESSAGE value="El buscador funciona.&#10;Se puede buscar por tipo, por zona, etc.&#10;Ya se ve la vista de vinos en el admin de django." />
     <MESSAGE value="Las imagenes del finish_purchase se cargan correctamente. &#10;He eliminado todas las carpetas que contenian imagenes que no se utilizaban." />
@@ -798,7 +846,8 @@
     <MESSAGE value="He añadido la vista de informacion de destilados y licores. Además se pueden ver todos los productos, no solo los vinos, en el home. Por ultimo, puedes añadir destilados y licores al carrito." />
     <MESSAGE value="Se puede ordenar por nombre, precio y pais la vista de listado de vinos." />
     <MESSAGE value="Ahora tambien se puede ordenar por nombre, precio y pais la vista de listado de destilados y licores." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ahora tambien se puede ordenar por nombre, precio y pais la vista de listado de destilados y licores." />
+    <MESSAGE value="Editar cuenta tiene dos atributos mas, nombre y apellidos. Desde Finish_purchase se pueden editar los datos personales y la informacion personal. Además, las imagenes se ven pequeñitas." />
+    <option name="LAST_COMMIT_MESSAGE" value="Editar cuenta tiene dos atributos mas, nombre y apellidos. Desde Finish_purchase se pueden editar los datos personales y la informacion personal. Además, las imagenes se ven pequeñitas." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -824,8 +873,12 @@
           <url>file://$PROJECT_DIR$/project/products/urls.py</url>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/project/shoppingcart/models.py</url>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="7" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -914,13 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/project/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.80191696">
-          <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/static/templates/navbar_social.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5246423">
@@ -967,14 +1013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3115016">
           <caret line="13" column="20" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/shoppingcart/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.477707">
-          <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1078,14 +1116,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/list_wines.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.125">
-          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/static/templates/list_spirit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16693164">
@@ -1150,14 +1180,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/finish_purchase.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5007949">
-          <caret line="35" column="90" selection-start-line="35" selection-start-column="90" selection-end-line="35" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/products/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.4313099">
@@ -1175,22 +1197,6 @@
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/shoppingcart/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68370605">
-          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/users/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6645367">
-          <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1220,9 +1226,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38338658">
+        <state vertical-scroll-proportion="3.0607028">
           <caret line="163" column="24" selection-start-line="163" selection-start-column="24" selection-end-line="163" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/templates/list_wines.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42582896">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/shoppingcart/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5926518">
+          <caret line="65" column="64" selection-start-line="65" selection-start-column="64" selection-end-line="65" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/templates/finish_purchase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="32.5">
+          <caret line="35" column="90" selection-start-line="35" selection-start-column="90" selection-end-line="35" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/project/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.481482">
+          <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/users/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.88889">
+          <caret line="37" column="14" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/shoppingcart/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52715653">
+          <caret line="69" column="60" selection-start-line="69" selection-start-column="60" selection-end-line="69" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
