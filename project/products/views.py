@@ -53,7 +53,6 @@ def add_wine_shopping(request):
             general = Product.get_general()
 
             product_data = get_object_or_404(Product, pk=idProd)
-
             if hasattr(product_data, 'spirit'):
                 spirit_data = get_object_or_404(Spirit, pk=idProd)
                 specific = {'spirit_data': spirit_data, 'message' : message, 'error': error}

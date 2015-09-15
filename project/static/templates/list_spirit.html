@@ -34,35 +34,34 @@
 
                         {% endfor %}
                     </div>
+                    <div align="center">
+
+                        {% if list_prod.has_previous %}
+                            <a href="?page={{ list_prod.previous_page_number }}" > <span > ←ANT </span></a>
+                        {% endif %}
+                        {% if not list_prod.has_previous %}
+                            <a href="#" aria-label="Previous"> <span aria-hidden="true"> ←ANT </span> </a>
+                        {% endif %}
+
+                        {% for i in list_prod.paginator.page_range  %}
+
+                            {% if list_prod.number == i %}
+                                <a href="?page={{i}}">  <span class="badge1" class="sr-only">{{i}}</span></a>
+                            {% else %}
+                               <a href="?page={{i}}"> {{i}} <span class="sr-only">(current)</span></a>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if list_prod.has_next %}
+                            <a href="?page={{ list_prod.next_page_number }}" aria-label="Next"> <span aria-hidden="true"> POST→ </span></a>
+                        {% endif %}
+                        {% if not list_prod.has_next %}
+                            <a href="#" aria-label="Next"> <span aria-hidden="true"> POST→</span></a>
+                        {% endif %}
+                    </div>
                 {% else %}
                     <p>No existen productos</p>
                 {% endif %} </br>
-
-                <div align="center">
-
-                    {% if list_prod.has_previous %}
-                        <a href="?page={{ list_prod.previous_page_number }}" > <span > ←ANT </span></a>
-                    {% endif %}
-                    {% if not list_prod.has_previous %}
-                        <a href="#" aria-label="Previous"> <span aria-hidden="true"> ←ANT </span> </a>
-                    {% endif %}
-
-                    {% for i in list_prod.paginator.page_range  %}
-
-                        {% if list_prod.number == i %}
-                            <a href="?page={{i}}">  <span class="badge1" class="sr-only">{{i}}</span></a>
-                        {% else %}
-                           <a href="?page={{i}}"> {{i}} <span class="sr-only">(current)</span></a>
-                        {% endif %}
-                    {% endfor %}
-
-                    {% if list_prod.has_next %}
-                        <a href="?page={{ list_prod.next_page_number }}" aria-label="Next"> <span aria-hidden="true"> POST→ </span></a>
-                    {% endif %}
-                    {% if not list_prod.has_next %}
-                        <a href="#" aria-label="Next"> <span aria-hidden="true"> POST→</span></a>
-                    {% endif %}
-                </div>
             </div>
         </div>
     </div>

@@ -87,23 +87,31 @@ class Wine(Product):
 
         if filter == 'type' :
             prod = Wine.objects.filter(type=value)
-            p = prod[0]
-            typeProd = p.get_type_display()
-        elif filter == 'zone' :
+
+            if value == 'B':
+                typeProd = 'Vinos blancos'
+            elif value == 'T':
+                typeProd = 'Vinos tintos'
+            elif value == 'R':
+                typeProd = 'Vinos rosados'
+            elif value == 'E':
+                typeProd = 'Vinos espumosos'
+
+        elif filter == 'zone':
             prod = Product.objects.filter(zone__name=value)
-            typeProd = 'por zona'
+            typeProd = 'Zona ' + value
         elif filter == 'style' :
             prod = Wine.objects.filter(style__name=value)
-            typeProd = 'por estilo'
+            typeProd = 'Estilo ' + value
         elif filter == 'varietal' :
             prod = Wine.objects.filter(varietal__name=value)
-            typeProd = 'por variedad'
+            typeProd = 'Variedad ' + value
         elif filter == 'priceLower' :
             prod = Product.objects.filter(price__range=(0,9.99))
-            typeProd = 'por menos de 10€'
+            typeProd = 'Vinos por menos de 10€'
         elif filter == 'priceUpper' :
             prod = Product.objects.filter(price__range=(10,20))
-            typeProd = 'entre 10€ y 20€'
+            typeProd = 'Vinos entre 10€ y 20€'
 
         return {'type' : typeProd, 'prod' : prod}
 
