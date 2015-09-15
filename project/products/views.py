@@ -69,11 +69,41 @@ def add_wine_shopping(request):
 
 def list_wines_view(request, filter, value):
 
-    filters = Wine.get_product_filter(filter,value)
+    typeProd = None
+
+    if filter == 'type':
+        prod = ProductFilter(request.GET, queryset=Wine.objects.filter(type=value))
+
+        if value == 'B':
+            typeProd = 'Vinos blancos'
+        elif value == 'T':
+            typeProd = 'Vinos tintos'
+        elif value == 'R':
+            typeProd = 'Vinos rosados'
+        elif value == 'E':
+            typeProd = 'Vinos espumosos'
+
+    elif filter == 'zone':
+        prod = ProductFilter(request.GET, queryset=Product.objects.filter(zone__name=value))
+        typeProd = 'Zona ' + value
+    elif filter == 'style' :
+        prod = ProductFilter(request.GET, queryset=Wine.objects.filter(style__name=value))
+        typeProd = 'Estilo ' + value
+    elif filter == 'varietal' :
+        prod = ProductFilter(request.GET, queryset=Wine.objects.filter(varietal__name=value))
+        typeProd = 'Variedad ' + value
+    elif filter == 'priceLower' :
+        prod = ProductFilter(request.GET, queryset=Product.objects.filter(price__range=(0,9.99)))
+        typeProd = 'Vinos por menos de 10€'
+    elif filter == 'priceUpper' :
+        prod = ProductFilter(request.GET, queryset=Product.objects.filter(price__range=(10,20)))
+        typeProd = 'Vinos entre 10€ y 20€'
+
 
     general = Product.get_general()
-    pagination = Product.get_pagination(request,filters['prod'], 4)
-    total = dict(filters.items() | pagination.items() | general.items())
+    specific = {'type': typeProd, 'filter': prod, 'products': prod}
+    pagination = Product.get_pagination(request,prod,12)
+    total = dict(specific.items() | general.items() | pagination.items())
 
     return render(request,'list_wines.html', total)
 
@@ -105,8 +135,11 @@ def list_spirit(request, value):
 
 def spirit_view(request, spirit_id):
 
+    typeProd = value
+    prod = Spirit.objects.filter(subType__name=value)
     spirit_data = get_object_or_404(Spirit, pk=spirit_id)
+
     general = Product.get_general()
-    specific = {'spirit_data': spirit_data}
+    specific = {'spirit_data': spirit_data, 'type' : typeProd, 'prod' : prod}
     total = dict(general.items() | specific.items())
-    return render(request,'spirit.html',total)
+    return render(request,'spirit.html', total)
