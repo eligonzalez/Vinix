@@ -42,6 +42,10 @@ class ShowStyle(admin.ModelAdmin):
 	list_display = ['id', 'name']
 	readonly_fields = ('id',)
 
+class ShowPunctuationProduct(admin.ModelAdmin):
+	list_display = ['id', 'user', 'product', 'comment', 'punctuation', 'date']
+	readonly_fields = ('id', 'date')
+
 admin.site.register(Cellar, ShowCellar)
 admin.site.register(Country, ShowCountry)
 admin.site.register(Zone, ShowZone)
@@ -52,3 +56,5 @@ admin.site.register(Product, ShowProduct)
 admin.site.register(Wine, ShowWine)
 admin.site.register(Spirit, ShowSpirit)
 admin.site.register(FavoriteProduct, ShowFavoriteProduct)
+admin.site.register(PunctuationProduct, ShowPunctuationProduct)
+

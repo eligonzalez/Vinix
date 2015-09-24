@@ -13,6 +13,7 @@
                                 <li class="list-group-item"><img  src="{{p.idUser1.image.url}}" class="img-thumbnail" width="50" height="50">
                                     {{p.idUser1.first_name}} - {{p.comment}} - {{p.date|timesince}}
                                 <a href="{% url 'remove_post' p.id request.user.id %}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></a></span></li>
+
                             {% endfor %}
                         </ul>
 

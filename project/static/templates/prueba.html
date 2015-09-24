@@ -2,16 +2,32 @@
 {% load staticfiles %}
 {% block body %}
 
-<div style="padding:40px;margin:40px;border:1px solid #ccc">
-    <h1>picture</h1>
-    <form action="#" method="post" enctype="multipart/form-data">
-        {% csrf_token %} {{form}}
-        <input type="submit" value="Upload" />
+{% block content %}
+    <form action="" method="get">
+        {{ products.form.as_p }}
+        <button type="submit" name="submit" class="btn btn-primary btn-lg active">Buscar</button>
     </form>
-    {% for img in images %}
-        {{forloop.counter}}.<a href="{{ img.pic.url }}">{{ img.pic.name }}</a>
-        ({{img.upload_date}})<hr />
-    {% endfor %}
-</div>
+{% endblock %}
+{% for prod in products %}
+        <div class="col-sm-4 col-md-3">
+            <div class="thumbnail">
+                <a href="{% url 'spirit_view' prod.id %}"> <img  src="{{prod.image.url}}"> </a>
+                <div class="caption" align="center">
+                    <h5><b>{{ prod.name}}</b></h5>
+                    <p>{{ prod.price}}€</p>
+                    <form class="form-horizontal" action="" method="post">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <a href="" id="btn">
+                            <button  type="submit" name="submit" class="btn btn-primary btn-lg active">
+                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Añadir
+                            </button>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+{% endfor %}
 
 {% endblock body %}

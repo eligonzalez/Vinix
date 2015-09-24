@@ -23,24 +23,18 @@
                         {% for prod in list_prod %}
                                 <div class="col-sm-4 col-md-3">
                                     <div class="thumbnail">
-
                                         <a href="{% url 'wine_view' prod.id %}"> <img  src="{{prod.image.url}}"> </a>
-                                        <div class="caption" align="center">
-                                            <h5><b>{{ prod.name}}</b></h5>
-                                            <p>{{ prod.price}}€</p>
-                                            <form class="form-horizontal" action="" method="post">
-                                                {% csrf_token %}
-                                                {{ form.non_field_errors }}
-                                                <a href="" id="btn">
-                                                    <button  type="submit" name="submit" class="btn btn-primary btn-lg active">
-                                                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Añadir
-                                                    </button>
-                                                </a>
-                                            </form>
-                                        </div>
+                                        <div class="caption" align="center"> </div>
+                                    </div>
+                                    <div>
+                                        <div class="cajaProducto"></br>
+                                            <div><h5>{{prod.name}}</h5></div>
+                                            <div class="cajaTexto">
+                                                <span>{{prod.price}}€</span></br>
+                                            </div></br>
+                                        </div></br>
                                     </div>
                                 </div>
-
                         {% endfor %}
                     </div>
                     <div align="center">

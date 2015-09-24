@@ -74,5 +74,35 @@
             </form>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading"><b>Comentarios sobre el producto</b></div>
+                {% if not comment_user  %}
+                    <form  action="/add_comment_product" method="post">
+                        {% csrf_token %}
+                        {{form.non_field_errors}}
+                        <div class="panel-body">
+                            <input type="text" class="form-control" placeholder="Escribe tu comentario" name="comment"></br>
+                            <input type="hidden" name="idProduct" value="{{spirit_data.id}}">
+                            <button class="btn btn-default" type="submit">Comentar</button>
+                        </div>
+                    </form>
+                {% endif %}
+
+                <ul class="list-group">
+                    {% if comments %}
+                        {% for c in comments %}
+                            <li class="list-group-item">{{c.comment}} - {{c.punctuation}}
+                                <a href="{% url 'remove_comment_product' spirit_data.id  request.user.id %}">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
 
 {% endblock body %}

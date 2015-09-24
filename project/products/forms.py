@@ -12,3 +12,6 @@ class addProduct(forms.Form):
 class searchForm(forms.Form):
     word = forms.CharField()
 
+class addCommentProduct(forms.Form):
+    comment = forms.CharField()
+    idProduct = forms.CharField()

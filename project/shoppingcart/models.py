@@ -4,6 +4,7 @@ from products.models import *
 import datetime
 from dateutil.relativedelta import *
 from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 today = datetime.datetime.today()
 
@@ -14,8 +15,7 @@ class Shopping(models.Model):
     finish = models.BooleanField(default=False, blank=True)
     date = models.DateField(auto_now_add=True, blank=True)
     name = models.CharField(max_length=50, blank=True, null=True)
-    lastName =  models.CharField(max_length=50, blank=True, null=True)
-    address = models.CharField(max_length=50, blank=True, null=True)
+    lastName = models.CharField(max_length=50, blank=True, null=True)
     postalCode = models.CharField(max_length=5, blank=True, null=True)
     town = models.CharField(max_length=50, blank=True, null=True)
     province = models.CharField(max_length=50, blank=True, null=True)
@@ -65,9 +65,9 @@ class Shopping(models.Model):
         shop.save()
         new_shop = Shopping(user=user,date=today)
         new_shop.save()
-        print('enviando...')
-        send_mail('Amor de xuxi', 'Como te llego a querer.', 'probando@example.com', ['eli.gonzalez05@gmail.com'], fail_silently=False)
-        print('mensaje enviado mira en tu bandeja de entrada')
+
+        send_mail('Compra finalizada', 'Resumen del pedido.', 'example@example', ['eli.gonzalez05@gmail.com'], fail_silently=False)
+
 
 
 class Shopping_Cart(models.Model):

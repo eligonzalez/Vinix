@@ -6,8 +6,6 @@
     box-shadow: 0 0 8px rgba(82,168,236,.6) !important;
 }
 
-
-
 .imagenMenuPrincipal {
 	height=500px!important;
 	width=200px!important;
@@ -15,12 +13,6 @@
 
 .breadcrumb > li + li:before {
 	background-image: none;
-}
-
-.cajaProducto {
-     text-align: center;
-     background-color: #2c2c2c;
-     color: #FFFFFF !important;
 }
 
 .inline {
@@ -37,10 +29,6 @@
     font: normal normal normal 40px/1.4em 'Open Sans',sans-serif;
     margin-left: 6%;
 
-}
-
-.cajaTexto{
-    display: inline;
 }
 
 
