@@ -11,22 +11,27 @@ from django.db.models import Q
 admin.autodiscover()
 
 
-def home_view(request):
+def home(request):
 
     products = ProductFilter(request.GET, queryset=Product.objects.all())
     general = Product.get_general()
-    pagination = Product.get_pagination(request,products,2)
+    pagination = Product.get_pagination(request, products, 12)
     specific = {'products': products}
     total = dict(general.items() | specific.items() | pagination.items())
-    return render(request,'home_view.html', total )
+    return render(request,'home.html', total)
 
 def wine_view(request, wine_id):
 
     wine_data = get_object_or_404(Wine, pk=wine_id)
+
+    comments = PunctuationProduct.objects.filter(product=wine_data)
+    comment_user = PunctuationProduct.objects.filter(user=request.user, product=wine_data).exists()
+    favorite = FavoriteProduct.objects.filter(user=request.user)
+
     general = Product.get_general()
-    specific = {'wine_data': wine_data}
+    specific = {'wine_data': wine_data, 'comments': comments, 'comment_user': comment_user, 'favorite': favorite}
     total = dict(general.items() | specific.items())
-    return render(request,'wine_view.html',total)
+    return render(request,'wine.html', total)
 
 def add_wine_shopping(request):
 
@@ -63,9 +68,9 @@ def add_wine_shopping(request):
                 wine_data = get_object_or_404(Wine, pk=idProd)
                 specific = {'wine_data': wine_data, 'message' : message, 'error': error}
                 total = dict(general.items() | specific.items())
-                return render(request,'wine_view.html', total)
+                return render(request,'wine.html', total)
     else :
-        return render(request,'wine_view.html', {})
+        return render(request,'wine.html', {})
 
 def list_wines_view(request, filter, value):
 
@@ -116,13 +121,13 @@ def search(request):
             word = form.cleaned_data['word']
             prod = Product.objects.filter(Q(name__icontains=word))
 
-            specific = {'word':word}
+            specific = {'word': word}
             general = Product.get_general()
             pagination = Product.get_pagination(request,prod,4)
             total = dict(specific.items() | pagination.items() | general.items())
             return render(request,'search.html',total)
 
-    return render(request,'home_view.html')
+    return render(request,'home.html')
 
 def list_spirit(request, value):
 
@@ -138,8 +143,47 @@ def list_spirit(request, value):
 def spirit_view(request, spirit_id):
 
     spirit_data = get_object_or_404(Spirit, pk=spirit_id)
+    comments = PunctuationProduct.objects.filter(product=spirit_data)
+    comment_user = PunctuationProduct.objects.filter(user=request.user, product=spirit_data).exists()
+
 
     general = Product.get_general()
-    specific = {'spirit_data': spirit_data}
+    specific = {'spirit_data': spirit_data, 'comments': comments, 'comment_user' : comment_user}
     total = dict(general.items() | specific.items())
     return render(request,'spirit.html', total)
+
+def add_comment_product(request):
+
+    if request.method == 'POST':
+        form = addCommentProduct(request.POST)
+
+        if form.is_valid():
+            c = form.cleaned_data['comment']
+            idProduct = form.cleaned_data['idProduct']
+            p = Product.objects.get(id=idProduct)
+            u = BasicUser.objects.get(id=request.user.id)
+
+            if PunctuationProduct.objects.filter(user=request.user, product=p).exists():
+                print("Ya has escrito un comentario a este producto anteriormente.")
+            else:
+                newComment = PunctuationProduct(user=u, product=p, comment=c, punctuation=0)
+                newComment.save()
+            return render(request, 'prueba.html', {})
+
+    return render(request, 'error.html', {})
+
+def remove_comment_product(request, product_id, user_id):
+
+    if str(request.user.id) == str(user_id):
+        user = BasicUser.objects.get(id=user_id)
+        p = Product.objects.get(id=product_id)
+        comment = PunctuationProduct.objects.filter(user=user, product=p)
+        comment.delete()
+        return render(request, 'prueba.html', {})
+
+    return render(request, 'error.html', {})
+
+def products_favorite(request):
+    favorite = FavoriteProduct.objects.filter(user=request.user)
+    punctuation = PunctuationProduct.objects.filter(user=request.user)
+    return render(request, 'productsFavorite.html', {'favorite': favorite, 'punctuation': punctuation})
