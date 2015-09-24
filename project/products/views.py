@@ -185,5 +185,21 @@ def remove_comment_product(request, product_id, user_id):
 
 def products_favorite(request):
     favorite = FavoriteProduct.objects.filter(user=request.user)
-    punctuation = PunctuationProduct.objects.filter(user=request.user)
-    return render(request, 'productsFavorite.html', {'favorite': favorite, 'punctuation': punctuation})
+
+    for f in favorite:
+        suma = 0
+        punct = PunctuationProduct.objects.filter(product=f.product)
+
+        for p in punct:
+            suma = suma + p.punctuation
+
+        if len(punct) > 0:
+            f.product.punctuation = suma/len(punct)
+        else:
+            f.product.punctuation = -1
+
+    general = Product.get_general()
+    specific = {'favorite': favorite}
+    total = dict(general.items() | specific.items())
+
+    return render(request, 'productsFavorite.html', total)

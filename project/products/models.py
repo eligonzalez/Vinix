@@ -42,7 +42,7 @@ class Product(models.Model):
     elaboration = models.CharField(max_length=1000, blank=True, default=None)
     alcohol = models.CharField(max_length=1000, blank=True, default=None)
     def __str__(self):
-        return self.name
+        return str(self.id)
 
     @classmethod
     def get_general(self) :
