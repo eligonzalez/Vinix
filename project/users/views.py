@@ -138,12 +138,10 @@ def my_account(request):
     address = AddressUser.objects.filter(idUser=request.user.id)
     shoppings = Shopping.objects.filter(user=request.user.id, finish=True)
 
-    return render(request, "my_account.html",
-      {
-          'address' : address,
-          'shoppings' : shoppings,
-          'user' : request.user,
-      })
+    general = Product.get_general()
+    specific = {'address': address, 'shoppings': shoppings, 'user': request.user}
+    total = dict(general.items() | specific.items())
+    return render(request, "my_account.html", total)
 
 def edit_account(request):
 

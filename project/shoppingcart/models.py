@@ -75,6 +75,10 @@ class Shopping_Cart(models.Model):
     product = models.ForeignKey(Product)
     amount = models.IntegerField(default=1,  blank=True, null=True)
 
+    @property
+    def total_product(self):
+        return self.amount * self.product.price
+
     def __str__(self):
         return str(self.id)
 

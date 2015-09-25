@@ -75,3 +75,15 @@ def check_finish_purchase(request):
         return render(request, "finish_purchase.html",total)
     else :
         return redirect('finish_purchase')
+
+
+def summary_shopping(request, idShopping):
+
+    shopping = Shopping.objects.get(id=idShopping)
+    shoppingCart = Shopping_Cart.objects.filter(shopping=shopping)
+
+    general = Product.get_general()
+    specific = {'shopping': shopping, 'shoppingCart': shoppingCart}
+    total = dict(general.items() | specific.items())
+
+    return render(request, 'summary_shopping.html',total)

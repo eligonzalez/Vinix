@@ -191,3 +191,5 @@ def products_favorite(request):
     general = Product.get_general()
     total = dict(general.items() | favorite.items())
     return render(request, 'productsFavorite.html', total)
+
+

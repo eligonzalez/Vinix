@@ -10,7 +10,7 @@
 
         <div class="col-sm-4 col-md-4">
             <h4>Detalles de la cuenta</h4></br>
-            <a class="more" href="{% url 'logout' %}"> Cerrar sesión </a></br></br></br>
+
             <p><b> {{user.first_name}} {{user.last_name}}</b> </p>
 
             {% if address %}
@@ -37,7 +37,7 @@
                     <tbody>
                         {% for shop in shoppings %}
                             <tr>
-                                <td> #{{shop.id}}</td>
+                                <td> <a class="more" href="{% url 'summary_shopping' shop.id %}"> #{{shop.id}} </a></td>
                                 <td> {{shop.date}}</td>
                                 <td> {{shop.address}}</td>
                                 <td> {{shop.priceTotal}} €</td>
