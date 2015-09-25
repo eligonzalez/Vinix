@@ -26,7 +26,7 @@ def wine_view(request, wine_id):
 
     comments = PunctuationProduct.objects.filter(product=wine_data)
     comment_user = PunctuationProduct.objects.filter(user=request.user, product=wine_data).exists()
-    favorite = FavoriteProduct.objects.filter(user=request.user)
+    favorite = FavoriteProduct.objects.filter(user=request.user, product=wine_data)
 
     general = Product.get_general()
     specific = {'wine_data': wine_data, 'comments': comments, 'comment_user': comment_user, 'favorite': favorite}
@@ -145,10 +145,11 @@ def spirit_view(request, spirit_id):
     spirit_data = get_object_or_404(Spirit, pk=spirit_id)
     comments = PunctuationProduct.objects.filter(product=spirit_data)
     comment_user = PunctuationProduct.objects.filter(user=request.user, product=spirit_data).exists()
+    favorite = FavoriteProduct.objects.filter(user=request.user, product=spirit_data)
 
 
     general = Product.get_general()
-    specific = {'spirit_data': spirit_data, 'comments': comments, 'comment_user' : comment_user}
+    specific = {'spirit_data': spirit_data, 'comments': comments, 'comment_user' : comment_user, 'favorite': favorite}
     total = dict(general.items() | specific.items())
     return render(request,'spirit.html', total)
 
@@ -184,22 +185,9 @@ def remove_comment_product(request, product_id, user_id):
     return render(request, 'error.html', {})
 
 def products_favorite(request):
-    favorite = FavoriteProduct.objects.filter(user=request.user)
 
-    for f in favorite:
-        suma = 0
-        punct = PunctuationProduct.objects.filter(product=f.product)
-
-        for p in punct:
-            suma = suma + p.punctuation
-
-        if len(punct) > 0:
-            f.product.punctuation = suma/len(punct)
-        else:
-            f.product.punctuation = -1
+    favorite = PunctuationProduct.favorite_punctuation_product(request.user)
 
     general = Product.get_general()
-    specific = {'favorite': favorite}
-    total = dict(general.items() | specific.items())
-
+    total = dict(general.items() | favorite.items())
     return render(request, 'productsFavorite.html', total)

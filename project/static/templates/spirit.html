@@ -44,7 +44,16 @@
         </div>
         <div class="col-xs-4 col-sm-4" align="center">
             <div >
-                <img  src="{{spirit_data.image.url}}" class="img-thumbnail">
+                <img  src="{{spirit_data.image.url}}" class="img-thumbnail"></br></br>
+                {% if not favorite %}
+                    <a href="{% url 'add_favorite_product' spirit_data.id %}">
+                        <span class="glyphicon glyphicon-heart" aria-hidden="true"> Añadir a favoritos</span>
+                    </a>
+                {% else %}
+                    <a href="{% url 'remove_favorite_product' spirit_data.id %}">
+                        <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"> Eliminar de favoritos</span>
+                    </a>
+                {% endif %}
             </div>
         </div>
     </div></br></br>

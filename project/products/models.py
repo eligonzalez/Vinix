@@ -168,3 +168,22 @@ class PunctuationProduct(models.Model):
     comment = models.CharField(max_length=1000, blank=True, default=None)
     punctuation = models.IntegerField()
     date = models.DateField(auto_now_add=True, blank=True)
+
+
+    @classmethod
+    def favorite_punctuation_product(self, user):
+        favorite = FavoriteProduct.objects.filter(user=user)
+
+        for f in favorite:
+            suma = 0
+            punct = PunctuationProduct.objects.filter(product=f.product)
+
+            for p in punct:
+                suma = suma + p.punctuation
+
+            if len(punct) > 0:
+                f.product.punctuation = suma/len(punct)
+            else:
+                f.product.punctuation = -1
+
+        return {'favorite': favorite}
