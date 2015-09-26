@@ -41,7 +41,6 @@ class Follower(models.Model):
 
     @classmethod
     def get_profile(self, idUser):
-
         seguidos = Follower.objects.filter(idUser1=idUser)
         teSiguen = Follower.objects.filter(idUser2=idUser)
         posts = Post.objects.filter(idUser2=idUser).order_by('-date')
@@ -93,4 +92,3 @@ class Follower(models.Model):
 
         return {'user': receiver,'seguidos': seguidos,'posts':posts,
             'numSeguidos': (len(seguidos)), 'teSiguen': teSiguen, 'numTeSiguen': (len(teSiguen)),'numPosts': (len(posts))}
-

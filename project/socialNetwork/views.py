@@ -1,32 +1,21 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
-from django.shortcuts import redirect
 from users.models import *
 from socialNetwork.models import *
 from products.models import *
 from products.forms import *
 from .forms import *
-from django.shortcuts import get_object_or_404
 from django.template import RequestContext
 from django.db.models import Q
-
-# Para subir una imagen
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 def profile(request, idUser):
 
-    img=UploadFileForm()
-    seguidos = Follower.objects.filter(idUser1=idUser)
-    teSiguen = Follower.objects.filter(idUser2=idUser)
-    posts = Post.objects.filter(idUser2=idUser).order_by('-date')
-    user = BasicUser.objects.get(id=str(idUser))
-    #profile = Follower.get_profile(idUser)
-
-    return render(request, 'profile.html', {'user': user, 'seguidos': seguidos, 'numSeguidos': (len(seguidos)), 'teSiguen': teSiguen,
-            'numTeSiguen': (len(teSiguen)), 'posts': posts, 'numPosts': (len(posts)), 'form':img})
+    profile = Follower.get_profile(idUser)
+    specific = {'form': UploadFileForm()}
+    total = dict(profile.items() | specific.items())
+    return render(request, 'profile.html', total)
 
 def followers(request):
 
@@ -130,7 +119,7 @@ def remove_favorite_product(request, idProduct):
 
 
 def upload(request):
-    if request.method=="POST":
+    if request.method == "POST":
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             user = BasicUser.objects.get(id=request.user.id)
@@ -138,5 +127,5 @@ def upload(request):
             user.save()
             return HttpResponseRedirect(reverse('imageupload'))
     else:
-        form=UploadFileForm()
-    return redirect('followers')
+        form = UploadFileForm()
+    return redirect('profile', request.user.id)
