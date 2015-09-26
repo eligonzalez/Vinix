@@ -1,6 +1,7 @@
 from django.db import models
 from users.models import BasicUser
 from products.models import *
+from users.models import *
 import datetime
 from dateutil.relativedelta import *
 from django.core.mail import send_mail
@@ -79,9 +80,10 @@ class Shopping(models.Model):
             html_products += '<tr><td>' + p.product.name + '</td>' \
                              '<td>' + str(p.product.price) + '€</td>' \
                              '<td>' + str(p.amount) + '</td>' \
-                             '<td>' + str(p.total_product + 3) + '€</td>'
+                             '<td>' + str(p.total_product) + '€</td>'
 
-        html_products += '<tr><td> <b> Precio total: </b> </td><td></td><td></td><td>' + str(shop.priceTotal) + '€</td> ' \
+        html_products += '<tr><td> <b> Gastos de envío: </b> </td><td></td><td></td><td> 3€</td> ' \
+                    '<tr><td> <b> Precio total: </b> </td><td></td><td></td><td>' + str(shop.priceTotal + 3) + '€</td> ' \
                     '</tr></tbody></table></br></br>' + '<p> <strong> Dirección de envío de la compra </strong </p>' \
                     '<p>' + shop.name + ' ' + shop.lastName + '</p>' + '<p>' + shop.address + '</p>'  \
                     '<p>' + shop.province + ', ' + shop.town + '</p>' + '<p>' + shop.country + ', ' + shop.postalCode + '</p>' + '<p>' + shop.phone + '</p>'
@@ -117,3 +119,32 @@ class Shopping_Cart(models.Model):
             return 0
         else :
             return 1
+
+    @classmethod
+    def get_finish_purchase(self, user):
+        address = AddressUser.objects.get(idUser=user.id)
+        shopping = Shopping.get_products(user)
+        totalPrice = Shopping.get_amount(user)
+
+        return {'user' : user,'address' : address,'shopping' : shopping,'total' : totalPrice}
+
+    @classmethod
+    def set_finish_purchase(self, user, form):
+        client = BasicUser.objects.get(id=user.id)
+        address = AddressUser.objects.get(idUser=user.id)
+        shopping = Shopping.get_products(user)
+        totalPrice = Shopping.get_amount(user)
+
+        message = None
+        error = None
+
+        if form.is_valid():
+            error = "alert alert-success"
+            message = "La compra se ha realizado correctamente."
+            Shopping.accept_purchase(client, address, totalPrice)
+
+        else :
+            error = "alert alert-danger"
+            message = "Introduzca el nombre de la tarjeta correctamente."
+
+        return {'user' : user,'address' : address,'shopping' : shopping,'total' : totalPrice,'message' : message,'error': error}

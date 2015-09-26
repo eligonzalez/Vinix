@@ -27,22 +27,17 @@ def shopping_cart(request):
                   {'shopping_cart': shopping,'total' : total,'priceProduct' : priceXAmount,'errors' : errors,
                    'prodZone':Zone.objects.all(),'prodStyle':Style.objects.all(),'prodVarietal':Varietal.objects.all(),
                    'destYLicor': SubTypeSpirit.objects.all()
-                })
+                  })
 
 
-''' Falta poder editar la direccion de usuario '''
 def finish_purchase(request):
     if not request.user.is_authenticated():
         return redirect('login')
 
-    address = AddressUser.objects.get(idUser=request.user.id)
-    shopping = Shopping.get_products(request.user)
-    totalPrice = Shopping.get_amount(request.user)
-
+    purcharse = Shopping_Cart.get_finish_purchase(request.user)
     general = Product.get_general()
-    specific = {'user' : request.user,'address' : address,'shopping' : shopping,'total' : totalPrice}
-    total = dict(general.items() | specific.items())
-    return render(request, "finish_purchase.html",total)
+    total = dict(general.items() | purcharse.items())
+    return render(request, "finish_purchase.html", total)
 
 
 def check_finish_purchase(request):
@@ -52,28 +47,13 @@ def check_finish_purchase(request):
 
     if request.method == 'POST':
         form = finishPurchase_Form(request.POST)
-        client = BasicUser.objects.get(id=request.user.id)
-        address = AddressUser.objects.get(idUser=request.user.id)
-        shopping = Shopping.get_products(request.user)
-        totalPrice = Shopping.get_amount(request.user)
 
-        message = None
-        error = None
-
-        if form.is_valid():
-            error = "alert alert-success"
-            message = "La compra se ha realizado correctamente."
-            Shopping.accept_purchase(client, address, totalPrice)
-
-        else :
-            error = "alert alert-danger"
-            message = "Introduzca el nombre de la tarjeta correctamente."
+        shop = Shopping_Cart.set_finish_purchase(request.user, form)
 
         general = Product.get_general()
-        specific = {'user' : request.user,'address' : address,'shopping' : shopping,'total' : totalPrice,'message' : message,'error': error}
-        total = dict(general.items() | specific.items())
+        total = dict(general.items() | shop.items())
         return render(request, "finish_purchase.html",total)
-    else :
+    else:
         return redirect('finish_purchase')
 
 

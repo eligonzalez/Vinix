@@ -183,3 +183,6 @@ def edit_account(request):
               })
         else :
             return redirect('home')
+
+def error(request):
+    return render(request, 'error.html', {})
