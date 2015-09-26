@@ -55,14 +55,6 @@ class Shopping(models.Model):
 
         shop = Shopping.objects.get(user=user, finish=False)
         products = Shopping_Cart.objects.filter(shopping=shop)
-
-        subject, from_email, to = 'Compra finalizada', 'jordi.montes.sanabria@gmail.com', 'eli.gonzalez05@gmail.com'
-        text_content = 'This is an important message.'
-        html_products = ''
-        for p in products:
-            html_products += '<p>' + p.product.name + '</p><br>'
-
-        html_content = html_products + '<p>This is an <strong>important</strong> message.</p>'
         shop.finish = True
         shop.priceTotal = price
         shop.name = dir.name
@@ -77,6 +69,24 @@ class Shopping(models.Model):
         new_shop = Shopping(user=user,date=today)
         new_shop.save()
 
+        subject, from_email, to = 'Compra finalizada', 'eli.gonzalez05@gmail.com', 'eli.gonzalez05@gmail.com'
+        text_content = ''
+        html_products = '<table style="width:100%" border="1" class="table table-hover">  <thead> ' \
+                        '<tr> <th> Producto </th> <th> Precio </th> <th> Cantidad </th> <th> Total </th> </thead> <tbody style="text-align:center">' \
+                        ' '
+
+        for p in products:
+            html_products += '<tr><td>' + p.product.name + '</td>' \
+                             '<td>' + str(p.product.price) + '€</td>' \
+                             '<td>' + str(p.amount) + '</td>' \
+                             '<td>' + str(p.total_product + 3) + '€</td>'
+
+        html_products += '<tr><td> <b> Precio total: </b> </td><td></td><td></td><td>' + str(shop.priceTotal) + '€</td> ' \
+                    '</tr></tbody></table></br></br>' + '<p> <strong> Dirección de envío de la compra </strong </p>' \
+                    '<p>' + shop.name + ' ' + shop.lastName + '</p>' + '<p>' + shop.address + '</p>'  \
+                    '<p>' + shop.province + ', ' + shop.town + '</p>' + '<p>' + shop.country + ', ' + shop.postalCode + '</p>' + '<p>' + shop.phone + '</p>'
+
+        html_content = html_products
 
         msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
         msg.attach_alternative(html_content, "text/html")
