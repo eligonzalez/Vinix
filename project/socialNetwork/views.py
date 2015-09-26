@@ -129,7 +129,7 @@ def remove_favorite_product(request, idProduct):
     return render(request, 'wine_social.html', favoriteProducts)
 
 
-def home2(request):
+def upload(request):
     if request.method=="POST":
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():

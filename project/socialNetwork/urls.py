@@ -18,6 +18,6 @@ urlpatterns = patterns(
     url(r'^wines_social', views.wines_social, name='wines_social'),
     url(r'^add_favorite_product/(?P<idProduct>\d+)/$', views.add_favorite_product, name='add_favorite_product'),
     url(r'^remove_favorite_product/(?P<idProduct>\d+)/$', views.remove_favorite_product, name='remove_favorite_product'),
-    url(r'^home2', views.home2, name='imageupload'),
+    url(r'^upload', views.upload, name='imageupload'),
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

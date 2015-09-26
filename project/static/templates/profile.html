@@ -12,7 +12,7 @@
                             <img  src="{{user.image.url}}" class="img-thumbnail" style="width:340px;height:180px;">
                         </div>
 
-                        <form action="/home2" method="post" enctype="multipart/form-data">
+                        <form action="/upload" method="post" enctype="multipart/form-data">
                             {% csrf_token %} {{form.image}}
                             <input type="submit" value="Subir imagen" />
                         </form>
