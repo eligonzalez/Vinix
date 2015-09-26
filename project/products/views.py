@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.contrib import admin
 from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -69,8 +70,8 @@ def add_wine_shopping(request):
                 specific = {'wine_data': wine_data, 'message' : message, 'error': error}
                 total = dict(general.items() | specific.items())
                 return render(request,'wine.html', total)
-    else :
-        return render(request,'wine.html', {})
+
+    return redirect('error')
 
 def list_wines_view(request, filter, value):
 
@@ -109,7 +110,6 @@ def list_wines_view(request, filter, value):
     specific = {'type': typeProd, 'products': prod}
     pagination = Product.get_pagination(request,prod,4)
     total = dict(specific.items() | general.items() | pagination.items())
-
     return render(request,'list_wines.html', total)
 
 def search(request):
@@ -127,7 +127,7 @@ def search(request):
             total = dict(specific.items() | pagination.items() | general.items())
             return render(request,'search.html',total)
 
-    return render(request,'home.html')
+    return redirect('error')
 
 def list_spirit(request, value):
 
@@ -147,7 +147,6 @@ def spirit_view(request, spirit_id):
     comment_user = PunctuationProduct.objects.filter(user=request.user, product=spirit_data).exists()
     favorite = FavoriteProduct.objects.filter(user=request.user, product=spirit_data)
 
-
     general = Product.get_general()
     specific = {'spirit_data': spirit_data, 'comments': comments, 'comment_user' : comment_user, 'favorite': favorite}
     total = dict(general.items() | specific.items())
@@ -162,29 +161,29 @@ def add_comment_product(request):
             c = form.cleaned_data['comment']
             idProduct = form.cleaned_data['idProduct']
             p = Product.objects.get(id=idProduct)
-            u = BasicUser.objects.get(id=request.user.id)
 
-            if PunctuationProduct.objects.filter(user=request.user, product=p).exists():
-                print("Ya has escrito un comentario a este producto anteriormente.")
+            PunctuationProduct.add_comment(p, c, 1, request.user)
+
+            if hasattr(p, 'spirit'):
+                return redirect('spirit_view', idProduct)
             else:
-                newComment = PunctuationProduct(user=u, product=p, comment=c, punctuation=0)
-                newComment.save()
-            return render(request, 'prueba.html', {})
+                return redirect('wine_view', idProduct)
 
-    return render(request, 'error.html', {})
+    return redirect('error')
 
 def remove_comment_product(request, product_id, user_id):
+    p = Product.objects.get(id=product_id)
 
-    if str(request.user.id) == str(user_id):
-        user = BasicUser.objects.get(id=user_id)
-        p = Product.objects.get(id=product_id)
-        comment = PunctuationProduct.objects.filter(user=user, product=p)
-        comment.delete()
-        return render(request, 'prueba.html', {})
+    PunctuationProduct.delete_comment(p, user_id, request.user)
 
-    return render(request, 'error.html', {})
+    if hasattr(p, 'spirit'):
+        return redirect('spirit_view', product_id)
+    else:
+        return redirect('wine_view', product_id)
 
 def products_favorite(request):
+    if not request.user.is_authenticated():
+        return redirect('login')
 
     favorite = PunctuationProduct.favorite_punctuation_product(request.user)
 

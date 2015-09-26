@@ -187,3 +187,19 @@ class PunctuationProduct(models.Model):
                 f.product.punctuation = -1
 
         return {'favorite': favorite}
+
+    @classmethod
+    def add_comment(self, p, comment, punctuation, user):
+        u = BasicUser.objects.get(id=user.id)
+
+        if not PunctuationProduct.objects.filter(user=user, product=p).exists():
+            newComment = PunctuationProduct(user=u, product=p, comment=comment, punctuation=punctuation)
+            newComment.save()
+
+    @classmethod
+    def delete_comment(self, p, user_id, reqUser):
+        if str(reqUser.id) == str(user_id):
+            user = BasicUser.objects.get(id=user_id)
+
+            comment = PunctuationProduct.objects.filter(user=user, product=p)
+            comment.delete()
