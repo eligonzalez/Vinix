@@ -11,17 +11,8 @@ def login_view(request):
     form = BasicUserLoginForm()
     form_reg = BasicUserRegisterForm()
     errors = []
-    return render(request, 'login_register_view.html',
-        {
-            'form_reg': form_reg,
-            'form': form,
-            'form_register_check': 'register_check',
-            'form_login_check': 'login_check',
-            'errors': errors,
-        }
-    )
-
-
+    return render(request, 'login_register_view.html', {'form_reg': form_reg, 'form': form, 'form_register_check': 'register_check',
+            'form_login_check': 'login_check', 'errors': errors})
 
 def login_check(request):
     if request.user.is_authenticated():
@@ -54,16 +45,8 @@ def login_check(request):
                     initial={'username': form.cleaned_data['username']})
     else:
         form = BasicUserLoginForm()
-    return render(request,'login_register_view.html',
-        {
-            'form_reg': form_reg,
-            'form': form,
-
-            'form_register_check': 'register_check',
-            'form_login_check': 'login_check',
-
-            'errors': errors,
-        })
+    return render(request,'login_register_view.html', {'form_reg': form_reg, 'form': form, 'form_register_check': 'register_check',
+            'form_login_check': 'login_check', 'errors': errors})
 
 
 def register_check(request):
@@ -100,16 +83,8 @@ def register_check(request):
 
             return redirect('home')
 
-    return render(request,'login_register_view.html',
-        {
-            'form_reg': form_reg,
-            'form': form,
-
-            'form_register_check': 'register_check',
-            'form_login_check': 'login_check',
-
-            'errors': errors,
-        })
+    return render(request,'login_register_view.html', {'form_reg': form_reg, 'form': form, 'form_register_check': 'register_check',
+            'form_login_check': 'login_check', 'errors': errors})
 
 
 def logout_view(request):
@@ -118,17 +93,8 @@ def logout_view(request):
     form = BasicUserLoginForm()
     form_reg = BasicUserRegisterForm()
     errors = []
-    return render(request,'login_register_view.html',
-        {
-            'form_reg': form_reg,
-            'form': form,
-
-            'form_register_check': 'register_check',
-            'form_login_check': 'login_check',
-
-            'errors': errors,
-        }
-    )
+    return render(request,'login_register_view.html', {'form_reg': form_reg, 'form': form, 'form_register_check': 'register_check',
+            'form_login_check': 'login_check', 'errors': errors})
 
 
 def my_account(request):
@@ -174,14 +140,8 @@ def edit_account(request):
                 message = "Los datos han sido modificados"
 
             address = AddressUser.objects.filter(idUser=request.user.id)
-            return render(request, "edit_account.html",
-              {
-                  'address' : address,
-                  'user' : request.user,
-                  'error' : error,
-                  'message' : message
-              })
-        else :
+            return render(request, "edit_account.html", {'address' : address, 'user' : request.user, 'error' : error, 'message' : message})
+        else:
             return redirect('home')
 
 def error(request):
