@@ -5,6 +5,7 @@ import datetime
 from dateutil.relativedelta import *
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.core.mail import EmailMultiAlternatives
 
 today = datetime.datetime.today()
 
@@ -51,7 +52,17 @@ class Shopping(models.Model):
 
     @classmethod
     def accept_purchase(self, user, dir, price):
+
         shop = Shopping.objects.get(user=user, finish=False)
+        products = Shopping_Cart.objects.filter(shopping=shop)
+
+        subject, from_email, to = 'Compra finalizada', 'jordi.montes.sanabria@gmail.com', 'eli.gonzalez05@gmail.com'
+        text_content = 'This is an important message.'
+        html_products = ''
+        for p in products:
+            html_products += '<p>' + p.product.name + '</p><br>'
+
+        html_content = html_products + '<p>This is an <strong>important</strong> message.</p>'
         shop.finish = True
         shop.priceTotal = price
         shop.name = dir.name
@@ -66,8 +77,10 @@ class Shopping(models.Model):
         new_shop = Shopping(user=user,date=today)
         new_shop.save()
 
-        send_mail('Compra finalizada', 'Resumen del pedido.', 'example@example', ['eli.gonzalez05@gmail.com'], fail_silently=False)
 
+        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
 
 
 class Shopping_Cart(models.Model):
