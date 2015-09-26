@@ -26,8 +26,7 @@ def shopping_cart(request):
     return render(request, "shopping_cart.html",
                   {'shopping_cart': shopping,'total' : total,'priceProduct' : priceXAmount,'errors' : errors,
                    'prodZone':Zone.objects.all(),'prodStyle':Style.objects.all(),'prodVarietal':Varietal.objects.all(),
-                   'destYLicor': SubTypeSpirit.objects.all()
-                  })
+                   'destYLicor': SubTypeSpirit.objects.all()})
 
 
 def finish_purchase(request):

@@ -11,7 +11,6 @@ from django.db.models import Q
 
 admin.autodiscover()
 
-
 def home(request):
 
     products = ProductFilter(request.GET, queryset=Product.objects.all())

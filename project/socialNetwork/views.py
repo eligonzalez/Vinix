@@ -51,7 +51,7 @@ def search_people(request):
             unknowables = filter(lambda x: x not in set(friends), people)
             return render(request,'follower.html', {'word': word, 'people': unknowables, 'friends': friends})
 
-    return render(request, 'follower.html', {})
+    return redirect('error')
 
 def add_post(request):
 
@@ -65,7 +65,7 @@ def add_post(request):
             info = Follower.add_post_function(post, idReceiver, request.user)
             return render(request, 'profile.html', info)
 
-    return render(request, 'profile.html', {})
+    return redirect('error')
 
 def remove_post(request, idPost, idUser):
 
@@ -76,7 +76,6 @@ def home_social(request):
 
     posts = Post.objects.filter(Q(idUser1=request.user) | Q(idUser2=request.user)).order_by('-date')
     user = BasicUser.objects.get(id=request.user.id)
-
     return render(request, 'home_social.html', {'user': user, 'posts': posts})
 
 def wines_social(request):
@@ -102,7 +101,7 @@ def search_wine(request):
 
             return render(request,'wine_social.html', {'word': word, 'productsNoFavorite': productsNoFavorite, 'productsFavorite': productsFavorite})
 
-    return render(request, 'follower.html', {})
+    return redirect('error')
 
 def add_favorite_product(request, idProduct):
 
@@ -116,7 +115,6 @@ def remove_favorite_product(request, idProduct):
     favoriteProducts = FavoriteProduct.get_products_favorite(request.user)
 
     return render(request, 'wine_social.html', favoriteProducts)
-
 
 def upload(request):
     if request.method == "POST":
