@@ -2,7 +2,7 @@
     </br>
     <p>
         {% if request.user.username %}
-            <a href="{% url 'my_account' %}"> {{request.user.username}}  <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
+            <a href="{% url 'my_account' %}"> {{request.user.first_name}}  <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
         {% else %}
             <a href="{% url 'my_account' %}"> Iniciar sesión <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
         {% endif %}

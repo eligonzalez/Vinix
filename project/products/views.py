@@ -15,7 +15,7 @@ def home(request):
 
     products = ProductFilter(request.GET, queryset=Product.objects.all())
     general = Product.get_general()
-    pagination = Product.get_pagination(request, products, 12)
+    pagination = Product.get_pagination(request, products, 4)
     specific = {'products': products}
     total = dict(general.items() | specific.items() | pagination.items())
     return render(request,'home.html', total)

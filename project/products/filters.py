@@ -7,6 +7,7 @@ class ProductFilter(django_filters.FilterSet):
         fields = ()
         order_by= (
         	('name', 'Nombre'),
+            ('-name', 'Nombre descendiente'),
         	('price', 'Precio'),
         	('country', 'País')
         	)

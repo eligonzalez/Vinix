@@ -2,7 +2,7 @@
     </br>
     <p>
         {% if user.username %}
-            <a href="{% url 'my_account' %}"> {{user.username}}  <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
+            <a href="{% url 'my_account' %}"> {{user.first_name}}  <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
             <a>   |   </a>
             <a href="{% url 'logout' %}"> Cerrar sesión </a>
         {% else %}
