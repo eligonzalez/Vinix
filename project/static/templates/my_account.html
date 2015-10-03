@@ -14,10 +14,12 @@
             <p><b> {{user.first_name}} {{user.last_name}}</b> </p>
 
             {% if address %}
-                <p> {{address.0.address}} </p>
-                <p> {{address.0.province}}, {{address.0.country}} </p>
-                <p> {{address.0.postalCode}} </p>
-                <p> {{address.0.phone}} </p>
+                {%if address.0.address %}
+                    <p> {{address.0.address}} </p>
+                    <p> {{address.0.province}}, {{address.0.country}} </p>
+                    <p> {{address.0.postalCode}}, {{address.0.town}}</p>
+                    <p> {{address.0.phone}} </p>
+                {% endif %}
             {% endif %}
             </br>
             <a class="more" href="{% url 'edit_account' %}"> Editar información </a>

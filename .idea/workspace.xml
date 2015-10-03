@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3267a8c0-5768-4bc2-a772-5e1aa4ead94e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/address.html" afterPath="$PROJECT_DIR$/project/static/templates/address.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/project/bla.css" afterPath="$PROJECT_DIR$/project/static/project/bla.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/edit_account.html" afterPath="$PROJECT_DIR$/project/static/templates/edit_account.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/project/finish_purchase.css" afterPath="$PROJECT_DIR$/project/static/project/finish_purchase.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/finish_purchase.html" afterPath="$PROJECT_DIR$/project/static/templates/finish_purchase.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/project/header.css" afterPath="$PROJECT_DIR$/project/static/project/header.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/list_spirit.html" afterPath="$PROJECT_DIR$/project/static/templates/list_spirit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/list_wines.html" afterPath="$PROJECT_DIR$/project/static/templates/list_wines.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/project/menu.css" afterPath="$PROJECT_DIR$/project/static/project/menu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/my_account.html" afterPath="$PROJECT_DIR$/project/static/templates/my_account.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/spirit.html" afterPath="$PROJECT_DIR$/project/static/templates/spirit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/products/views.py" afterPath="$PROJECT_DIR$/project/products/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/users/views.py" afterPath="$PROJECT_DIR$/project/users/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Vinix.iws" />
@@ -25,48 +34,7 @@
     <favorites_list name="Vinix" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="spirit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/static/templates/spirit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.333334">
-              <caret line="122" column="21" selection-start-line="101" selection-start-column="16" selection-end-line="122" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/products/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="57.22222">
-              <caret line="43" column="58" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/project/products/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14376996">
-              <caret line="15" column="84" selection-start-line="15" selection-start-column="84" selection-end-line="15" selection-end-column="84" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wine.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/static/templates/wine.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.458333">
-              <caret line="96" column="38" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -81,31 +49,22 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/project/static/project/social_network.css" />
         <option value="$PROJECT_DIR$/project/socialNetwork/forms.py" />
         <option value="$PROJECT_DIR$/project/socialNetwork/admin.py" />
         <option value="$PROJECT_DIR$/project/shoppingcart/admin.py" />
         <option value="$PROJECT_DIR$/project/users/admin.py" />
         <option value="$PROJECT_DIR$/project/static/templates/home_view.html" />
-        <option value="$PROJECT_DIR$/project/static/templates/finish_purchase.html" />
-        <option value="$PROJECT_DIR$/project/static/templates/address.html" />
         <option value="$PROJECT_DIR$/project/users/models.py" />
-        <option value="$PROJECT_DIR$/project/static/templates/edit_account.html" />
         <option value="$PROJECT_DIR$/project/users/forms.py" />
         <option value="$PROJECT_DIR$/project/project/settings.py" />
         <option value="$PROJECT_DIR$/project/static/templates/prueba.html" />
         <option value="$PROJECT_DIR$/project/products/forms.py" />
         <option value="$PROJECT_DIR$/project/static/templates/wine_view.html" />
         <option value="$PROJECT_DIR$/project/static/templates/error.html" />
-        <option value="$PROJECT_DIR$/project/static/templates/list_wines.html" />
         <option value="$PROJECT_DIR$/project/static/project/images/home.css" />
-        <option value="$PROJECT_DIR$/project/static/project/home.css" />
-        <option value="$PROJECT_DIR$/project/static/templates/home.html" />
         <option value="$PROJECT_DIR$/project/products/urls.py" />
-        <option value="$PROJECT_DIR$/project/static/templates/productsFavorite.html" />
         <option value="$PROJECT_DIR$/project/static/templates/shopping_cart.html" />
         <option value="$PROJECT_DIR$/project/static/templates/summary_shopping.html" />
-        <option value="$PROJECT_DIR$/project/static/templates/my_account.html" />
         <option value="$PROJECT_DIR$/project/shoppingcart/urls.py" />
         <option value="$PROJECT_DIR$/project/static/templates/home_social.html" />
         <option value="$PROJECT_DIR$/project/static/templates/missage_email.html" />
@@ -114,24 +73,33 @@
         <option value="$PROJECT_DIR$/project/users/urls.py" />
         <option value="$PROJECT_DIR$/project/shoppingcart/models.py" />
         <option value="$PROJECT_DIR$/project/socialNetwork/models.py" />
-        <option value="$PROJECT_DIR$/project/users/views.py" />
         <option value="$PROJECT_DIR$/project/socialNetwork/views.py" />
         <option value="$PROJECT_DIR$/project/shoppingcart/views.py" />
         <option value="$PROJECT_DIR$/project/static/templates/navbar_social.html" />
         <option value="$PROJECT_DIR$/project/products/filters.py" />
-        <option value="$PROJECT_DIR$/project/static/templates/list_spirit.html" />
         <option value="$PROJECT_DIR$/project/static/project/header.css.html" />
         <option value="$PROJECT_DIR$/project/static/project/general.js" />
         <option value="$PROJECT_DIR$/project/static/templates/base.html" />
-        <option value="$PROJECT_DIR$/project/static/project/header.css" />
-        <option value="$PROJECT_DIR$/project/static/project/menu.css" />
         <option value="$PROJECT_DIR$/project/static/templates/navbar_tienda.html" />
         <option value="$PROJECT_DIR$/project/products/models.py" />
         <option value="$PROJECT_DIR$/project/products/admin.py" />
-        <option value="$PROJECT_DIR$/project/static/project/bla.css" />
-        <option value="$PROJECT_DIR$/project/static/templates/spirit.html" />
-        <option value="$PROJECT_DIR$/project/static/templates/wine.html" />
         <option value="$PROJECT_DIR$/project/products/views.py" />
+        <option value="$PROJECT_DIR$/project/static/templates/wine.html" />
+        <option value="$PROJECT_DIR$/project/users/views.py" />
+        <option value="$PROJECT_DIR$/project/static/templates/my_account.html" />
+        <option value="$PROJECT_DIR$/project/static/templates/address.html" />
+        <option value="$PROJECT_DIR$/project/static/project/home.css" />
+        <option value="$PROJECT_DIR$/project/static/project/header.css" />
+        <option value="$PROJECT_DIR$/project/static/templates/list_spirit.html" />
+        <option value="$PROJECT_DIR$/project/static/templates/list_wines.html" />
+        <option value="$PROJECT_DIR$/project/static/project/finish_purchase.css" />
+        <option value="$PROJECT_DIR$/project/static/templates/finish_purchase.html" />
+        <option value="$PROJECT_DIR$/project/static/templates/home.html" />
+        <option value="$PROJECT_DIR$/project/static/project/menu.css" />
+        <option value="$PROJECT_DIR$/project/static/templates/spirit.html" />
+        <option value="$PROJECT_DIR$/project/static/templates/edit_account.html" />
+        <option value="$PROJECT_DIR$/project/static/project/bla.css" />
+        <option value="$PROJECT_DIR$/project/static/templates/productsFavorite.html" />
       </list>
     </option>
   </component>
@@ -494,12 +462,6 @@
       <option name="number" value="Default" />
       <updated>1429364024466</updated>
     </task>
-    <task id="LOCAL-00010" summary="He modificado el template my_account y he incluido un nuevo modelo (shopping) ademas de modificar el shopping_cart.">
-      <created>1430318393045</created>
-      <option name="number" value="00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1430318393045</updated>
-    </task>
     <task id="LOCAL-00011" summary="He puesto valores variables en vez de fijos en el HTML.">
       <created>1435602505017</created>
       <option name="number" value="00011" />
@@ -788,7 +750,13 @@
       <option name="project" value="LOCAL" />
       <updated>1443867477775</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="A medias con la vista vino y destilado.">
+      <created>1443870248301</created>
+      <option name="number" value="00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1443870248301</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -813,9 +781,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18268467" sideWeight="0.94166666" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18268467" sideWeight="0.94166666" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -871,7 +839,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Se puede subir una imagen." />
     <MESSAGE value="Compartir producto sin acabar hecho por Jordi" />
     <MESSAGE value="Se pueden subir fotos de perfil." />
     <MESSAGE value="He modificado los admin.py para que se mostraran las fechas y los id's de las clases." />
@@ -896,7 +863,8 @@
     <MESSAGE value="Funciona. Voy a hacer los cambios del Arnau." />
     <MESSAGE value="Navbar a medias." />
     <MESSAGE value="Navbar y header acabados. &#10;En el home los productos se ordenan por fecha (Novedades)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Navbar y header acabados. &#10;En el home los productos se ordenan por fecha (Novedades)" />
+    <MESSAGE value="A medias con la vista vino y destilado." />
+    <option name="LAST_COMMIT_MESSAGE" value="A medias con la vista vino y destilado." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -939,24 +907,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/register_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25119236">
-          <caret line="20" column="169" selection-start-line="20" selection-start-column="150" selection-end-line="20" selection-end-column="169" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/static/templates/login_register_view.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3338633">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/edit_account.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59618443">
-          <caret line="71" column="150" selection-start-line="71" selection-start-column="150" selection-end-line="71" selection-end-column="150" />
         </state>
       </provider>
     </entry>
@@ -996,13 +950,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/project/finish_purchase.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/static/project/social_network.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1031,31 +978,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/list_wines.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3004769">
-          <caret line="72" column="0" selection-start-line="67" selection-start-column="10" selection-end-line="72" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/productsFavorite.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5372425">
-          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/static/templates/shopping_cart.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5007924">
           <caret line="31" column="68" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/my_account.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5942948">
-          <caret line="39" column="92" selection-start-line="39" selection-start-column="92" selection-end-line="39" selection-end-column="92" />
         </state>
       </provider>
     </entry>
@@ -1095,13 +1021,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/users/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3115016">
-          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/products/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.023961661">
@@ -1117,13 +1036,6 @@
           <folding>
             <element signature="e#0#28#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.4265175">
-          <caret line="143" column="12" selection-start-line="143" selection-start-column="12" selection-end-line="143" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1170,47 +1082,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/address.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="7" column="63" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/finish_purchase.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
-          <caret line="49" column="65" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.25">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/list_spirit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.19077902">
-          <caret line="23" column="62" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/static/templates/navbar_social.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09538951">
           <caret line="4" column="71" selection-start-line="4" selection-start-column="71" selection-end-line="4" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/project/home.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.091883615">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1223,26 +1098,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/project/header.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06891271">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/static/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28616852">
           <caret line="24" column="77" selection-start-line="24" selection-start-column="77" selection-end-line="24" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/navbar_tienda.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6677266">
-          <caret line="61" column="98" selection-start-line="61" selection-start-column="98" selection-end-line="61" selection-end-column="98" />
           <folding />
         </state>
       </provider>
@@ -1255,50 +1114,162 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/project/bla.css">
+    <entry file="file://$PROJECT_DIR$/project/users/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.642858">
-          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.28753993">
+          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8146965">
+          <caret line="85" column="63" selection-start-line="85" selection-start-column="63" selection-end-line="85" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/templates/my_account.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47694755">
+          <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/templates/register_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26232114">
+          <caret line="20" column="169" selection-start-line="20" selection-start-column="150" selection-end-line="20" selection-end-column="169" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/templates/list_wines.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6327504">
+          <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/templates/address.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8600954">
+          <caret line="78" column="82" selection-start-line="78" selection-start-column="82" selection-end-line="78" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/project/header.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.022970904">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/project/finish_purchase.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9540582">
+          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/templates/finish_purchase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23688394">
+          <caret line="20" column="71" selection-start-line="20" selection-start-column="71" selection-end-line="20" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/templates/navbar_tienda.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38473767">
+          <caret line="35" column="37" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/static/project/menu.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3338438">
-          <caret line="59" column="46" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.39050537">
+          <caret line="92" column="17" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/static/templates/spirit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.333334">
-          <caret line="122" column="21" selection-start-line="101" selection-start-column="16" selection-end-line="122" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.3688394">
+          <caret line="64" column="48" selection-start-line="64" selection-start-column="48" selection-end-line="64" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/products/models.py">
+    <entry file="file://$PROJECT_DIR$/project/static/templates/edit_account.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="57.22222">
-          <caret line="43" column="58" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+        <state vertical-scroll-proportion="-9.375">
+          <caret line="15" column="57" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/wine.html">
+    <entry file="file://$PROJECT_DIR$/project/static/templates/list_spirit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.458333">
-          <caret line="96" column="38" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.9300477">
+          <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/products/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14376996">
+        <state vertical-scroll-proportion="-2.5878594">
           <caret line="15" column="84" selection-start-line="15" selection-start-column="84" selection-end-line="15" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76311606">
+          <caret line="32" column="60" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/products/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2939297">
+          <caret line="43" column="58" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/templates/productsFavorite.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37172773">
+          <caret line="26" column="60" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/templates/wine.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26232114">
+          <caret line="27" column="56" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/project/bla.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7236181">
+          <caret line="67" column="4" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="4" />
           <folding />
         </state>
       </provider>

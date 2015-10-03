@@ -27,16 +27,17 @@
                                         <div class="caption" align="center"> </div>
                                     </div>
                                     <div>
-                                        <div class="cajaProducto"></br>
-                                            <div><h5>{{prod.name}}</h5></div>
-                                            <div class="cajaTexto">
-                                                <span>{{prod.price}}€</span></br>
-                                            </div></br>
-                                        </div></br>
+                                        <div class="cajaProducto">
+                                            <div>
+                                                <h5>{{prod.name}}</h5>
+                                                <p>{{prod.zone}}, {{prod.country}}</p>
+                                                <span>{{prod.price}}€</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                         {% endfor %}
-                    </div>
+                    </div></br></br>
                     <div align="center">
 
                         {% if list_prod.has_previous %}

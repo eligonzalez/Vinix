@@ -54,10 +54,6 @@ a:hover {
     padding: 1.5em;
 }
 
-.color {
-    color: #858383;
-}
-
 .total {
     font-size: 1.75em;
     color: #858383;
@@ -66,4 +62,10 @@ a:hover {
 .colorPrecioTotal {
     color: #8fc243;
     font-size: 1.75em;
+}
+
+.btn-primary.active, .btn-primary:active {
+    background-color: #2e2c2c;
+    border-color: #2e2c2c;
+    border: 2px solid #f5f5f5;
 }

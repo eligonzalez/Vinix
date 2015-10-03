@@ -21,6 +21,9 @@
                     <h1 align="left">Vila Viniteca</h1> </br></br></br>
                     <div class="row">
                         <div class="col-sm-6 col-md-6">
+                            {% if error %}
+                                <div class="{{error}}" role="alert">{{message}}</div>
+                            {% endif %}
                             <div>
                                 <h5>Información personal</h5></br>
                                 <div class="row">
@@ -100,9 +103,7 @@
                             <form class="form-horizontal" action="/check_finish_purchase" method="post">
                                 {% csrf_token %}
                                 {{ form.non_field_errors }}
-                                {% if error %}
-                                        <div class="{{error}}" role="alert">{{message}}</div>
-                                {% endif %}
+
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <div class="row" >
