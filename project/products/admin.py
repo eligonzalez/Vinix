@@ -3,8 +3,8 @@ from .models import *
 # Register your models here.
 
 class ShowProduct(admin.ModelAdmin):
-	list_display = ['id', 'name', 'price', 'image', 'zone', 'country', 'elaboration', 'alcohol']
-	readonly_fields = ('id',)
+	list_display = ['id', 'name', 'price', 'image', 'zone', 'country', 'elaboration', 'alcohol', 'date']
+	readonly_fields = ('id','date')
 
 class ShowWine(admin.ModelAdmin):
 	list_display = ['id', 'name', 'price', 'image', 'zone', 'country', 'elaboration', 'alcohol', 'size', 'temperature', 'cellar', 'varietal', 'style', 'marriage', 'type']

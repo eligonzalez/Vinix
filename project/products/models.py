@@ -41,6 +41,7 @@ class Product(models.Model):
     country = models.ForeignKey('Country', blank=True, default=None)
     elaboration = models.CharField(max_length=1000, blank=True, default=None)
     alcohol = models.CharField(max_length=1000, blank=True, default=None)
+    date = models.DateField(auto_now_add=True, blank=True)
     def __str__(self):
         return str(self.id)
 

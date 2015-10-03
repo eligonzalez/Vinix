@@ -13,9 +13,9 @@ admin.autodiscover()
 
 def home(request):
 
-    products = ProductFilter(request.GET, queryset=Product.objects.all())
+    products = ProductFilter(request.GET, queryset=Product.objects.all().order_by('date'))
     general = Product.get_general()
-    pagination = Product.get_pagination(request, products, 4)
+    pagination = Product.get_pagination(request, products, 12)
     specific = {'products': products}
     total = dict(general.items() | specific.items() | pagination.items())
     return render(request,'home.html', total)

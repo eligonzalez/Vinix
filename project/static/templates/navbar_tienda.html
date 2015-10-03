@@ -1,20 +1,29 @@
-<div align="right">
-    </br>
-    <p>
-        {% if user.username %}
-            <a href="{% url 'my_account' %}"> {{user.first_name}}  <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
-            <a href="{% url 'logout' %}"> Cerrar sesión </a>
-        {% else %}
-            <a href="{% url 'my_account' %}"> Iniciar sesión <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
-        {% endif %}
-        <a href="{% url 'products_favorite' %}" >Productos favoritos <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
-        <a href="{% url 'shopping_cart' %}" >Carrito {% if request.session.amount %} <span class="badge" >{{request.session.amount}}  € </span></a>{% endif %}
-        {% if user.username %}
-            <a href="{% url 'profile' user.id %}" ><span> Red social </span></a>
-        {% endif %}
-    </p>
+<div id="header" class="row">
+    <div id="header2">
+        <div class="col-sm-4 col-md-4">
+            <a href="{% url 'home' %}"><h1>Vinix</h1></a>
+        </div>
+        <div class="col-sm-8 col-md-8" >
+            <div id="cart">
+                <ul id="cart1">
+                {% if request.user.username %}
+                    <li><a href="{% url 'my_account' %}"> {{user.first_name}}  <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a></li>
+                {% else %}
+                    <li><a href="{% url 'my_account' %}"> Iniciar sesión <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a></li>
+                {% endif %}
+                <li><a href="{% url 'products_favorite' %}" >Productos favoritos <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a></li>
+                <li><a href="{% url 'shopping_cart' %}" >Carrito
+                    <span class="badge" >
+                        {% if request.session.amount %}{{request.session.amount}}
+                        {% else %} 0 {% endif %}
+                    € </span></a>
+                </li>
+                <li><a href="{% url 'logout' %}"> Cerrar sesión </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div></br></br>
-<a href="{% url 'home' %}"><h1 align="center">Vila Viniteca</h1></a> </br></br>
 
 <nav class="navbar navbar-inverse navbar-static-top" >
     <div class="container-fluid">
@@ -28,7 +37,7 @@
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Vinos </a>
 
                    <ul class="dropdown-menu">
-                        <li class="menu-item dropdown dropdown-submenu">Por tipo
+                        <li class="menu-item dropdown dropdown-submenu"><a>Por tipo</a>
                             <ul class="dropdown-menu">
                                 <li><a href="{% url 'list_wine' 'type' 'B' %}">Blancos</a></li>
                                 <li><a href="{% url 'list_wine' 'type' 'T' %}">Tintos</a></li>
@@ -36,21 +45,21 @@
                                 <li><a href="{% url 'list_wine' 'type' 'E' %}">Espumosos</a></li>
                             </ul>
                         </li>
-                        <li class="menu-item dropdown dropdown-submenu">Por zona
+                        <li class="menu-item dropdown dropdown-submenu"><a>Por zona</a>
                             <ul class="dropdown-menu">
                                 {% for zone in prodZone %}
                                     <li><a href="{% url 'list_wine' 'zone' zone.name %}">{{zone.name}}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li class="menu-item dropdown dropdown-submenu">Por estilo
+                        <li class="menu-item dropdown dropdown-submenu"><a>Por estilo</a>
                             <ul class="dropdown-menu">
                                 {% for style in prodStyle %}
                                     <li><a href="{% url 'list_wine' 'style' style.name %}">{{style.name}}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li class="menu-item dropdown dropdown-submenu">Por variedad de uva
+                        <li class="menu-item dropdown dropdown-submenu"><a>Por variedad de uva</a>
                             <ul class="dropdown-menu">
                                 {% for varietal in prodVarietal %}
                                     <li><a href="{% url 'list_wine' 'varietal' varietal.name %}">{{varietal.name}}</a></li>
@@ -75,8 +84,9 @@
                         {% endfor %}
                     </ul>
                 </li>
-
-                <li class="dropdown"><a href="{% url 'profile' user.id %}">Red social</a></li>
+                {% if request.user.username %}
+                    <li class="dropdown"><a href="{% url 'profile' request.user.id %}">Red social</a></li>
+                {% endif %}
             </ul>
 
             <form class="navbar-form navbar-right"  action="/search" method="post">

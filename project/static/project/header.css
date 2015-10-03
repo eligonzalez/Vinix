@@ -1,0 +1,15 @@
+#header {
+    padding-up:2%;
+    padding-left: 6%;
+}
+
+#cart {
+    min-height: 13vh;
+    display: flex;
+    align-items: center;
+}
+
+ul#cart1 li {
+    margin: 0 15px;
+    display: inline-block;
+}
