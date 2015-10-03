@@ -13,7 +13,7 @@ admin.autodiscover()
 
 def home(request):
 
-    products = ProductFilter(request.GET, queryset=Product.objects.all().order_by('date'))
+    products = ProductFilter(request.GET, queryset=Product.objects.all().order_by('-date'))
     general = Product.get_general()
     pagination = Product.get_pagination(request, products, 12)
     specific = {'products': products}
@@ -24,7 +24,7 @@ def wine_view(request, wine_id):
 
     wine_data = get_object_or_404(Wine, pk=wine_id)
 
-    comments = PunctuationProduct.objects.filter(product=wine_data)
+    comments = PunctuationProduct.objects.filter(product=wine_data).order_by('-date')
     comment_user = PunctuationProduct.objects.filter(user=request.user, product=wine_data).exists()
     favorite = FavoriteProduct.objects.filter(user=request.user, product=wine_data)
 
@@ -142,7 +142,7 @@ def list_spirit(request, value):
 def spirit_view(request, spirit_id):
 
     spirit_data = get_object_or_404(Spirit, pk=spirit_id)
-    comments = PunctuationProduct.objects.filter(product=spirit_data)
+    comments = PunctuationProduct.objects.filter(product=spirit_data).order_by('-date')
     comment_user = PunctuationProduct.objects.filter(user=request.user, product=spirit_data).exists()
     favorite = FavoriteProduct.objects.filter(user=request.user, product=spirit_data)
 

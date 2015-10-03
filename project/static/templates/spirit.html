@@ -62,7 +62,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><b>Información adicional</b></div>
                 <ul class="list-group">
-                    <li class="list-group-item"><b>Elaboración. </b>{{spirit_data.elaboration}}</li>
+                    <li class="list-group-item"><b>Elaboración: </b>{{spirit_data.elaboration}}</li>
                 </ul>
             </div>
         </div>
@@ -102,10 +102,21 @@
                 <ul class="list-group">
                     {% if comments %}
                         {% for c in comments %}
-                            <li class="list-group-item">{{c.comment}} - {{c.punctuation}}
-                                <a href="{% url 'remove_comment_product' spirit_data.id  request.user.id %}">
-                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                </a>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-11">
+                                        <p> <b>Puntuación: {{c.punctuation}}</b></p>
+                                    </div>
+                                    <div class="col-md-1">
+                                        {% if c.user.id == user.id %}
+                                        <a  href="{% url 'remove_comment_product' spirit_data.id  request.user.id %}">
+                                            <span class="glyphicon glyphicon-trash" ></span>
+                                        </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <p id="comment"> Por {{c.user.first_name}} el {{c.date}}</p></br>
+                                <p>{{c.comment}}</p>
                             </li>
                         {% endfor %}
                     {% endif %}
