@@ -91,7 +91,19 @@ nav{
     letter-spacing: .1em;
 }
 
+.breadcrumb {background-color:white}
+
 /* Las siguientes lineas son para que funcione el dropdown del menu */
+
+.container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse, .container-fluid>.navbar-collapse {
+    margin-right: 0%;
+    margin-left: 7%;
+}
+
+/* Buscador narvar*/
+.container-fluid {
+    padding-right: 7%;
+}
 
 .dropdown-submenu > a:focus, .dropdown-submenu > a:hover, .dropdown-submenu:focus>a, r, .dropdown-submenu:hover>a,
 .dropdown-menu > li a:hover,

@@ -3,16 +3,12 @@
     <p>
         {% if user.username %}
             <a href="{% url 'my_account' %}"> {{user.first_name}}  <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
-            <a>   |   </a>
             <a href="{% url 'logout' %}"> Cerrar sesión </a>
         {% else %}
             <a href="{% url 'my_account' %}"> Iniciar sesión <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
         {% endif %}
-        <a>   |   </a>
         <a href="{% url 'products_favorite' %}" >Productos favoritos <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
-        <a>   |   </a>
         <a href="{% url 'shopping_cart' %}" >Carrito {% if request.session.amount %} <span class="badge" >{{request.session.amount}}  € </span></a>{% endif %}
-        <a>   |   </a>
         {% if user.username %}
             <a href="{% url 'profile' user.id %}" ><span> Red social </span></a>
         {% endif %}
@@ -20,7 +16,7 @@
 </div></br></br>
 <a href="{% url 'home' %}"><h1 align="center">Vila Viniteca</h1></a> </br></br>
 
-<nav class="navbar navbar-inverse" >
+<nav class="navbar navbar-inverse navbar-static-top" >
     <div class="container-fluid">
         <div class="navbar-header">
         <a class="navbar-brand" href="{% url 'home' %}">
@@ -29,11 +25,10 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav" >
-                <p class="navbar-text">|</p>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Vinos </a>
 
                    <ul class="dropdown-menu">
-                        <li class="menu-item dropdown dropdown-submenu"><a href="#">Por tipo</a>
+                        <li class="menu-item dropdown dropdown-submenu">Por tipo
                             <ul class="dropdown-menu">
                                 <li><a href="{% url 'list_wine' 'type' 'B' %}">Blancos</a></li>
                                 <li><a href="{% url 'list_wine' 'type' 'T' %}">Tintos</a></li>
@@ -41,23 +36,21 @@
                                 <li><a href="{% url 'list_wine' 'type' 'E' %}">Espumosos</a></li>
                             </ul>
                         </li>
-                        <li class="menu-item dropdown dropdown-submenu"><a href="">Por zona</a>
+                        <li class="menu-item dropdown dropdown-submenu">Por zona
                             <ul class="dropdown-menu">
                                 {% for zone in prodZone %}
                                     <li><a href="{% url 'list_wine' 'zone' zone.name %}">{{zone.name}}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li class="menu-item dropdown dropdown-submenu">
-                            <a href="">Por estilo</a>
+                        <li class="menu-item dropdown dropdown-submenu">Por estilo
                             <ul class="dropdown-menu">
                                 {% for style in prodStyle %}
                                     <li><a href="{% url 'list_wine' 'style' style.name %}">{{style.name}}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li class="menu-item dropdown dropdown-submenu">
-                            <a href="">Por variedad de uva</a>
+                        <li class="menu-item dropdown dropdown-submenu">Por variedad de uva
                             <ul class="dropdown-menu">
                                 {% for varietal in prodVarietal %}
                                     <li><a href="{% url 'list_wine' 'varietal' varietal.name %}">{{varietal.name}}</a></li>
@@ -74,7 +67,6 @@
                         </li>
                     </ul>
                 </li>
-                <p class="navbar-text">|</p>
                 <li class="dropdown" >
                     <a data-activates='dropdown-menu' href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" >Destilados y licores </a>
                     <ul class="dropdown-menu" role="menu">
@@ -84,8 +76,7 @@
                     </ul>
                 </li>
 
-                <p class="navbar-text">|</p>
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Contacto</a></li>
+                <li class="dropdown"><a href="{% url 'profile' user.id %}">Red social</a></li>
             </ul>
 
             <form class="navbar-form navbar-right"  action="/search" method="post">
@@ -94,7 +85,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Buscar" name="word">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit">Go!</button>
+                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                     </span>
                 </div>
             </form>
