@@ -133,7 +133,7 @@ def edit_account(request):
     elif request.method == "POST":
 
         cd = edit_account_form(request.POST)
-
+        print(cd.is_valid())
         if cd.is_valid():
             client = BasicUser.objects.get(id=request.user.id)
             AddressUser.set_AddressUser(request.user,cd)

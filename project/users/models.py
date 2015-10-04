@@ -22,12 +22,15 @@ class BasicUser(User):
         client.email = cl.cleaned_data["email"]
         password1 = cl.cleaned_data["password1"]
         password2 = cl.cleaned_data["password2"]
-        if password1 == password2 :
+
+        if password1 == password2 and password1 != None and password1!= '':
             client.set_password(cl.cleaned_data["password1"])
+            client.save()
             return 0
-        else :
+        else:
+            client.save()
             return 1
-        client.save()
+
 
 
 class AddressUser(models.Model):

@@ -12,7 +12,7 @@ def shopping_cart(request):
 
     request.session['amount'] = float(Shopping.get_amount(request.user))
     shopping = Shopping.get_products(user=request.user.id)
-    total = Shopping.get_amount(user=request.user.id)
+    total = float(Shopping.get_amount(user=request.user.id)) + 3.00
     priceXAmount = Shopping.get_pricexAmount_product(shopping)
     errors=[]
 

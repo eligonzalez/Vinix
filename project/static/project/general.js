@@ -7,7 +7,17 @@
             console.log('Cambiando');
             $('#submit_order').trigger('click');
         });
+
+
+        $('#showPassword').click(function() {
+            if (!$(this).is(':checked')) {
+                $('#changePassword').slideUp().hide( "slow" );
+            } else {
+                $('#changePassword').slideDown().show( "slow" );
+            }
+        });
     });
+
 
 
 })();
