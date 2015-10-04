@@ -6,6 +6,13 @@
         <li class="active"><small>Carrito</small></li>
     </ol>
     <h4>Mi carrito</h4></br></br>
+        <div class="row">
+            <div class="col-sm-5 col-md-5">
+                {% if errors %}
+                    <div class="alert alert-danger" role="alert">{{errors.0}}</div>
+                {% endif %}
+            </div>
+        </div>
         {% if shopping_cart %}
             <form class="form-horizontal" action="shopping_cart" method="post">
                 {% csrf_token %}
@@ -38,9 +45,6 @@
 
                 <div class="row">
                     <div class="col-sm-6 col-md-6">
-                        {% if errors %}
-                            <div class="alert alert-danger" role="alert">{{errors.0}}</div>
-                        {% endif %}
                         <span>
                             <input type="checkbox" name="checkbox"> <b>Aceptar los términos y condiciones</b>
                         </span>
