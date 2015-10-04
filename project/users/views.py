@@ -70,15 +70,23 @@ def register_check(request):
             client.set_password(cd["password"])
             client.save()
 
-            user = authenticate(
-                username=client.username,
-                password=client.password,
-            )
+
+
             #login(request, user)
             firstShopping = Shopping(user=client)
             firstShopping.save()
             firstAddress = AddressUser(idUser=client)
             firstAddress.save()
+
+
+            user = authenticate(
+                username=client.username,
+                password=cd["password"],
+            )
+
+            if user is not None:
+                login(request, user)
+                print (request)
 
             return redirect('home')
 
