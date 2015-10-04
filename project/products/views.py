@@ -12,13 +12,24 @@ from django.db.models import Q
 admin.autodiscover()
 
 def home(request):
+    products = ProductFilter(request.GET, queryset=Product.objects.all())
 
-    products = ProductFilter(request.GET, queryset=Product.objects.all().order_by('-date'))
+    has_filters = False
+    if ('o' in request.GET):
+        has_filters = True
+        filter_value = '&o='+request.GET['o']
+        print (request.GET['o'])
+
+
     general = Product.get_general()
-    pagination = Product.get_pagination(request, products, 12)
-    specific = {'products': products}
+    pagination = Product.get_pagination(request, products, 4)
+
+    specific = {'products': products, 'has_filters': has_filters}
+    if specific['has_filters']== True:
+        specific['filter_value'] = filter_value
+
     total = dict(general.items() | specific.items() | pagination.items())
-    return render(request,'home.html', total)
+    return render(request, 'home.html', total)
 
 def wine_view(request, wine_id):
 
