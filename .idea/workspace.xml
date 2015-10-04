@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3267a8c0-5768-4bc2-a772-5e1aa4ead94e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/products/filters.py" afterPath="$PROJECT_DIR$/project/products/filters.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/products/views.py" afterPath="$PROJECT_DIR$/project/products/views.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/project/static/project/general.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Vinix.iws" />
@@ -38,8 +37,30 @@
       <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/static/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.5262321">
-              <caret line="64" column="42" selection-start-line="64" selection-start-column="42" selection-end-line="64" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.19077902">
+              <caret line="8" column="134" selection-start-line="8" selection-start-column="134" selection-end-line="8" selection-end-column="134" />
+              <folding>
+                <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/static/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.875">
+              <caret line="11" column="69" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="general.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/static/project/general.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -106,7 +127,6 @@
         <option value="$PROJECT_DIR$/project/shoppingcart/views.py" />
         <option value="$PROJECT_DIR$/project/static/templates/navbar_social.html" />
         <option value="$PROJECT_DIR$/project/static/project/header.css.html" />
-        <option value="$PROJECT_DIR$/project/static/project/general.js" />
         <option value="$PROJECT_DIR$/project/static/templates/base.html" />
         <option value="$PROJECT_DIR$/project/products/models.py" />
         <option value="$PROJECT_DIR$/project/products/admin.py" />
@@ -130,6 +150,7 @@
         <option value="$PROJECT_DIR$/project/users/views.py" />
         <option value="$PROJECT_DIR$/project/products/filters.py" />
         <option value="$PROJECT_DIR$/project/products/views.py" />
+        <option value="$PROJECT_DIR$/project/static/project/general.js" />
         <option value="$PROJECT_DIR$/project/static/templates/home.html" />
       </list>
     </option>
@@ -228,24 +249,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="users" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Vinix" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Vinix" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -273,24 +276,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Vinix" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Vinix" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socialNetwork" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -492,12 +477,6 @@
       <created>1429364024466</created>
       <option name="number" value="Default" />
       <updated>1429364024466</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Punto medio.">
-      <created>1436444599401</created>
-      <option name="number" value="00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1436444599401</updated>
     </task>
     <task id="LOCAL-00015" summary="El buscador funciona.&#10;Se puede buscar por tipo, por zona, etc.&#10;Ya se ve la vista de vinos en el admin de django.">
       <created>1436466455518</created>
@@ -787,7 +766,13 @@
       <option name="project" value="LOCAL" />
       <updated>1443952223798</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Cambio order by con pagination, hecho!">
+      <created>1443968387749</created>
+      <option name="number" value="00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1443968387749</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -870,7 +855,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="He añadido la vista de informacion de destilados y licores. Además se pueden ver todos los productos, no solo los vinos, en el home. Por ultimo, puedes añadir destilados y licores al carrito." />
     <MESSAGE value="Se puede ordenar por nombre, precio y pais la vista de listado de vinos." />
     <MESSAGE value="Ahora tambien se puede ordenar por nombre, precio y pais la vista de listado de destilados y licores." />
     <MESSAGE value="Editar cuenta tiene dos atributos mas, nombre y apellidos. Desde Finish_purchase se pueden editar los datos personales y la informacion personal. Además, las imagenes se ven pequeñitas." />
@@ -895,7 +879,8 @@
     <MESSAGE value="A medias." />
     <MESSAGE value="Empieza jordi." />
     <MESSAGE value="Cambio iniciar sesion despues de registrarse, hecho!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambio iniciar sesion despues de registrarse, hecho!" />
+    <MESSAGE value="Cambio order by con pagination, hecho!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambio order by con pagination, hecho!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1086,14 +1071,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43152866">
           <caret line="108" column="74" selection-start-line="108" selection-start-column="74" selection-end-line="108" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28616852">
-          <caret line="24" column="77" selection-start-line="24" selection-start-column="77" selection-end-line="24" selection-end-column="77" />
           <folding />
         </state>
       </provider>
@@ -1308,11 +1285,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/project/general.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.875">
+          <caret line="11" column="69" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project/static/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5262321">
-          <caret line="64" column="42" selection-start-line="64" selection-start-column="42" selection-end-line="64" selection-end-column="42" />
-          <folding />
+        <state vertical-scroll-proportion="0.19077902">
+          <caret line="8" column="134" selection-start-line="8" selection-start-column="134" selection-end-line="8" selection-end-column="134" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
