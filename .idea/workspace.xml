@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3267a8c0-5768-4bc2-a772-5e1aa4ead94e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/project/general.js" afterPath="$PROJECT_DIR$/project/static/project/general.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/list_wines.html" afterPath="$PROJECT_DIR$/project/static/templates/list_wines.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/search.html" afterPath="$PROJECT_DIR$/project/static/templates/search.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/spirit.html" afterPath="$PROJECT_DIR$/project/static/templates/spirit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/products/views.py" afterPath="$PROJECT_DIR$/project/products/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/users/views.py" afterPath="$PROJECT_DIR$/project/users/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Vinix.iws" />
@@ -73,7 +69,6 @@
         <option value="$PROJECT_DIR$/project/static/project/menu.css" />
         <option value="$PROJECT_DIR$/project/static/templates/error.html" />
         <option value="$PROJECT_DIR$/project/shoppingcart/views.py" />
-        <option value="$PROJECT_DIR$/project/users/views.py" />
         <option value="$PROJECT_DIR$/project/users/forms.py" />
         <option value="$PROJECT_DIR$/project/static/templates/edit_account.html" />
         <option value="$PROJECT_DIR$/project/static/templates/base.html" />
@@ -93,6 +88,7 @@
         <option value="$PROJECT_DIR$/project/static/templates/productsFavorite.html" />
         <option value="$PROJECT_DIR$/project/static/templates/search.html" />
         <option value="$PROJECT_DIR$/project/products/views.py" />
+        <option value="$PROJECT_DIR$/project/users/views.py" />
       </list>
     </option>
   </component>
@@ -277,6 +273,58 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="products" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vinix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vinix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="socialNetwork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vinix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vinix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="shoppingcart" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -296,6 +344,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="products" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vinix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Vinix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="media" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -462,12 +532,6 @@
       <created>1429364024466</created>
       <option name="number" value="Default" />
       <updated>1429364024466</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Refactor">
-      <created>1437474455995</created>
-      <option name="number" value="00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1437474455995</updated>
     </task>
     <task id="LOCAL-00021" summary="Refactor completo a la view de productos">
       <created>1437475679512</created>
@@ -757,7 +821,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444047447549</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Cambio buscar producto sin pagination, hecho!">
+      <created>1444062401946</created>
+      <option name="number" value="00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1444062401947</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -840,7 +910,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Subiendo todas las modificaciones." />
     <MESSAGE value="Productos favoritos acabada." />
     <MESSAGE value="Productos favoritos acabada.&#10;Desde el producto ya se puede añadir un producto a favoritos." />
     <MESSAGE value="Resumen de compra hecho. Algunas otras modificaciones." />
@@ -865,7 +934,8 @@
     <MESSAGE value="Cambio puntuacion producto, hecho!" />
     <MESSAGE value="Cambio order_by y pagination en todas las vistas, hecho!" />
     <MESSAGE value="Cambio comentar desde el vino o destilado, hecho!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambio comentar desde el vino o destilado, hecho!" />
+    <MESSAGE value="Cambio buscar producto sin pagination, hecho!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambio buscar producto sin pagination, hecho!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -973,24 +1043,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/socialNetwork/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/static/templates/home_social.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5484897">
           <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/socialNetwork/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43152866">
-          <caret line="108" column="74" selection-start-line="108" selection-start-column="74" selection-end-line="108" selection-end-column="74" />
         </state>
       </provider>
     </entry>
@@ -1143,22 +1199,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/users/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47603834">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5399361">
-          <caret line="139" column="40" selection-start-line="139" selection-start-column="40" selection-end-line="139" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/static/templates/shopping_cart.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5214626">
@@ -1295,6 +1335,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3100159">
           <caret line="13" column="48" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/socialNetwork/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.91054314">
+          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40095848">
+          <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/socialNetwork/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73801917">
+          <caret line="123" column="22" selection-start-line="123" selection-start-column="12" selection-end-line="123" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/users/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11980831">
+          <caret line="8" column="47" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="47" />
           <folding />
         </state>
       </provider>

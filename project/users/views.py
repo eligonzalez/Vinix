@@ -68,6 +68,7 @@ def register_check(request):
             client.last_name = cd["last_name"]
             client.email = cd["email"]
             client.set_password(cd["password"])
+            client.image = 'images/iconoPersona.jpg'
             client.save()
 
 
