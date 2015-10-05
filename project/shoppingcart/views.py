@@ -66,3 +66,15 @@ def summary_shopping(request, idShopping):
     total = dict(general.items() | specific.items())
 
     return render(request, 'summary_shopping.html',total)
+
+def remove_product_shopping(request, idShopping, idProduct):
+
+    print(idShopping)
+
+    shopping = Shopping.objects.get(id=idShopping)
+    product = Product.objects.get(id=idProduct)
+
+    shoppingCart = Shopping_Cart.objects.filter(shopping=shopping, product=product)
+    shoppingCart.delete()
+
+    return redirect('shopping_cart')
