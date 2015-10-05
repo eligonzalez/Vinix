@@ -6,19 +6,19 @@
         <div class="col-sm-8 col-md-8" >
             <div id="cart">
                 <ul id="cart1">
-                {% if request.user.username %}
-                    <li><a href="{% url 'my_account' %}"> {{user.first_name}}  <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a></li>
-                {% else %}
-                    <li><a href="{% url 'my_account' %}"> Iniciar sesión <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a></li>
-                {% endif %}
-                <li><a href="{% url 'products_favorite' %}" >Productos favoritos <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a></li>
-                <li><a href="{% url 'shopping_cart' %}" >Carrito
-                    <span class="badge" >
-                        {% if request.session.amount %}{{request.session.amount|floatformat:2}}
-                        {% else %} 0 {% endif %}
-                    € </span></a>
-                </li>
-                <li><a href="{% url 'logout' %}"> Cerrar sesión </a></li>
+                    {% if request.user.username %}
+                        <li><a href="{% url 'my_account' %}"> {{user.first_name}}  <span class="glyphicon glyphicon-user gray">  </span></a></li>
+                    {% else %}
+                        <li><a href="{% url 'my_account' %}"> Iniciar sesión <span class="glyphicon glyphicon-user gray">  </span></a></li>
+                    {% endif %}
+                    <li><a href="{% url 'products_favorite' %}" >Productos favoritos <span class="glyphicon glyphicon-heart"></span></a></li>
+                    <li><a href="{% url 'shopping_cart' %}" >Carrito
+                        <span class="badge" >
+                            {% if request.session.amount %}{{request.session.amount|floatformat:2}}
+                            {% else %} 0 {% endif %}
+                        € </span></a>
+                    </li>
+                    <li><a href="{% url 'logout' %}"> Cerrar sesión </a></li>
                 </ul>
             </div>
         </div>

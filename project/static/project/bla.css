@@ -1,3 +1,32 @@
+
+/* footer */
+
+#wrapper {
+    background: #1c1a1a;
+}
+
+#footer {
+    color: #ffffff;
+    min-height: 20vh;
+    display: flex;
+    align-items: center;
+    margin-left: 18%;
+}
+
+.footer-left li{
+    margin: 0 20px;
+    display: inline-block;
+    font-size: 10px;
+    color: #FFFFFF;
+}
+
+#footer > ul > li > a {
+    color: #FFFFFF;
+}
+
+
+/* Resto */
+
 .focusedInput {
     border-color: rgba(82,168,236,.8);
     outline: 0;
