@@ -116,9 +116,19 @@ def list_wines_view(request, filter, value):
         typeProd = 'Vinos entre 10€ y 20€'
 
 
+    has_filters = False
+    if ('o' in request.GET):
+        has_filters = True
+        filter_value = '&o='+request.GET['o']
+        print (request.GET['o'])
+
     general = Product.get_general()
-    specific = {'type': typeProd, 'products': prod}
-    pagination = Product.get_pagination(request,prod,4)
+    specific = {'type': typeProd, 'products': prod, 'has_filters': has_filters}
+
+    if specific['has_filters']== True:
+        specific['filter_value'] = filter_value
+
+    pagination = Product.get_pagination(request,prod,12)
     total = dict(specific.items() | general.items() | pagination.items())
     return render(request,'list_wines.html', total)
 
@@ -144,9 +154,19 @@ def list_spirit(request, value):
     typeProd = value
     products = ProductFilter(request.GET, queryset=Spirit.objects.filter(subType__name=value))
 
+    has_filters = False
+    if ('o' in request.GET):
+        has_filters = True
+        filter_value = '&o='+request.GET['o']
+        print (request.GET['o'])
+
     general = Product.get_general()
-    pagination = Product.get_pagination(request,products, 2)
-    specific = {'type' : typeProd, 'products': products}
+    pagination = Product.get_pagination(request,products, 12)
+    specific = {'type' : typeProd, 'products': products, 'has_filters': has_filters}
+
+    if specific['has_filters']== True:
+        specific['filter_value'] = filter_value
+
     total = dict(specific.items() | pagination.items() | general.items())
     return render(request,'list_spirit.html', total)
 

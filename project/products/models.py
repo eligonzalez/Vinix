@@ -3,6 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import *
 from users.models import BasicUser
 
+
 class Cellar(models.Model):
     name = models.CharField(max_length=50)
     def __str__(self):
@@ -82,40 +83,6 @@ class Wine(Product):
         ('E', 'Espumoso'),
     )
     type = models.CharField(max_length=1, choices=TYPE, default=False, blank=True)
-
-    @classmethod
-    def get_product_filter(self, filter, value):
-        typeProd = None
-
-        if filter == 'type' :
-            prod = Wine.objects.filter(type=value)
-
-            if value == 'B':
-                typeProd = 'Vinos blancos'
-            elif value == 'T':
-                typeProd = 'Vinos tintos'
-            elif value == 'R':
-                typeProd = 'Vinos rosados'
-            elif value == 'E':
-                typeProd = 'Vinos espumosos'
-
-        elif filter == 'zone':
-            prod = Product.objects.filter(zone__name=value)
-            typeProd = 'Zona ' + value
-        elif filter == 'style' :
-            prod = Wine.objects.filter(style__name=value)
-            typeProd = 'Estilo ' + value
-        elif filter == 'varietal' :
-            prod = Wine.objects.filter(varietal__name=value)
-            typeProd = 'Variedad ' + value
-        elif filter == 'priceLower' :
-            prod = Product.objects.filter(price__range=(0,9.99))
-            typeProd = 'Vinos por menos de 10€'
-        elif filter == 'priceUpper' :
-            prod = Product.objects.filter(price__range=(10,20))
-            typeProd = 'Vinos entre 10€ y 20€'
-
-        return {'type' : typeProd, 'prod' : prod}
 
 
 class Spirit(Product):

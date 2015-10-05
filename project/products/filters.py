@@ -6,9 +6,10 @@ class ProductFilter(django_filters.FilterSet):
         model = Product
         fields = ()
         order_by= (
-        	('name', 'Nombre ascendente'),
-            ('-name', 'Nombre descendente'),
-        	('price', 'Precio'),
+        	('name', 'Nombre asc'),
+            ('-name', 'Nombre desc'),
+        	('price', 'Precio asc'),
+            ('-price', 'Precio desc'),
         	('country', 'País')
         	)
 
