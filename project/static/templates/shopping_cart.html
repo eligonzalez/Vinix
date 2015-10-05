@@ -29,9 +29,13 @@
                     <tbody>
                         {% for sc in shopping_cart %}
                             <tr>
-                                <td width="40%"> {{sc.product.name}} </td>
+                                {% if sc.product.wine %}
+                                    <td width="40%"><a href="{% url 'wine_view' sc.product.id %}"> {{sc.product.name}}</a></td>
+                                {% else %}
+                                    <td width="40%"><a href="{% url 'spirit_view' sc.product.id %}"> {{sc.product.name}} </a></td>
+                                {% endif %}
                                 <td width="20%">{{sc.product.price}} €</td>
-                                <td width="10%"><input type="number" min="1" value="{{sc.amount}}" max="36" name="cantidad" id="cantidad"/></td>
+                                <td width="10%">{{sc.amount}}</td>
                                 <td width="10%">
                                     <a href="" 	style="color:black">
                                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>

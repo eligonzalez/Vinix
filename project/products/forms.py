@@ -15,3 +15,4 @@ class searchForm(forms.Form):
 class addCommentProduct(forms.Form):
     comment = forms.CharField()
     idProduct = forms.CharField()
+    punctuation = forms.CharField()

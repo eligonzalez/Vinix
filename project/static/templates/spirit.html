@@ -91,9 +91,12 @@
                     <form  action="/add_comment_product" method="post">
                         {% csrf_token %}
                         {{form.non_field_errors}}
+                        <div style="float:left" class="panel-body"> Tu opinión sobre el producto </div>
+                        <div id="raty" class="panel-body"> {{c.punctuation}} </div>
                         <div class="panel-body">
                             <input type="text" class="form-control" placeholder="Escribe tu comentario" name="comment"></br>
                             <input type="hidden" name="idProduct" value="{{spirit_data.id}}">
+                            <input type="hidden" name="punctuation" value="2">
                             <button class="btn btn-default" type="submit">Comentar</button>
                         </div>
                     </form>
@@ -105,7 +108,7 @@
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-md-11">
-                                        <p> <b>Puntuación: {{c.punctuation}}</b></p>
+                                        <p id="comment"> Por {{c.user.first_name}} el {{c.date}}</p>
                                     </div>
                                     <div class="col-md-1">
                                         {% if c.user.id == user.id %}
@@ -115,7 +118,7 @@
                                         {% endif %}
                                     </div>
                                 </div>
-                                <p id="comment"> Por {{c.user.first_name}} el {{c.date}}</p></br>
+                                <div name="past_score"> {{c.punctuation}} </div></br>
                                 <p>{{c.comment}}</p>
                             </li>
                         {% endfor %}

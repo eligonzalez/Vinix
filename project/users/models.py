@@ -23,7 +23,7 @@ class BasicUser(User):
         password1 = cl.cleaned_data["password1"]
         password2 = cl.cleaned_data["password2"]
 
-        if password1 == password2 and password1 != None and password1!= '':
+        if password1 == password2 and password1 != None and password1 != '':
             client.set_password(cl.cleaned_data["password1"])
             client.save()
             return 0

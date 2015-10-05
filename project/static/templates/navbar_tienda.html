@@ -14,7 +14,7 @@
                 <li><a href="{% url 'products_favorite' %}" >Productos favoritos <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a></li>
                 <li><a href="{% url 'shopping_cart' %}" >Carrito
                     <span class="badge" >
-                        {% if request.session.amount %}{{request.session.amount}}
+                        {% if request.session.amount %}{{request.session.amount|floatformat:2}}
                         {% else %} 0 {% endif %}
                     € </span></a>
                 </li>

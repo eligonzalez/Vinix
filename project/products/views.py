@@ -190,9 +190,10 @@ def add_comment_product(request):
         if form.is_valid():
             c = form.cleaned_data['comment']
             idProduct = form.cleaned_data['idProduct']
-            p = Product.objects.get(id=idProduct)
+            punctuation = form.cleaned_data['punctuation']
 
-            PunctuationProduct.add_comment(p, c, 1, request.user)
+            p = Product.objects.get(id=idProduct)
+            PunctuationProduct.add_comment(p, c, punctuation, request.user)
 
             if hasattr(p, 'spirit'):
                 return redirect('spirit_view', idProduct)
