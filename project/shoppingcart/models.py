@@ -124,9 +124,9 @@ class Shopping_Cart(models.Model):
     def get_finish_purchase(self, user):
         address = AddressUser.objects.get(idUser=user.id)
         shopping = Shopping.get_products(user)
-        totalPrice = Shopping.get_amount(user)
+        totalPrice = float(Shopping.get_amount(user)) + 3.00
 
-        return {'user' : user,'address' : address,'shopping' : shopping,'total' : totalPrice}
+        return {'user': user, 'address': address, 'shopping': shopping, 'total': totalPrice}
 
     @classmethod
     def set_finish_purchase(self, user, form):

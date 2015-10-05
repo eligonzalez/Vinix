@@ -61,7 +61,7 @@
                                                     <p> </br>{{shop.product.name}} </p>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <p> </br>{{shop.product.price}}€</p>
+                                                    <p> </br>{{shop.product.price|floatformat:2}}€</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -75,7 +75,7 @@
                                             <p class="color">Subtotal</p>
                                         </div>
                                         <div class="col-md-2">
-                                            <p>{{total}}€</p>
+                                            <p>{{total|floatformat:2}}€</p>
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                                             <p class="total">Total</p>
                                         </div>
                                         <div class="col-md-3">
-                                            <p class="colorPrecioTotal"> {{total}}+3€</p>
+                                            <p class="colorPrecioTotal"> {{total|floatformat:2}}€</p>
                                         </div>
                                     </div>
                                 </div>
