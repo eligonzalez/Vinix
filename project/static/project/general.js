@@ -34,8 +34,6 @@
                 ++comments;
              });
 
-
-
              var params = {};
              params.score = avarage_score/comments;
              params.path = '/static/project/lib/images';

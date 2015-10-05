@@ -8,66 +8,35 @@
                     <li><a href="{% url 'home' %}"><small>Inicio</small></a></li>
                     <li  class="active"><a><small>Resultado búsqueda</small></a></li>
                 </ol>
-
                 <h4><b> Resultado de la búsqueda </b></h4></br></br>
                 {% if list_prod %}
                     <div class="row">
                         {% for prod in list_prod %}
                                 <div class="col-sm-4 col-md-3">
                                     <div class="thumbnail">
-                                        <a href="{% url 'wine_view' prod.id %}"> <img  src="{{prod.image.url}}"> </a>
-                                        <div class="caption" align="center">
-                                            <h5><b>{{ prod.name}}</b></h5>
-                                            <p>{{ prod.price}}€</p>
-                                            <form class="form-horizontal" action="" method="post">
-                                                {% csrf_token %}
-                                                {{ form.non_field_errors }}
-                                                <a href="" id="btn">
-                                                    <button  type="submit" name="submit" class="btn btn-primary btn-lg active">
-                                                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Añadir
-                                                    </button>
-                                                </a>
-                                            </form>
+                                        {% if prod.wine %}
+                                            <a href="{% url 'wine_view' prod.id %}"> <img  src="{{prod.image.url}}"> </a>
+                                        {% else %}
+                                            <a href="{% url 'spirit_view' prod.id %}"> <img  src="{{prod.image.url}}"> </a>
+                                        {% endif %}
+                                        <div class="caption" align="center"> </div>
+                                    </div>
+                                    <div>
+                                        <div class="cajaProducto">
+                                            <div>
+                                                <h5>{{prod.name}}</h5>
+                                                <p>{{prod.zone}}, {{prod.country}}</p>
+                                                <span>{{prod.price}}€</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
                         {% endfor %}
-                    </div>
+                    </div></br></br>
                 {% else %}
                     <p>La búsqueda <b>{{word}}</b> no ha coincidido con ningún producto.</p>
-                {% endif %} </br>
-
-                <div align="center">
-
-                    {% if list_prod.has_previous %}
-                        <a href="?page={{ list_prod.previous_page_number }}" > <span > ←ANT </span></a>
-                    {% endif %}
-                    {% if not list_prod.has_previous %}
-                        <a href="#" aria-label="Previous"> <span aria-hidden="true"> ←ANT </span> </a>
-                    {% endif %}
-
-                    {% for i in list_prod.paginator.page_range  %}
-
-                        {% if list_prod.number == i %}
-                            <a href="?page={{i}}">  <span class="badge1" class="sr-only">{{i}}</span></a>
-                        {% else %}
-                           <a href="?page={{i}}"> {{i}} <span class="sr-only">(current)</span></a>
-                        {% endif %}
-                    {% endfor %}
-
-                    {% if list_prod.has_next %}
-                        <a href="?page={{ list_prod.next_page_number }}" aria-label="Next"> <span aria-hidden="true"> POST→ </span></a>
-                    {% endif %}
-                    {% if not list_prod.has_next %}
-                        <a href="#" aria-label="Next"> <span aria-hidden="true"> POST→</span></a>
-                    {% endif %}
-                </div>
+                {% endif %} </br></br>
             </div>
         </div>
     </div>
 {% endblock body %}
-
-
-
-tml>

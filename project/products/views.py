@@ -141,10 +141,9 @@ def search(request):
             word = form.cleaned_data['word']
             prod = Product.objects.filter(Q(name__icontains=word))
 
-            specific = {'word': word}
+            specific = {'word': word, 'list_prod': prod}
             general = Product.get_general()
-            pagination = Product.get_pagination(request,prod,4)
-            total = dict(specific.items() | pagination.items() | general.items())
+            total = dict(specific.items() | general.items())
             return render(request,'search.html',total)
 
     return redirect('error')

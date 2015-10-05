@@ -28,7 +28,11 @@
                         {% for prod in list_prod %}
                                 <div class="col-sm-4 col-md-3">
                                     <div class="thumbnail">
-                                        <a href="{% url 'wine_view' prod.id %}"> <img  src="{{prod.image.url}}"> </a>
+                                        {% if prod.wine %}
+                                            <a href="{% url 'wine_view' prod.id %}"> <img  src="{{prod.image.url}}"> </a>
+                                        {% else %}
+                                            <a href="{% url 'spirit_view' prod.id %}"> <img  src="{{prod.image.url}}"> </a>
+                                        {% endif %}
                                         <div class="caption" align="center"> </div>
                                     </div>
                                     <div>
