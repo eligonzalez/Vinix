@@ -1,6 +1,7 @@
 from django.db import models
 from .models import *
 from users.models import BasicUser
+from products.models import *
 import datetime
 from django.forms import ModelForm
 

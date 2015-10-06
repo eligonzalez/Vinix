@@ -13,8 +13,11 @@ from django.core.urlresolvers import reverse
 def profile(request, idUser):
 
     profile = Follower.get_profile(idUser)
+    user = BasicUser.objects.get(id=str(idUser))
+    productsFav = FavoriteProduct.get_products_favorite(user)
     specific = {'form': UploadFileForm()}
     total = dict(profile.items() | specific.items())
+    total['productsFav'] = productsFav['productsFavorite']
     return render(request, 'profile.html', total)
 
 def followers(request):
@@ -61,16 +64,15 @@ def add_post(request):
         if form.is_valid():
             post = form.cleaned_data['post']
             idReceiver = form.cleaned_data['receiver']
-
             info = Follower.add_post_function(post, idReceiver, request.user)
-            return render(request, 'profile.html', info)
+            return redirect('profile', idReceiver)
 
     return redirect('error')
 
 def remove_post(request, idPost, idUser):
 
     info = Post.delete_post(idPost, idUser)
-    return render(request, 'profile.html', info)
+    return redirect('profile', idUser)
 
 def home_social(request):
 
@@ -106,15 +108,12 @@ def search_wine(request):
 def add_favorite_product(request, idProduct):
 
     FavoriteProduct.add_product_favorite(idProduct, request.user)
-    favoriteProducts = FavoriteProduct.get_products_favorite(request.user)
-    return render(request, 'wine_social.html', favoriteProducts)
+    return redirect('wines_social')
 
 def remove_favorite_product(request, idProduct):
 
     FavoriteProduct.delete_product_favorite(idProduct, request.user)
-    favoriteProducts = FavoriteProduct.get_products_favorite(request.user)
-
-    return render(request, 'wine_social.html', favoriteProducts)
+    return redirect('wines_social')
 
 def upload(request):
     if request.method == "POST":

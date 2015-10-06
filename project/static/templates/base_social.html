@@ -22,17 +22,17 @@
         <link rel="stylesheet" type="text/css" href="{% static 'project/menu.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'project/bla.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'project/social_network.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'project/header.css' %}" />
         <script src="{% static 'project/general.js' %}"></script>
 
-        <title> Vinix </title>
+        <title> Red social de Vinix </title>
     </head>
 
     <body>
+        {% include "navbar_social.html" %}
         <div class="container">
             <div class="row">
                 <div class="span9">
-                   {% include "navbar_social.html" %}
-
                    {% block body %}
                    {% endblock body %}
                 </div>
@@ -41,6 +41,17 @@
 
         <div>
             {% load staticfiles %}
+        </div></br></br></br>
+
+        <div id="wrapper">
+            <div id="footer">
+                <ul class="footer-left">
+                    <li><a href="" title="">Envíos &amp; devoluciones</a></li>
+                    <li><a href="" title="">Tarifas</a></li>
+                    <li><a href="" title="">Condiciones de uso &amp; privacidad</a></li>
+                    <li><a href="" title="">Sobre nosotros</a></li>
+                </ul>
+            </div>
         </div>
     </body>
 </html>

@@ -4,65 +4,123 @@
     <div class="container">
         <div class="row">
             <div class="span9">
-                <h4><b>{{user.first_name}} {{user.last_name}} </b></h4></br>
-
                 <div class="row">
-                    <div class="col-xs-2 col-sm-2" align="center">
-                        <div>
-                            <img  src="{{user.image.url}}" class="img-thumbnail" style="width:340px;height:180px;">
+                    <div class="col-xs-3 col-sm-3" align="center">
+
+                        <div class="thumbnail">
+                            <img  src="{{user.image.url}}"  style="width:180px;height:160px;">
                         </div>
+                        <h4><b>{{user.first_name}} {{user.last_name}} </b></h4></br>
+                        <div class="row" align="center">
+                            <div class="col-xs-2 col-sm-2"></div>
+                            <div class="col-xs-3 col-sm-3">
+                                    {% if seguidos %}
+                                        <p>Siguiendo {{numSeguidos}}</p>
+                                    {% else %}
+                                        <p>Siguiendo 0</p>
+                                    {% endif %}
+                            </div>
+                            <div class="col-xs-3 col-sm-3" >
+                                {% if teSiguen %}
+                                    <p>Seguidores {{numTeSiguen}}</p>
+                                {% else %}
+                                    <p>Seguidores 0</p>
+                                {% endif %}
+                            </div>
+                            <div class="col-xs-3 col-sm-3">
+                                {% if posts %}
+                                    <p>Posts {{numPosts}}</p>
+                                {% else %}
+                                    <p>Posts 0</p>
+                                {% endif %}
+                            </div>
+                        </div></br></br>
 
-                        <form action="/upload" method="post" enctype="multipart/form-data">
-                            {% csrf_token %} {{form.image}}
-                            <input type="submit" value="Subir imagen" />
-                        </form>
-                    </div>
+                        {% if user.id == request.user.id %}
+                            <a>Editar imagen</a></br></br>
+                            <form action="/upload" method="post" enctype="multipart/form-data">
+                                {% csrf_token %} {{form.image}}</br>
+                                <input type="submit" value="Subir imagen" />
+                            </form></br></br>
+                        {% endif %}
 
-                    <div class="col-xs-2 col-sm-2"></br></br>
-                        {% if seguidos %}
-                            <p>Sigues: {{numSeguidos}}</p>
-                        {% else %}
-                            <p>Sigues: 0</p>
-                        {% endif %}
-                        {% if teSiguen %}
-                            <p>Seguidores: {{numTeSiguen}}</p>
-                        {% else %}
-                            <p>Seguidores: 0</p>
-                        {% endif %}
-                        {% if posts %}
-                            <p>Posts: {{numPosts}}</p>
-                        {% else %}
-                            <p>Posts: 0</p>
-                        {% endif %}
-                    </div>
-                    <div class="col-md-8">
                         <div class="panel panel-default">
-                            <form  action="/add_post" method="post">
-                                {% csrf_token %}
-                                {{form.non_field_errors}}
-                                <div class="panel-body">
-                                    <input type="text" class="form-control" placeholder="¿Qué está pasando?" name="post"></br>
-                                    <input type="hidden" name="receiver" value="{{user.id}}">
-                                    <button class="btn btn-default" type="submit">Publicar</button>
-                                </div>
-                            </form>
-                        </div>
-                        {% if posts %}
-                            <div class="panel panel-default">
+                            <div class="panel-heading"><b>Productos favoritos de {{user.first_name}}</b></div>
+
+                            {% if productsFav %}
                                 <ul class="list-group">
-                                    {% for p in posts %}
-                                        <li class="list-group-item"> <img  src="{{p.idUser1.image.url}}" class="img-thumbnail" style="width:50px;height:50px;">
-                                            {{p.idUser1.first_name}} - {{p.comment}} - {{p.date|timesince}}
-                                        {% if request.user.id == p.idUser1.id or request.user.id == p.idUser2.id%}
-                                            <a href="{% url 'remove_post' p.id request.user.id %}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></li>
-                                        {% endif %}
+                                    {% for prodFav in productsFav %}
+                                        <li class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <img  src="{{prodFav.product.image.url}}"  style="width:70px;height:70px;">
+                                                </div>
+                                                <div class="col-md-10"></br>
+                                                    {% if prodFav.product.wine %}
+                                                        <a href="{% url 'wine_view' prodFav.product.id %}"> {{prodFav.product.name}} </a>
+                                                    {% else %}
+                                                        <a href="{% url 'spirit_view' prodFav.product.id %}"> {{prodFav.product.name}} </a>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </li>
                                     {% endfor %}
                                 </ul>
 
+                            {% else %}
+                                </br>
+                                <p>{{user.first_name}} no tiene productos favoritos</p>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="col-xs-1 col-sm-1"></div>
+
+                    <div class="col-xs-8 col-sm-8"></br></br></br></br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading"><b>Escribir un post</b></div>
+                                    <form  action="/add_post" method="post">
+                                        {% csrf_token %}
+                                        {{form.non_field_errors}}
+                                        <div class="panel-body">
+                                            <input type="text" class="form-control" placeholder="¿Qué está pasando?" name="post"></br>
+                                            <input type="hidden" name="receiver" value="{{user.id}}">
+                                            <button class="btn btn-default" type="submit">Publicar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                {% if posts %}
+                                    {% for p in posts %}
+                                        <div class="panel panel-default">
+                                            <ul class="list-group">
+                                                <li class="list-group-item">
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                             <img  src="{{p.idUser1.image.url}}" style="width:70px;height:70px;">
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <div class="row">
+                                                                <div class="col-md-11">
+                                                                    <p id="comment"> Por {{p.idUser1.first_name}} hace {{p.date|timesince}} </p>
+                                                                    <p> {{p.comment}} </p>
+                                                                </div>
+                                                                <div class="col-md-1">
+                                                                    {% if request.user.id == p.idUser1.id or request.user.id == p.idUser2.id%}
+                                                                        <a href="{% url 'remove_post' p.id user.id %}"><span class="glyphicon glyphicon-trash"></span></a>
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
                             </div>
-                        {% else %}
-                            <p>Todavía no has escrito ningún comentario.</p>
-                        {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>

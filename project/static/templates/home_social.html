@@ -5,24 +5,41 @@
     <div class="container">
         <div class="row">
             <div class="span9">
-                <h4><b>Comentarios</b></h4></br>
-                {% if posts %}
-                    <div class="panel panel-default">
-                        <ul class="list-group">
+                <h4><b>Posts</b></h4></br>
+                <div class="row">
+                    <div class="col-md-8">
+                        {% if posts %}
                             {% for p in posts %}
-                                <li class="list-group-item"><img  src="{{p.idUser1.image.url}}" class="img-thumbnail" width="50" height="50">
-                                {{p.idUser1.first_name}} - {{p.comment}} - {{p.date|timesince}}
-
-                                {% if p.idUser1.id == user.id or p.idUser2.id == user.id  %}
-                                    <a href="{% url 'remove_post' p.id request.user.id %}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></a></span></li>
-                                 {% endif %}
+                                <div class="panel panel-default">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                     <img  src="{{p.idUser1.image.url}}" style="width:70px;height:70px;">
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="row">
+                                                        <div class="col-md-11">
+                                                            <p id="comment"> Por {{p.idUser1.first_name}} hace {{p.date|timesince}} </p>
+                                                            <p> {{p.comment}} </p>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            {% if request.user.id == p.idUser1.id or request.user.id == p.idUser2.id%}
+                                                                <a href="{% url 'remove_post' p.id request.user.id %}"><span class="glyphicon glyphicon-trash"></span></a>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             {% endfor %}
-                        </ul>
-
+                        {% else %}
+                            <p>Todavía no tienes posts.</p>
+                        {% endif %}
                     </div>
-                {% else %}
-                    <p>Todavía no has escrito ningún comentario.</p>
-                {% endif %}
+                </div>
             </div>
         </div>
     </div>

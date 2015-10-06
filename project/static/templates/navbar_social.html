@@ -1,28 +1,29 @@
-<div align="right">
-    </br>
-    <p>
-        {% if request.user.username %}
-            <a href="{% url 'my_account' %}"> {{request.user.first_name}}  <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
-        {% else %}
-            <a href="{% url 'my_account' %}"> Iniciar sesión <span class="glyphicon glyphicon-user gray"  aria-hidden="true">  </span></a>
-        {% endif %}
-        <a>   |   </a>
-        <a href="{% url 'home'%}" ><span> Tienda </span></a>
-    </p>
+<div id="header" class="row">
+    <div id="header2">
+        <div class="col-sm-10 col-md-10">
+            <a href="{% url 'home' %}"><h1>Red social de Vinix</h1></a>
+        </div>
+        <div class="col-sm-2 col-md-2" >
+            <div id="cart">
+                <ul id="cart1">
+                    {% if user.username %}
+                        <li><a href="{% url 'my_account' %}"> {{user.first_name}}  <span class="glyphicon glyphicon-user gray">  </span></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
 </div></br></br>
-<a href="{% url 'profile' user.id %}"><h1 align="center">Vila Viniteca</h1></a> </br></br>
 
-<nav class="navbar navbar-inverse" >
+<nav class="navbar navbar-inverse navbar-static-top" >
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav" >
                 <li><a href="{% url 'home_social' %}">Inicio</a></li>
-                <p class="navbar-text">|</p>
                 <li><a href="{% url 'profile' request.user.id %}">Perfil</a></li>
-                <p class="navbar-text">|</p>
                 <li><a href="{% url 'followers' %}">Amigos</a></li>
-                <p class="navbar-text">|</p>
                 <li><a href="{% url 'wines_social' %}">Productos</a></li>
+                <li><a href="{% url 'home' %}">Tienda</a></li>
             </ul>
         </div>
     </div>

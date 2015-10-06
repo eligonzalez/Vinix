@@ -107,12 +107,8 @@ class FavoriteProduct(models.Model):
     def get_products_favorite(self, u):
 
         prod_favorite = FavoriteProduct.objects.filter(user=u)
-        productsFavorite = []
 
-        for p in prod_favorite:
-            productsFavorite.append(Product.objects.get(id=str(p.product.id)))
-
-        return {'user': u, 'productsFavorite': productsFavorite}
+        return {'user': u, 'productsFavorite': prod_favorite}
 
     @classmethod
     def add_product_favorite(self, idProduct, u):
