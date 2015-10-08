@@ -141,16 +141,17 @@ class Shopping_Cart(models.Model):
 
         if form.is_valid():
 
-            if (form.cleaned_data['first_name'] and form.cleaned_data['last_name'] and form.cleaned_data['address']
-            and form.cleaned_data['postal_code'] and form.cleaned_data['town'] and form.cleaned_data['country']
-            and form.cleaned_data['phone']):
+            if (form.cleaned_data['first_name']=='None' or form.cleaned_data['last_name']=='None' or form.cleaned_data['address']=='None'
+            or form.cleaned_data['postal_code']=='None' or form.cleaned_data['town']=='None' or form.cleaned_data['country']=='None'
+            or form.cleaned_data['phone']=='None'):
 
+                error = "alert alert-danger"
+                message = "Rellene los datos correctamente."
+
+            else:
                 error = "alert alert-success"
                 message = "La compra se ha realizado correctamente."
                 Shopping.accept_purchase(client, address, totalPrice)
-            else:
-                error = "alert alert-danger"
-                message = "Rellene los datos correctamente."
         else:
             error = "alert alert-danger"
             message = "Rellene los datos correctamente."
