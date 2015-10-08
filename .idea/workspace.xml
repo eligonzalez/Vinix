@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3267a8c0-5768-4bc2-a772-5e1aa4ead94e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/address.html" afterPath="$PROJECT_DIR$/project/static/templates/address.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/static/templates/finish_purchase.html" afterPath="$PROJECT_DIR$/project/static/templates/finish_purchase.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/shoppingcart/forms.py" afterPath="$PROJECT_DIR$/project/shoppingcart/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/shoppingcart/models.py" afterPath="$PROJECT_DIR$/project/shoppingcart/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/users/views.py" afterPath="$PROJECT_DIR$/project/users/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Vinix.iws" />
@@ -28,21 +24,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="finish_purchase.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="finish_purchase.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/static/templates/finish_purchase.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.958334">
-              <caret line="218" column="64" selection-start-line="218" selection-start-column="59" selection-end-line="218" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.30232558">
+              <caret line="200" column="58" selection-start-line="200" selection-start-column="58" selection-end-line="200" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="address.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/static/templates/address.html">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/shoppingcart/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.666666">
-              <caret line="79" column="53" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="53" />
+            <state vertical-scroll-proportion="-3.3333333">
+              <caret line="7" column="24" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -58,22 +54,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/shoppingcart/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.7777777">
-              <caret line="14" column="8" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/shoppingcart/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8801917">
+            <state vertical-scroll-proportion="-20.407408">
               <caret line="157" column="127" selection-start-line="157" selection-start-column="127" selection-end-line="157" selection-end-column="127" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -144,10 +128,10 @@
         <option value="$PROJECT_DIR$/project/static/templates/wine_social.html" />
         <option value="$PROJECT_DIR$/project/socialNetwork/views.py" />
         <option value="$PROJECT_DIR$/project/static/templates/address.html" />
-        <option value="$PROJECT_DIR$/project/static/templates/finish_purchase.html" />
         <option value="$PROJECT_DIR$/project/shoppingcart/forms.py" />
         <option value="$PROJECT_DIR$/project/users/views.py" />
         <option value="$PROJECT_DIR$/project/shoppingcart/models.py" />
+        <option value="$PROJECT_DIR$/project/static/templates/finish_purchase.html" />
       </list>
     </option>
   </component>
@@ -510,12 +494,6 @@
       <option name="number" value="Default" />
       <updated>1429364024466</updated>
     </task>
-    <task id="LOCAL-00027" summary="El usuario solo puede comentar a una persona si le está siguiendo.">
-      <created>1441992500894</created>
-      <option name="number" value="00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1441992500894</updated>
-    </task>
     <task id="LOCAL-00028" summary="Puedes buscar a un amigo por nombre, apellidos y username. &#10;Además, cuando buscas a un amigo no te salen los amigos que ya estas siguiendo.&#10;">
       <created>1442057516643</created>
       <option name="number" value="00028" />
@@ -804,7 +782,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444322781681</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Ya no peta si finalizas la compra sin direccion de envio.">
+      <created>1444326657987</created>
+      <option name="number" value="00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1444326657987</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -887,7 +871,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactor vistas Products" />
     <MESSAGE value="Refactor vistas Shoppingcart" />
     <MESSAGE value="Refactor vistas SocialNetwork" />
     <MESSAGE value="Refactor vistas Users" />
@@ -912,7 +895,8 @@
     <MESSAGE value="Cambio footer, hecho!" />
     <MESSAGE value="A medias de la red social." />
     <MESSAGE value="Archivos locales subidos al repositorio." />
-    <option name="LAST_COMMIT_MESSAGE" value="Archivos locales subidos al repositorio." />
+    <MESSAGE value="Ya no peta si finalizas la compra sin direccion de envio." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ya no peta si finalizas la compra sin direccion de envio." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1107,14 +1091,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/shoppingcart/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23961662">
-          <caret line="11" column="107" selection-start-line="11" selection-start-column="84" selection-end-line="11" selection-end-column="107" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/static/project/header.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36753446">
@@ -1185,14 +1161,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24483307">
           <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/socialNetwork/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.2222223">
-          <caret line="16" column="56" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -1335,26 +1303,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/static/templates/finish_purchase.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.958334">
-          <caret line="218" column="64" selection-start-line="218" selection-start-column="59" selection-end-line="218" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/static/templates/address.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-22.666666">
           <caret line="79" column="53" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/shoppingcart/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.7407408">
-          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1371,11 +1323,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project/shoppingcart/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8801917">
+        <state vertical-scroll-proportion="-20.407408">
           <caret line="157" column="127" selection-start-line="157" selection-start-column="127" selection-end-line="157" selection-end-column="127" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/shoppingcart/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.7407408">
+          <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/socialNetwork/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.2222223">
+          <caret line="16" column="56" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/shoppingcart/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3333333">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/static/templates/finish_purchase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30232558">
+          <caret line="200" column="58" selection-start-line="200" selection-start-column="58" selection-end-line="200" selection-end-column="58" />
+          <folding />
         </state>
       </provider>
     </entry>
