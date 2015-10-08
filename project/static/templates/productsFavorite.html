@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block body %}
+
+    <ol class="breadcrumb">
+         <li><a href="{% url 'home' %}"><small>Inicio</small></a></li>
+         <li><small>Productos favoritos</small></li>
+    </ol>
+
+    <h4>Lista de productos favoritos</h4></br>
+
+    <div class="container">
+        <div class="row">
+            <div class="span9">
+                {% if favorite %}
+                    <div class="panel panel-default" >
+                        {% for fav in favorite %}
+                            <div class="panel-heading" id="productFavorite">
+                                <div class="row" >
+                                    <div class="col-md-2" >
+                                        {% if fav.product.wine %}
+                                            <a href="{% url 'wine_view' fav.product.id %}"> <img  src="{{fav.product.image.url}}" class="img-responsive" width="120" height="120"> </a>
+                                        {% else %}
+                                            <a href="{% url 'spirit_view' fav.product.id %}"> <img  src="{{fav.product.image.url}}" class="img-responsive" width="120" height="120"> </a>
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="col-md-3"></br>
+                                        {% if fav.product.wine %}
+                                            <p><a href="{% url 'wine_view' fav.product.id %}"> {{fav.product.name}} </a></p>
+                                            {{fav.product.zone}}, {{fav.product.country}} </br>
+                                             Vino {{fav.product.wine.get_type_display}}
+
+                                        {% else %}
+                                            <p><a href="{% url 'spirit_view' fav.product.id %}"> {{fav.product.name}} </a></p>
+                                             {{fav.product.zone}}, {{fav.product.country}} </br>
+                                             {{fav.product.spirit.subType}}
+                                        {% endif %}
+
+                                    </div>
+
+                                    <div class="col-md-4"></br></br>
+                                        <a href="{% url 'remove_favorite_product' fav.product.id %}">
+                                            <span class="glyphicon glyphicon-heart-empty" > Eliminar de favoritos</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-md-2" align="center">
+                                        <form class="form-horizontal" action="/add_wine_shopping" method="post">
+                                            <p >{% csrf_token %}</p>
+                                            {{form.non_field_errors}}
+                                            <div>
+                                                <input type="hidden" value="{{fav.product.id}}" name="idProd">
+
+                                                <label for="amount">Cantidad: </label>
+                                                <input type="number" min="1" value="1" max="36" name="amount"></br></br>
+
+                                                <button  type="submit" name="submit" class="btn btn-primary btn-lg active">
+                                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Añadir al carrito
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No existen productos en la lista de favoritos.</p>
+                {% endif %} </br>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+

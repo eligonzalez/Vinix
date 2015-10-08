@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block body %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'home' %}"><small>Inicio</small></a></li>
+        <li class="active"><small>Producto</small></li>
+    </ol>
+    <div class="row">
+        <div class="col-xs-6 col-sm-6">
+            {% if error %}
+                    <div class="{{error}}" role="alert">{{message}}</div>
+            {% endif %}
+
+            <h4>  {{wine_data.name}}</h4>
+            <div id="avarage_score"></div></br>
+            <p> <b> {{wine_data.price}} € </b> </p></br></br>
+            <div class="table-responsive" >
+                 <table class="table">
+                    <tr>
+                        <td>País</td>
+                        <td>{{wine_data.country}}</td>
+                    </tr>
+                    <tr>
+                        <td>Zona</td>
+                        <td>{{wine_data.zone}}</td>
+                    </tr>
+                    <tr>
+                        <td>Color</td>
+                        <td>{{wine_data.get_type_display}}</td>
+                    </tr>
+                    <tr>
+                        <td>Variedad</td>
+                        <td>{{wine_data.varietal}}</td>
+                    </tr>
+                    <tr>
+                        <td>Graduación alcohólica</td>
+                        <td>{{wine_data.alcohol}}</td>
+                    </tr>
+                    <tr>
+                        <td>Temperatura de servicio</td>
+                        <td>{{wine_data.temperature}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                 </table>
+            </div>
+        </div>
+        <div class="col-xs-2 col-sm-2"></div>
+        <div class="col-xs-4 col-sm-4" align="center">
+
+            <div class="rating">
+                <img  src="{{wine_data.image.url}}" class="img-thumbnail"></br></br>
+                <div id="avarage_score"></div>
+                {% if not favorite %}
+                    <a href="{% url 'add_favorite_product' wine_data.id %}">
+                        <span class="glyphicon glyphicon-heart" aria-hidden="true"> Añadir a favoritos</span>
+                    </a>
+                {% else %}
+                    <a href="{% url 'remove_favorite_product' wine_data.id %}">
+                        <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"> Eliminar de favoritos</span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading"><b>Información adicional</b></div>
+                <ul class="list-group">
+                    <li class="list-group-item"><b>Maridaje: </b>{{wine_data.marriage}}</li>
+                    <li class="list-group-item"><b>Elaboración: </b>{{wine_data.elaboration}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4"></br></br>
+            <form class="form-horizontal" action="/add_wine_shopping" method="post">
+                <p align="center">{% csrf_token %}</p>
+                {{form.non_field_errors}}
+                <div align="center">
+                    <input type="hidden" value="{{wine_data.id}}" name="idProd">
+                    <span>
+                        <label for="amount">Cantidad: </label>
+                        <input type="number" min="1" value="1" max="36" name="amount">
+                    </span></br></br>
+                    <button  type="submit" name="submit" class="btn btn-primary btn-lg active">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Añadir al carrito
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div></br></br>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading"><b>Valoraciones del producto</b></div>
+                {% if not comment_user  %}
+                    <form  action="/add_comment_product" method="post">
+                        {% csrf_token %}
+                        {{form.non_field_errors}}
+                        <div style="float:left" class="panel-body"> Tu opinión sobre el producto </div>
+                        <div id="raty" class="panel-body"> {{c.punctuation}} </div>
+                        <div class="panel-body">
+                            <input type="text" class="form-control" placeholder="Escribe tu comentario" name="comment"></br>
+                            <input type="hidden" name="idProduct" value="{{wine_data.id}}">
+                            <input type="hidden" name="punctuation" value="2">
+                            <button class="btn btn-default" id="comment_submit" type="submit">Comentar</button>
+                        </div>
+                    </form>
+                {% endif %}
+                <ul class="list-group">
+                    {% if comments %}
+                        {% for c in comments %}
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-md-11">
+                                        <p id="comment"> Por {{c.user.first_name}} el {{c.date}}</p>
+                                    </div>
+                                    <div class="col-md-1">
+                                        {% if c.user.id == user.id %}
+                                        <a  href="{% url 'remove_comment_product' wine_data.id  request.user.id %}">
+                                            <span class="glyphicon glyphicon-trash" ></span>
+                                        </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div name="past_score"> {{c.punctuation}} </div></br>
+                                <p>{{c.comment}}</p>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock body %}
