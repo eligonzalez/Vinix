@@ -45,27 +45,29 @@
 
                         {% endfor %}
                     </tbody>
-                </table></br></br></br></br>
+                </table></br></br>
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-10 col-md-10">
                         <span>
                             <input type="checkbox" name="checkbox"> <b>Aceptar los términos y condiciones</b>
                         </span>
                     </div>
-                    <div class="col-sm-2 col-md-2"></div>
-                    <div class="col-sm-4 col-md-4" align="center">
-
-                        <p><b>Subtotal: {{total|floatformat:2}} € </b></p></br>
+                    <div class="col-sm-2 col-md-2" >
+                        <p align="right"><b>Subtotal: {{total|floatformat:2}} € </b></p>
+                    </div></br></br></br>
+                    <div class="col-md-8"></div>
+                    <div class="col-md-2">
+                        <a href="{% url 'home' %}" id="buttonCarrito" class="btn btn-primary btn-lg active"> Seguir comprando </a>
+                    </div>
+                    <div class="col-md-2">
                         <a id="btn">
-                            <button type="submit" class="btn btn-primary btn-lg active">
-                                <span aria-hidden="true"></span> Tramitar pedido
-                            </button>
+                            <button type="submit" id="buttonCarrito" class="btn btn-primary btn-lg active">Tramitar pedido </button>
                         </a>
                     </div>
                 </div>
             </form>
         {% else %}
-            <p>Todavía no se ha realizado el pedido de ningún producto.</p>
+            <p>No se ha añadido ningún producto a la compra.</p>
         {% endif %}
 {% endblock body %}

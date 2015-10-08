@@ -38,6 +38,14 @@ ol > li {
     letter-spacing: .1em;
 }
 
+#buttonCarrito {
+    text-transform: capitalize;
+    font-family: inherit;
+    letter-spacing: normal;
+    word-spacing: normal;
+    width: 180px;
+}
+
 a > h5 {
     color:#FFFFFF !important;
 }
