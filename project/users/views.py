@@ -11,8 +11,12 @@ def login_view(request):
     form = BasicUserLoginForm()
     form_reg = BasicUserRegisterForm()
     errors = []
-    return render(request, 'login_register_view.html', {'form_reg': form_reg, 'form': form, 'form_register_check': 'register_check',
-            'form_login_check': 'login_check', 'errors': errors})
+
+    general = Product.get_general()
+    specific = {'form_reg': form_reg, 'form': form, 'form_register_check': 'register_check', 'form_login_check': 'login_check', }
+    total = dict(general.items() | specific.items())
+    total['errors'] = errors
+    return render(request, 'login_register_view.html', total)
 
 def login_check(request):
     if request.user.is_authenticated():
@@ -40,12 +44,15 @@ def login_check(request):
                 #the authentication system was unable
                 #to verify the username and password
                 errors.append("Usuario y contraseña incorrectos")
-                form = BasicUserLoginForm(
-                    initial={'username': form.cleaned_data['username']})
+                form = BasicUserLoginForm(initial={'username': form.cleaned_data['username']})
     else:
         form = BasicUserLoginForm()
-    return render(request,'login_register_view.html', {'form_reg': form_reg, 'form': form, 'form_register_check': 'register_check',
-            'form_login_check': 'login_check', 'errors': errors})
+
+    general = Product.get_general()
+    specific = {'form_reg': form_reg, 'form': form, 'form_register_check': 'register_check', 'form_login_check': 'login_check',}
+    total = dict(general.items() | specific.items())
+    total['errors'] = errors
+    return render(request,'login_register_view.html', total)
 
 
 def register_check(request):
@@ -153,4 +160,5 @@ def edit_account(request):
             return redirect('home')
 
 def error(request):
-    return render(request, 'error.html', {})
+    general = Product.get_general()
+    return render(request, 'error.html', general)

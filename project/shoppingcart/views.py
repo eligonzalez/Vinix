@@ -51,7 +51,7 @@ def check_finish_purchase(request):
 
         general = Product.get_general()
         total = dict(general.items() | shop.items())
-        return render(request, "finish_purchase.html",total)
+        return render(request, "finish_purchase.html", total)
     else:
         return redirect('finish_purchase')
 

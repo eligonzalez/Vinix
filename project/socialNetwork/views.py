@@ -106,6 +106,8 @@ def search_wine(request):
     return redirect('error')
 
 def add_favorite_product(request, idProduct):
+    if not request.user.is_authenticated():
+        return redirect('login')
 
     FavoriteProduct.add_product_favorite(idProduct, request.user)
     return redirect('wines_social')

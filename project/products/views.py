@@ -34,10 +34,13 @@ def home(request):
 def wine_view(request, wine_id):
 
     wine_data = get_object_or_404(Wine, pk=wine_id)
-
     comments = PunctuationProduct.objects.filter(product=wine_data).order_by('-date')
-    comment_user = PunctuationProduct.objects.filter(user=request.user, product=wine_data).exists()
-    favorite = FavoriteProduct.objects.filter(user=request.user, product=wine_data)
+    comment_user = ()
+    favorite = ()
+
+    if request.user.is_authenticated():
+        comment_user = PunctuationProduct.objects.filter(user=request.user, product=wine_data).exists()
+        favorite = FavoriteProduct.objects.filter(user=request.user, product=wine_data)
 
     general = Product.get_general()
     specific = {'wine_data': wine_data, 'comments': comments, 'comment_user': comment_user, 'favorite': favorite}
@@ -173,8 +176,13 @@ def spirit_view(request, spirit_id):
 
     spirit_data = get_object_or_404(Spirit, pk=spirit_id)
     comments = PunctuationProduct.objects.filter(product=spirit_data).order_by('-date')
-    comment_user = PunctuationProduct.objects.filter(user=request.user, product=spirit_data).exists()
-    favorite = FavoriteProduct.objects.filter(user=request.user, product=spirit_data)
+
+    comment_user = ()
+    favorite = ()
+
+    if request.user.is_authenticated():
+        comment_user = PunctuationProduct.objects.filter(user=request.user, product=spirit_data).exists()
+        favorite = FavoriteProduct.objects.filter(user=request.user, product=spirit_data)
 
     general = Product.get_general()
     specific = {'spirit_data': spirit_data, 'comments': comments, 'comment_user' : comment_user, 'favorite': favorite}
@@ -182,6 +190,9 @@ def spirit_view(request, spirit_id):
     return render(request,'spirit.html', total)
 
 def add_comment_product(request):
+
+    if not request.user.is_authenticated():
+        return redirect('login')
 
     if request.method == 'POST':
         form = addCommentProduct(request.POST)
