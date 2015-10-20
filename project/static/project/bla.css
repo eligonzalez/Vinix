@@ -104,3 +104,41 @@
     color: #FFFFFF;
 }
 
+/* navbar perfil red social */
+
+#navRedSocial {
+    background: white;
+}
+
+#navRed {
+    color: #ffffff;
+    min-height: 6vh;
+    display: flex;
+    align-items: center;
+    margin-left: 6%;
+
+}
+
+.navRed-left li{
+    margin: 0 20px;
+    display: inline-block;
+    font-size: 14px;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+#navRed > ul > li > a {
+    color: #FFFFFF;
+}
+
+<div id="navRedSocial">
+                            <div id="navRed">
+                                <ul class="navRed-left">
+                                    <li> Posts </li>
+                                    <li> Seguidores </li>
+                                    <li> Siguiendo </li>
+                                    <li> Productos favoritos</li>
+                                </ul>
+                            </div>
+                        </div></br></br>
