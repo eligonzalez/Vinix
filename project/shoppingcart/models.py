@@ -57,7 +57,7 @@ class Shopping(models.Model):
         shop = Shopping.objects.get(user=user, finish=False)
         products = Shopping_Cart.objects.filter(shopping=shop)
         shop.finish = True
-        shop.priceTotal = price
+        shop.priceTotal = price + 3
         shop.name = dir.name
         shop.lastName = dir.lastName
         shop.address = dir.address
@@ -124,9 +124,10 @@ class Shopping_Cart(models.Model):
     def get_finish_purchase(self, user):
         address = AddressUser.objects.get(idUser=user.id)
         shopping = Shopping.get_products(user)
+        subTotal = Shopping.get_amount(user)
         totalPrice = float(Shopping.get_amount(user)) + 3.00
 
-        return {'user': user, 'address': address, 'shopping': shopping, 'total': totalPrice}
+        return {'user': user, 'address': address, 'shopping': shopping, 'subTotal': subTotal, 'total': totalPrice}
 
     @classmethod
     def set_finish_purchase(self, user, form):

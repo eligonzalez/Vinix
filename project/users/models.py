@@ -44,7 +44,7 @@ class AddressUser(models.Model):
     country = models.CharField(max_length=50, blank=True, null=True)
     phone = models.CharField(max_length=50, blank=True, null=True)
     def __str__(self):
-        return self.name
+        return (self.name or '')
 
     @classmethod
     def set_AddressUser(self,user,cd):

@@ -12,7 +12,7 @@ def shopping_cart(request):
 
     request.session['amount'] = float(Shopping.get_amount(request.user))
     shopping = Shopping.get_products(user=request.user.id)
-    total = float(Shopping.get_amount(user=request.user.id)) + 3.00
+    total = Shopping.get_amount(user=request.user.id)
     priceXAmount = Shopping.get_pricexAmount_product(shopping)
     errors=[]
 
@@ -62,7 +62,7 @@ def summary_shopping(request, idShopping):
     shoppingCart = Shopping_Cart.objects.filter(shopping=shopping)
 
     general = Product.get_general()
-    specific = {'shopping': shopping, 'shoppingCart': shoppingCart}
+    specific = {'shopping': shopping, 'shoppingCart': shoppingCart, 'subTotal': float(shopping.priceTotal) - 3.00}
     total = dict(general.items() | specific.items())
 
     return render(request, 'summary_shopping.html',total)

@@ -43,35 +43,6 @@
                                 <input type="submit" value="Subir imagen" />
                             </form></br></br>
                         {% endif %}
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading"><b>Productos favoritos de {{user.first_name}}</b></div>
-
-                            {% if productsFav %}
-                                <ul class="list-group">
-                                    {% for prodFav in productsFav %}
-                                        <li class="list-group-item">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <img  src="{{prodFav.product.image.url}}"  style="width:70px;height:70px;">
-                                                </div>
-                                                <div class="col-md-10"></br>
-                                                    {% if prodFav.product.wine %}
-                                                        <a href="{% url 'wine_view' prodFav.product.id %}"> {{prodFav.product.name}} </a>
-                                                    {% else %}
-                                                        <a href="{% url 'spirit_view' prodFav.product.id %}"> {{prodFav.product.name}} </a>
-                                                    {% endif %}
-                                                </div>
-                                            </div>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-
-                            {% else %}
-                                </br>
-                                <p>{{user.first_name}} no tiene productos favoritos</p>
-                            {% endif %}
-                        </div>
                     </div>
 
                     <div class="col-xs-1 col-sm-1"></div>
@@ -120,6 +91,39 @@
                                     {% endfor %}
                                 {% endif %}
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4"></div>
+                    <div class="col-xs-8 col-sm-8"></br></br></br></br>
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><b>Productos favoritos de {{user.first_name}}</b></div>
+
+                            {% if productsFav %}
+                                <ul class="list-group">
+                                    {% for prodFav in productsFav %}
+                                        <li class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <img  src="{{prodFav.product.image.url}}"  style="width:70px;height:70px;">
+                                                </div>
+                                                <div class="col-md-10"></br>
+                                                    {% if prodFav.product.wine %}
+                                                        <a href="{% url 'wine_view' prodFav.product.id %}"> {{prodFav.product.name}} </a>
+                                                    {% else %}
+                                                        <a href="{% url 'spirit_view' prodFav.product.id %}"> {{prodFav.product.name}} </a>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+
+                            {% else %}
+                                </br>
+                                <p>{{user.first_name}} no tiene productos favoritos</p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

@@ -48,7 +48,7 @@
                         {% if shopping %}
                             <tr>
                                 <td> Subtotal </td><td></td><td></td>
-                                <td> {{shopping.priceTotal}}€ </td>
+                                <td> {{subTotal}}€ </td>
                             </tr>
                             <tr>
                                 <td> Gastos de envío </td><td></td><td></td>
@@ -56,7 +56,7 @@
                             </tr>
                             <tr>
                                 <td> Total </td><td></td><td></td>
-                                <td>  {{shopping.priceTotal|add:3 |floatformat:2}}€ </td>
+                                <td>  {{shopping.priceTotal|floatformat:2}}€ </td>
                             </tr>
                         {% endif %}
 

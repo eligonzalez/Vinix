@@ -17,13 +17,27 @@
             {% endif %}
         </div>
         <div class="col-sm-4 col-md-4">
+            <h4>recomendados</h4></br>
+            {% if recommended %}
+                {% for r in recommended %}
+                    <p> <a href="{% url 'profile' r.id %}">{{r.idUser2.first_name}} {{r.last_name}}</a> </p>
+                    <p> <a class="more" href="{% url 'add_followers' user.id r.id %}"> Dejar de seguir </a></p>
+                {% endfor %}
+
+            {% else %}
+                <p>Todavía no estás siguiendo a nadie.</p>
+            {% endif %}
+        </div>
+        <div class="col-sm-4 col-md-4">
             {% if people %}
                 {% for p in people %}
                     <p> {{p.first_name}} {{p.last_name}} <a class="more" href="{% url 'add_followers' user.id p.id %}"> Seguir </a></p>
                 {% endfor %}
 
             {% else %}
-                <p>No hemos encontrado a nadie con el nombre <b>{{word}}</b>.</p>
+                {% if word %}
+                    <p>No hemos encontrado a nadie con el nombre <b>{{word}}</b>.</p>
+                {% endif %}
             {% endif %}
 
             <form  action="/search_people" method="post">
