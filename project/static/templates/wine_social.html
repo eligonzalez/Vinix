@@ -5,7 +5,8 @@
         <div class="row">
             <div class="span9">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-6">
+                        <h4><b>Tus productos favoritos</b></h4></br></br>
                         {% if productsFavorite %}
                             <div class="panel panel-default" >
                                 {% for fav in productsFavorite%}
@@ -14,12 +15,13 @@
                                             <div class="col-md-2" >
                                                 {% if fav.product.wine %}
                                                     <a href="{% url 'wine_view' fav.product.id %}"> <img  src="{{fav.product.image.url}}" class="img-responsive" width="120" height="120"> </a>
-                                                {% else %}
+                                                {% endif %}
+                                                {% if fav.product.spirit %}
                                                     <a href="{% url 'spirit_view' fav.product.id %}"> <img  src="{{fav.product.image.url}}" class="img-responsive" width="120" height="120"> </a>
                                                 {% endif %}
                                             </div>
 
-                                            <div class="col-md-3"></br>
+                                            <div class="col-md-4">
                                                 {% if fav.product.wine %}
                                                     <p><a href="{% url 'wine_view' fav.product.id %}"> {{fav.product.name}} </a></p>
                                                     {{fav.product.zone}}, {{fav.product.country}} </br>
@@ -33,7 +35,7 @@
 
                                             </div>
 
-                                            <div class="col-md-4"></br></br>
+                                            <div class="col-md-6"></br>
                                                 <a href="{% url 'remove_favorite_product' fav.product.id %}">
                                                     <span class="glyphicon glyphicon-heart-empty" > Eliminar de favoritos</span>
                                                 </a>
@@ -46,29 +48,63 @@
                             <p>No existen productos en la lista de favoritos.</p>
                         {% endif %} </br>
                     </div>
-                    <div class="col-md-4">
-                        {% if productsNoFavorite %}
-                            {% for p in productsNoFavorite %}
-                                <p> <a href="{% url 'wine_view' p.id %}">{{p.name}} </a></p>
-                                <p><a class="more" href="{% url 'add_favorite_product' p.id %}"> Añadir a favoritos </a></p>
-                            {% endfor %}
+                    <div class="col-md-6">
+                        <h4><b>Buscar nuevos productos</b></h4></br>
+                        <div class="row">
+                            <div class="col-md-7"></br>
+                                <form  action="/search_wine" method="post">
+                                    {% csrf_token %}
+                                    {{form.non_field_errors}}
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Buscar nuevos productos" name="word">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" ></span></button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div></br></br>
+                        {% if productsNoFavorite|length >= 0 %}
+                            <div class="panel panel-default">
+                                {% for p in productsNoFavorite %}
+                                    <div class="panel-heading" id="productFavorite">
+                                        <div class="row" >
+                                            <div class="col-md-2" >
+                                                {% if p.wine %}
+                                                    <a href="{% url 'wine_view' p.id %}"> <img  src="{{p.image.url}}" class="img-responsive" width="120" height="120"> </a>
+                                                {% endif %}
+                                                {% if p.spirit %}
+                                                    <a href="{% url 'spirit_view' p.id %}"> <img  src="{{p.image.url}}" class="img-responsive" width="120" height="120"> </a>
+                                                {% endif %}
+                                            </div>
 
+                                            <div class="col-md-4">
+                                                {% if p.wine %}
+                                                    <p><a href="{% url 'wine_view' p.id %}"> {{p.name}} </a></p>
+                                                    {{p.zone}}, {{p.country}} </br>
+                                                     Vino {{p.wine.get_type_display}}
+
+                                                {% else %}
+                                                    <p><a href="{% url 'spirit_view' p.id %}"> {{p.name}} </a></p>
+                                                     {{p.zone}}, {{p.country}} </br>
+                                                     {{p.spirit.subType}}
+                                                {% endif %}
+
+                                            </div>
+                                            <div class="col-md-6"></br>
+                                                <a class="more" href="{% url 'add_favorite_product' p.id %}">
+                                                    <span class="glyphicon glyphicon-heart" > Añadir a favoritos</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
                         {% else %}
                             {% if word %}
                                 <p>No hemos encontrado a nadie con el nombre <b>{{word}}</b>.</p>
                             {% endif %}
-                        {% endif %}
-
-                        <form  action="/search_wine" method="post">
-                            {% csrf_token %}
-                            {{form.non_field_errors}}
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Buscar" name="word">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="submit">Buscar</button>
-                                </span>
-                            </div>
-                        </form>
+                        {% endif %} </br>
                     </div>
                 </div>
             </div>

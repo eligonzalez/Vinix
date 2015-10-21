@@ -93,6 +93,8 @@ def search_wine(request):
     for p in prod_favorite:
         productsFavorite.append(Product.objects.get(id=str(p.product.id)))
 
+    info = FavoriteProduct.get_products_favorite(request.user)
+
     if request.method == 'POST':
         form = searchForm(request.POST)
 
@@ -101,7 +103,7 @@ def search_wine(request):
             winesAll = Product.objects.filter(Q(name__icontains=word))
             productsNoFavorite = filter(lambda x: x not in set(productsFavorite), winesAll)
 
-            return render(request,'wine_social.html', {'word': word, 'productsNoFavorite': productsNoFavorite, 'productsFavorite': productsFavorite})
+            return render(request,'wine_social.html', {'word': word, 'productsNoFavorite': productsNoFavorite, 'productsFavorite': info['productsFavorite']})
 
     return redirect('error')
 

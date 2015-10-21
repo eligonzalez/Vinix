@@ -34,6 +34,18 @@
 
 }
 
+
+/* Tabla red social */
+
+#tablaRedSocial {
+    width:100%;
+}
+
+.cabezera {
+   text-align: center;
+   width: 100px;
+}
+
 /* Button en negro */
 
 .btn-primary.active, .btn-primary:active {
@@ -132,13 +144,3 @@
     color: #FFFFFF;
 }
 
-<div id="navRedSocial">
-                            <div id="navRed">
-                                <ul class="navRed-left">
-                                    <li> Posts </li>
-                                    <li> Seguidores </li>
-                                    <li> Siguiendo </li>
-                                    <li> Productos favoritos</li>
-                                </ul>
-                            </div>
-                        </div></br></br>
