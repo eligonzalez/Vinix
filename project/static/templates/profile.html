@@ -39,8 +39,8 @@
                         </div></br></br>
 
                         {% if user.id == request.user.id %}
-                            <a>Editar imagen</a></br></br>
-                            <form action="/upload" method="post" enctype="multipart/form-data">
+                            <a id="showImageA">Editar imagen</a></br></br>
+                            <form hidden id="imgForm"  action="/upload" method="post" enctype="multipart/form-data">
                                 {% csrf_token %} {{form.image}}</br>
                                 <input type="submit" value="Subir imagen" />
                             </form></br></br>
@@ -55,10 +55,10 @@
                                 <div id="navRedSocial">
                                     <div id="navRed">
                                         <ul class="navRed-left">
-                                            <li> Posts </li>
-                                            <li> Seguidores </li>
-                                            <li> Siguiendo </li>
-                                            <li> Productos favoritos</li>
+                                            <li id="postsLI"> Posts </li>
+                                            <li id="seguidoresLI"> Seguidores </li>
+                                            <li id="siguiendoLI"> Siguiendo </li>
+                                            <li id="productosLI"> Productos favoritos</li>
                                         </ul>
                                     </div>
                                 </div></br></br>
@@ -106,7 +106,7 @@
                                         {% endif %}
                                     </div>
                                 </div>
-                                <div id="productos">
+                                <div id="productos" hidden>
                                     {% if productsFav %}
                                         {% for prodFav in productsFav %}
                                             <div class="panel panel-default">
@@ -130,7 +130,7 @@
                                         {% endfor %}
                                     {% endif %}
                                 </div>
-                                <div id="siguiendo">
+                                <div id="siguiendo" hidden>
                                     {% if seguidos %}
                                         {% for s in seguidos %}
                                            <div class="panel panel-default">
@@ -153,7 +153,7 @@
                                         <p>{{user.first_name}} no está siguiendo a ningún usuario.</p>
                                     {% endif %}
                                 </div>
-                                <div id="seguidores">
+                                <div id="seguidores" hidden>
                                      {% if teSiguen %}
                                         {% for t in teSiguen %}
                                             <div class="panel panel-default">

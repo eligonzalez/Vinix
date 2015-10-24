@@ -11,7 +11,7 @@ class ShowWine(admin.ModelAdmin):
 	readonly_fields = ('id',)
 
 class ShowSpirit(admin.ModelAdmin):
-	list_display = ['id', 'type', 'subType']
+	list_display = ['id', 'name', 'price', 'image', 'zone', 'country', 'elaboration', 'alcohol','type', 'subType']
 	readonly_fields = ('id',)
 
 class ShowFavoriteProduct(admin.ModelAdmin):

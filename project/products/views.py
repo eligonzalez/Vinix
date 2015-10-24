@@ -22,7 +22,7 @@ def home(request):
 
 
     general = Product.get_general()
-    pagination = Product.get_pagination(request, products, 4)
+    pagination = Product.get_pagination(request, products, 12)
 
     specific = {'products': products, 'has_filters': has_filters}
     if specific['has_filters']== True:
