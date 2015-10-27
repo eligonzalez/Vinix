@@ -112,7 +112,7 @@ def add_favorite_product(request, idProduct):
         return redirect('login')
 
     FavoriteProduct.add_product_favorite(idProduct, request.user)
-    return redirect('wines_social')
+    return redirect('wine_view', idProduct)
 
 def remove_favorite_product(request, idProduct):
 

@@ -10,6 +10,7 @@ class ProductFilter(django_filters.FilterSet):
             ('-name', 'Nombre desc'),
         	('price', 'Precio asc'),
             ('-price', 'Precio desc'),
-        	('country', 'País')
+        	('country', 'País asc'),
+            ('-country', 'País desc')
         	)
 

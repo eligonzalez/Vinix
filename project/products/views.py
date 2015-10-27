@@ -203,6 +203,7 @@ def add_comment_product(request):
             punctuation = form.cleaned_data['punctuation']
 
             p = Product.objects.get(id=idProduct)
+            print(punctuation)
             PunctuationProduct.add_comment(p, c, punctuation, request.user)
 
             if hasattr(p, 'spirit'):
