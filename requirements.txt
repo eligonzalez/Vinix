@@ -1,6 +1,6 @@
 Django==1.8
 django-bootstrap-form==3.2
-Pillow==2.8.1
+Pillow==6.2.0
 python-dateutil==2.4.2
 PAM==0.1.4
 Twisted-Core==13.2.0
