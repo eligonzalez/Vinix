@@ -20,7 +20,7 @@ django-localflavor==1.1
 django-pony-forms==0.3.5
 duplicity==0.6.23
 html5lib==0.999
-httplib2==0.8
+httplib2==0.19.0
 lockfile==0.8
 lxml==3.3.3
 oauthlib==0.6.1
